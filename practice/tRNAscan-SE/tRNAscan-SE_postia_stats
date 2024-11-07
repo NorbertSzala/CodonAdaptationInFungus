@@ -1,0 +1,93 @@
+
+tRNAscan-SE v.2.0.9 (July 2021) scan results (on host mycelium)
+Started: Wed Oct 30 08:49:39 PM UTC 2024
+
+------------------------------------------------------------
+Sequence file(s) to search:        /db/183_fungi_mai_2022/genomic_fna/GCA_000006255.1_Postia_placenta_V1.0_genomic.fna
+Search Mode:                       Eukaryotic
+Results written to:                tRNAscan-SE_postia_output
+Output format:                     Tabular
+Searching with:                    Infernal First Pass->Infernal
+Isotype-specific model scan:       Yes
+Covariance model:                  /usr/share/trnascan-se/models/TRNAinf-euk.cm
+                                   /usr/share/trnascan-se/models/TRNAinf-euk-SeC.cm
+Infernal first pass cutoff score:  10
+
+Temporary directory:               /tmp
+tRNA secondary structure
+    predictions saved to:          tRNAscan-SE_postia_structure
+tRNA predictions saved to:         tRNAscan-SE_postia_gff
+Predicted tRNA sequences
+    saved to:                      tRNAscan-SE_postia_seqs
+Isotype specific
+    predictions saved to:          tRNAscan-SE_postia_isospecific
+Search statistics saved in:        tRNAscan-SE_postia_stats
+
+Reporting HMM/2' structure score breakdown
+------------------------------------------------------------
+
+First-pass Stats:
+---------------
+Sequences read:         1242
+Seqs w/at least 1 hit:  147
+Bases read:             90891856 (x2 for both strands)
+Bases in tRNAs:         25480
+tRNAs predicted:        296
+Av. tRNA length:        86
+Script CPU time:        3.68 s
+Scan CPU time:          457.47 s
+Scan speed:             397.4 Kbp/sec
+
+First pass search(es) ended: Wed Oct 30 09:00:06 PM UTC 2024
+
+Infernal Stats:
+-----------
+Candidate tRNAs read:     296
+Infernal-confirmed tRNAs:     289
+Bases scanned by Infernal:  31400
+% seq scanned by Infernal:  0.0 %
+Script CPU time:          1.65 s
+Infernal CPU time:            246.04 s
+Scan speed:               127.6 bp/sec
+
+Infernal analysis of tRNAs ended: Wed Oct 30 09:08:59 PM UTC 2024
+
+Overall scan speed: 256452.4 bp/sec
+
+tRNAs decoding Standard 20 AA:              261
+Selenocysteine tRNAs (TCA):                 0
+Possible suppressor tRNAs (CTA,TTA,TCA):    0
+tRNAs with undetermined/unknown isotypes:   0
+Predicted pseudogenes:                      28
+                                            -------
+Total tRNAs:                                289
+
+tRNAs with introns:     	217
+
+| Ala-AGC: 6 | Ala-CGC: 7 | Ala-TGC: 4 | Gly-GCC: 11 | Gly-TCC: 7 | Pro-AGG: 5 | Pro-CGG: 5 | Pro-TGG: 2 | Thr-AGT: 5 | Thr-TGT: 4 | Val-CAC: 8 | Val-TAC: 2 | Ser-AGA: 5 | Ser-CGA: 6 | Ser-TGA: 1 | Ser-GCT: 4 | Arg-ACG: 9 | Arg-CCG: 2 | Arg-TCG: 5 | Arg-CCT: 3 | Leu-AAG: 8 | Leu-CAG: 5 | Leu-TAG: 1 | Leu-CAA: 3 | Leu-TAA: 2 | Phe-GAA: 9 | Asn-GTT: 6 | Lys-CTT: 11 | Lys-TTT: 2 | Asp-GTC: 14 | Glu-CTC: 6 | Glu-TTC: 5 | His-GTG: 6 | Gln-CTG: 7 | Gln-TTG: 4 | Ile-AAT: 5 | Ile-TAT: 1 | Met-CAT: 4 | Tyr-GTA: 7 | Cys-GCA: 4 | Trp-CCA: 6 |
+
+Isotype / Anticodon Counts:
+
+Ala     : 17	  AGC: 6       GGC:         CGC: 7       TGC: 4     
+Gly     : 25	  ACC:         GCC: 13      CCC: 5       TCC: 7     
+Pro     : 12	  AGG: 5       GGG:         CGG: 5       TGG: 2     
+Thr     : 16	  AGT: 5       GGT:         CGT: 7       TGT: 4     
+Val     : 21	  AAC: 9       GAC:         CAC: 8       TAC: 4     
+Ser     : 16	  AGA: 5       GGA:         CGA: 6       TGA: 1       ACT:         GCT: 4     
+Arg     : 23	  ACG: 11      GCG:         CCG: 2       TCG: 5       CCT: 3       TCT: 2     
+Leu     : 41	  AAG: 8       GAG:         CAG: 5       TAG: 1       CAA: 25      TAA: 2     
+Phe     : 9	  AAA:         GAA: 9                               
+Asn     : 6	  ATT:         GTT: 6                               
+Lys     : 13	                            CTT: 11      TTT: 2     
+Asp     : 14	  ATC:         GTC: 14                              
+Glu     : 19	                            CTC: 14      TTC: 5     
+His     : 6	  ATG:         GTG: 6                               
+Gln     : 11	                            CTG: 7       TTG: 4     
+Ile     : 11	  AAT: 9       GAT:         CAT:         TAT: 2     
+Met/iMet: 10	                            CAT: 10                 
+Tyr     : 7	  ATA:         GTA: 7                               
+Supres  : 0	               CTA:         TTA:         TCA:       
+Cys     : 6	  ACA:         GCA: 6                               
+Trp     : 6	                            CCA: 6                  
+SelCys  : 0	                                         TCA:       
+

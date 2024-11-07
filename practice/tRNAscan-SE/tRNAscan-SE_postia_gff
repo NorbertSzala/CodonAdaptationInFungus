@@ -1,0 +1,939 @@
+##gff-version 3
+EQ966233.1	tRNAscan-SE	tRNA	222722	222805	73.1	+	.	ID=EQ966233.1.trna1;Name=EQ966233.1.tRNA1-TyrGTA;isotype=Tyr;anticodon=GTA;gene_biotype=tRNA;
+EQ966233.1	tRNAscan-SE	exon	222722	222758	.	+	.	ID=EQ966233.1.trna1.exon1;Parent=EQ966233.1.trna1;
+EQ966233.1	tRNAscan-SE	exon	222770	222805	.	+	.	ID=EQ966233.1.trna1.exon2;Parent=EQ966233.1.trna1;
+EQ966233.1	tRNAscan-SE	tRNA	231335	231425	63.6	-	.	ID=EQ966233.1.trna10;Name=EQ966233.1.tRNA10-SerCGA;isotype=Ser;anticodon=CGA;gene_biotype=tRNA;
+EQ966233.1	tRNAscan-SE	exon	231389	231425	.	-	.	ID=EQ966233.1.trna10.exon1;Parent=EQ966233.1.trna10;
+EQ966233.1	tRNAscan-SE	exon	231335	231379	.	-	.	ID=EQ966233.1.trna10.exon2;Parent=EQ966233.1.trna10;
+EQ966233.1	tRNAscan-SE	tRNA	765292	765392	58.9	+	.	ID=EQ966233.1.trna2;Name=EQ966233.1.tRNA2-AlaCGC;isotype=Ala;anticodon=CGC;gene_biotype=tRNA;
+EQ966233.1	tRNAscan-SE	exon	765292	765327	.	+	.	ID=EQ966233.1.trna2.exon1;Parent=EQ966233.1.trna2;
+EQ966233.1	tRNAscan-SE	exon	765357	765392	.	+	.	ID=EQ966233.1.trna2.exon2;Parent=EQ966233.1.trna2;
+EQ966233.1	tRNAscan-SE	pseudogene	811029	811100	37.2	-	.	ID=EQ966233.1.trna9;Name=EQ966233.1.tRNA9-LeuCAA;isotype=Leu;anticodon=CAA;gene_biotype=pseudogene;
+EQ966233.1	tRNAscan-SE	exon	811029	811100	.	-	.	ID=EQ966233.1.trna9.exon1;Parent=EQ966233.1.trna9;
+EQ966233.1	tRNAscan-SE	pseudogene	812302	812374	20.0	-	.	ID=EQ966233.1.trna8;Name=EQ966233.1.tRNA8-LeuCAA;isotype=Leu;anticodon=CAA;gene_biotype=pseudogene;
+EQ966233.1	tRNAscan-SE	exon	812302	812374	.	-	.	ID=EQ966233.1.trna8.exon1;Parent=EQ966233.1.trna8;
+EQ966233.1	tRNAscan-SE	tRNA	877482	877552	55.3	-	.	ID=EQ966233.1.trna7;Name=EQ966233.1.tRNA7-GlyGCC;isotype=Gly;anticodon=GCC;gene_biotype=tRNA;
+EQ966233.1	tRNAscan-SE	exon	877482	877552	.	-	.	ID=EQ966233.1.trna7.exon1;Parent=EQ966233.1.trna7;
+EQ966233.1	tRNAscan-SE	tRNA	964016	964088	60.9	-	.	ID=EQ966233.1.trna6;Name=EQ966233.1.tRNA6-iMetCAT;isotype=iMet;anticodon=CAT;gene_biotype=tRNA;
+EQ966233.1	tRNAscan-SE	exon	964016	964088	.	-	.	ID=EQ966233.1.trna6.exon1;Parent=EQ966233.1.trna6;
+EQ966233.1	tRNAscan-SE	tRNA	1038340	1038411	73.9	+	.	ID=EQ966233.1.trna3;Name=EQ966233.1.tRNA3-ThrCGT;isotype=Thr;anticodon=CGT;gene_biotype=tRNA;
+EQ966233.1	tRNAscan-SE	exon	1038340	1038411	.	+	.	ID=EQ966233.1.trna3.exon1;Parent=EQ966233.1.trna3;
+EQ966233.1	tRNAscan-SE	tRNA	1113866	1113958	47.6	-	.	ID=EQ966233.1.trna5;Name=EQ966233.1.tRNA5-GluTTC;isotype=Glu;anticodon=TTC;gene_biotype=tRNA;
+EQ966233.1	tRNAscan-SE	exon	1113922	1113958	.	-	.	ID=EQ966233.1.trna5.exon1;Parent=EQ966233.1.trna5;
+EQ966233.1	tRNAscan-SE	exon	1113866	1113900	.	-	.	ID=EQ966233.1.trna5.exon2;Parent=EQ966233.1.trna5;
+EQ966233.1	tRNAscan-SE	tRNA	1170227	1170308	55.8	-	.	ID=EQ966233.1.trna4;Name=EQ966233.1.tRNA4-GluCTC;isotype=Glu;anticodon=CTC;gene_biotype=tRNA;
+EQ966233.1	tRNAscan-SE	exon	1170272	1170308	.	-	.	ID=EQ966233.1.trna4.exon1;Parent=EQ966233.1.trna4;
+EQ966233.1	tRNAscan-SE	exon	1170227	1170261	.	-	.	ID=EQ966233.1.trna4.exon2;Parent=EQ966233.1.trna4;
+##gff-version 3
+EQ966234.1	tRNAscan-SE	tRNA	676632	676736	67.0	+	.	ID=EQ966234.1.trna1;Name=EQ966234.1.tRNA1-LeuAAG;isotype=Leu;anticodon=AAG;gene_biotype=tRNA;
+EQ966234.1	tRNAscan-SE	exon	676632	676669	.	+	.	ID=EQ966234.1.trna1.exon1;Parent=EQ966234.1.trna1;
+EQ966234.1	tRNAscan-SE	exon	676695	676736	.	+	.	ID=EQ966234.1.trna1.exon2;Parent=EQ966234.1.trna1;
+EQ966234.1	tRNAscan-SE	tRNA	879718	879802	66.4	-	.	ID=EQ966234.1.trna6;Name=EQ966234.1.tRNA6-GlnCTG;isotype=Gln;anticodon=CTG;gene_biotype=tRNA;
+EQ966234.1	tRNAscan-SE	exon	879766	879802	.	-	.	ID=EQ966234.1.trna6.exon1;Parent=EQ966234.1.trna6;
+EQ966234.1	tRNAscan-SE	exon	879718	879752	.	-	.	ID=EQ966234.1.trna6.exon2;Parent=EQ966234.1.trna6;
+EQ966234.1	tRNAscan-SE	tRNA	986524	986611	40.8	-	.	ID=EQ966234.1.trna5;Name=EQ966234.1.tRNA5-HisGTG;isotype=His;anticodon=GTG;gene_biotype=tRNA;
+EQ966234.1	tRNAscan-SE	exon	986575	986611	.	-	.	ID=EQ966234.1.trna5.exon1;Parent=EQ966234.1.trna5;
+EQ966234.1	tRNAscan-SE	exon	986524	986558	.	-	.	ID=EQ966234.1.trna5.exon2;Parent=EQ966234.1.trna5;
+EQ966234.1	tRNAscan-SE	pseudogene	1006488	1006559	41.6	+	.	ID=EQ966234.1.trna2;Name=EQ966234.1.tRNA2-LeuCAA;isotype=Leu;anticodon=CAA;gene_biotype=pseudogene;
+EQ966234.1	tRNAscan-SE	exon	1006488	1006559	.	+	.	ID=EQ966234.1.trna2.exon1;Parent=EQ966234.1.trna2;
+EQ966234.1	tRNAscan-SE	pseudogene	1006772	1006843	41.6	+	.	ID=EQ966234.1.trna3;Name=EQ966234.1.tRNA3-LeuCAA;isotype=Leu;anticodon=CAA;gene_biotype=pseudogene;
+EQ966234.1	tRNAscan-SE	exon	1006772	1006843	.	+	.	ID=EQ966234.1.trna3.exon1;Parent=EQ966234.1.trna3;
+EQ966234.1	tRNAscan-SE	pseudogene	1030118	1030189	41.6	+	.	ID=EQ966234.1.trna4;Name=EQ966234.1.tRNA4-LeuCAA;isotype=Leu;anticodon=CAA;gene_biotype=pseudogene;
+EQ966234.1	tRNAscan-SE	exon	1030118	1030189	.	+	.	ID=EQ966234.1.trna4.exon1;Parent=EQ966234.1.trna4;
+##gff-version 3
+EQ966235.1	tRNAscan-SE	tRNA	537158	537253	45.1	-	.	ID=EQ966235.1.trna2;Name=EQ966235.1.tRNA2-AspGTC;isotype=Asp;anticodon=GTC;gene_biotype=tRNA;
+EQ966235.1	tRNAscan-SE	exon	537217	537253	.	-	.	ID=EQ966235.1.trna2.exon1;Parent=EQ966235.1.trna2;
+EQ966235.1	tRNAscan-SE	exon	537158	537192	.	-	.	ID=EQ966235.1.trna2.exon2;Parent=EQ966235.1.trna2;
+EQ966235.1	tRNAscan-SE	tRNA	572545	572626	56.7	-	.	ID=EQ966235.1.trna1;Name=EQ966235.1.tRNA1-GlyTCC;isotype=Gly;anticodon=TCC;gene_biotype=tRNA;
+EQ966235.1	tRNAscan-SE	exon	572591	572626	.	-	.	ID=EQ966235.1.trna1.exon1;Parent=EQ966235.1.trna1;
+EQ966235.1	tRNAscan-SE	exon	572545	572579	.	-	.	ID=EQ966235.1.trna1.exon2;Parent=EQ966235.1.trna1;
+##gff-version 3
+EQ966236.1	tRNAscan-SE	tRNA	134241	134330	47.0	-	.	ID=EQ966236.1.trna5;Name=EQ966236.1.tRNA5-ArgACG;isotype=Arg;anticodon=ACG;gene_biotype=tRNA;
+EQ966236.1	tRNAscan-SE	exon	134294	134330	.	-	.	ID=EQ966236.1.trna5.exon1;Parent=EQ966236.1.trna5;
+EQ966236.1	tRNAscan-SE	exon	134241	134276	.	-	.	ID=EQ966236.1.trna5.exon2;Parent=EQ966236.1.trna5;
+EQ966236.1	tRNAscan-SE	tRNA	524699	524780	66.9	-	.	ID=EQ966236.1.trna4;Name=EQ966236.1.tRNA4-ThrAGT;isotype=Thr;anticodon=AGT;gene_biotype=tRNA;
+EQ966236.1	tRNAscan-SE	exon	524744	524780	.	-	.	ID=EQ966236.1.trna4.exon1;Parent=EQ966236.1.trna4;
+EQ966236.1	tRNAscan-SE	exon	524699	524734	.	-	.	ID=EQ966236.1.trna4.exon2;Parent=EQ966236.1.trna4;
+EQ966236.1	tRNAscan-SE	tRNA	628378	628467	58.9	-	.	ID=EQ966236.1.trna3;Name=EQ966236.1.tRNA3-LeuCAG;isotype=Leu;anticodon=CAG;gene_biotype=tRNA;
+EQ966236.1	tRNAscan-SE	exon	628430	628467	.	-	.	ID=EQ966236.1.trna3.exon1;Parent=EQ966236.1.trna3;
+EQ966236.1	tRNAscan-SE	exon	628378	628419	.	-	.	ID=EQ966236.1.trna3.exon2;Parent=EQ966236.1.trna3;
+EQ966236.1	tRNAscan-SE	tRNA	837580	837661	67.8	-	.	ID=EQ966236.1.trna2;Name=EQ966236.1.tRNA2-CysGCA;isotype=Cys;anticodon=GCA;gene_biotype=tRNA;
+EQ966236.1	tRNAscan-SE	exon	837626	837661	.	-	.	ID=EQ966236.1.trna2.exon1;Parent=EQ966236.1.trna2;
+EQ966236.1	tRNAscan-SE	exon	837580	837615	.	-	.	ID=EQ966236.1.trna2.exon2;Parent=EQ966236.1.trna2;
+EQ966236.1	tRNAscan-SE	tRNA	876786	876880	60.8	-	.	ID=EQ966236.1.trna1;Name=EQ966236.1.tRNA1-AlaAGC;isotype=Ala;anticodon=AGC;gene_biotype=tRNA;
+EQ966236.1	tRNAscan-SE	exon	876843	876880	.	-	.	ID=EQ966236.1.trna1.exon1;Parent=EQ966236.1.trna1;
+EQ966236.1	tRNAscan-SE	exon	876786	876821	.	-	.	ID=EQ966236.1.trna1.exon2;Parent=EQ966236.1.trna1;
+##gff-version 3
+EQ966238.1	tRNAscan-SE	pseudogene	132483	132554	21.4	-	.	ID=EQ966238.1.trna5;Name=EQ966238.1.tRNA5-LeuCAA;isotype=Leu;anticodon=CAA;gene_biotype=pseudogene;
+EQ966238.1	tRNAscan-SE	exon	132483	132554	.	-	.	ID=EQ966238.1.trna5.exon1;Parent=EQ966238.1.trna5;
+EQ966238.1	tRNAscan-SE	tRNA	531517	531613	65.7	-	.	ID=EQ966238.1.trna4;Name=EQ966238.1.tRNA4-GlnCTG;isotype=Gln;anticodon=CTG;gene_biotype=tRNA;
+EQ966238.1	tRNAscan-SE	exon	531577	531613	.	-	.	ID=EQ966238.1.trna4.exon1;Parent=EQ966238.1.trna4;
+EQ966238.1	tRNAscan-SE	exon	531517	531551	.	-	.	ID=EQ966238.1.trna4.exon2;Parent=EQ966238.1.trna4;
+EQ966238.1	tRNAscan-SE	tRNA	556490	556563	69.4	-	.	ID=EQ966238.1.trna3;Name=EQ966238.1.tRNA3-ValTAC;isotype=Val;anticodon=TAC;gene_biotype=tRNA;
+EQ966238.1	tRNAscan-SE	exon	556490	556563	.	-	.	ID=EQ966238.1.trna3.exon1;Parent=EQ966238.1.trna3;
+EQ966238.1	tRNAscan-SE	tRNA	688742	688815	72.5	-	.	ID=EQ966238.1.trna2;Name=EQ966238.1.tRNA2-ValAAC;isotype=Val;anticodon=AAC;gene_biotype=tRNA;
+EQ966238.1	tRNAscan-SE	exon	688742	688815	.	-	.	ID=EQ966238.1.trna2.exon1;Parent=EQ966238.1.trna2;
+EQ966238.1	tRNAscan-SE	tRNA	871036	871110	64.5	+	.	ID=EQ966238.1.trna1;Name=EQ966238.1.tRNA1-ValAAC;isotype=Val;anticodon=AAC;gene_biotype=tRNA;
+EQ966238.1	tRNAscan-SE	exon	871036	871110	.	+	.	ID=EQ966238.1.trna1.exon1;Parent=EQ966238.1.trna1;
+##gff-version 3
+EQ966239.1	tRNAscan-SE	tRNA	462184	462275	67.5	+	.	ID=EQ966239.1.trna1;Name=EQ966239.1.tRNA1-LeuAAG;isotype=Leu;anticodon=AAG;gene_biotype=tRNA;
+EQ966239.1	tRNAscan-SE	exon	462184	462221	.	+	.	ID=EQ966239.1.trna1.exon1;Parent=EQ966239.1.trna1;
+EQ966239.1	tRNAscan-SE	exon	462234	462275	.	+	.	ID=EQ966239.1.trna1.exon2;Parent=EQ966239.1.trna1;
+EQ966239.1	tRNAscan-SE	tRNA	745034	745115	61.2	+	.	ID=EQ966239.1.trna2;Name=EQ966239.1.tRNA2-AlaAGC;isotype=Ala;anticodon=AGC;gene_biotype=tRNA;
+EQ966239.1	tRNAscan-SE	exon	745034	745071	.	+	.	ID=EQ966239.1.trna2.exon1;Parent=EQ966239.1.trna2;
+EQ966239.1	tRNAscan-SE	exon	745080	745115	.	+	.	ID=EQ966239.1.trna2.exon2;Parent=EQ966239.1.trna2;
+EQ966239.1	tRNAscan-SE	tRNA	800837	800946	68.0	+	.	ID=EQ966239.1.trna3;Name=EQ966239.1.tRNA3-LeuCAA;isotype=Leu;anticodon=CAA;gene_biotype=tRNA;
+EQ966239.1	tRNAscan-SE	exon	800837	800874	.	+	.	ID=EQ966239.1.trna3.exon1;Parent=EQ966239.1.trna3;
+EQ966239.1	tRNAscan-SE	exon	800901	800946	.	+	.	ID=EQ966239.1.trna3.exon2;Parent=EQ966239.1.trna3;
+##gff-version 3
+EQ966240.1	tRNAscan-SE	tRNA	93175	93295	41.3	+	.	ID=EQ966240.1.trna1;Name=EQ966240.1.tRNA1-GlyGCC;isotype=Gly;anticodon=GCC;gene_biotype=tRNA;
+EQ966240.1	tRNAscan-SE	exon	93175	93210	.	+	.	ID=EQ966240.1.trna1.exon1;Parent=EQ966240.1.trna1;
+EQ966240.1	tRNAscan-SE	exon	93261	93295	.	+	.	ID=EQ966240.1.trna1.exon2;Parent=EQ966240.1.trna1;
+EQ966240.1	tRNAscan-SE	tRNA	110200	110271	72.9	-	.	ID=EQ966240.1.trna5;Name=EQ966240.1.tRNA5-CysGCA;isotype=Cys;anticodon=GCA;gene_biotype=tRNA;
+EQ966240.1	tRNAscan-SE	exon	110200	110271	.	-	.	ID=EQ966240.1.trna5.exon1;Parent=EQ966240.1.trna5;
+EQ966240.1	tRNAscan-SE	tRNA	140176	140258	54.8	+	.	ID=EQ966240.1.trna2;Name=EQ966240.1.tRNA2-TrpCCA;isotype=Trp;anticodon=CCA;gene_biotype=tRNA;
+EQ966240.1	tRNAscan-SE	exon	140176	140211	.	+	.	ID=EQ966240.1.trna2.exon1;Parent=EQ966240.1.trna2;
+EQ966240.1	tRNAscan-SE	exon	140222	140258	.	+	.	ID=EQ966240.1.trna2.exon2;Parent=EQ966240.1.trna2;
+EQ966240.1	tRNAscan-SE	tRNA	224875	224956	54.9	-	.	ID=EQ966240.1.trna4;Name=EQ966240.1.tRNA4-TrpCCA;isotype=Trp;anticodon=CCA;gene_biotype=tRNA;
+EQ966240.1	tRNAscan-SE	exon	224921	224956	.	-	.	ID=EQ966240.1.trna4.exon1;Parent=EQ966240.1.trna4;
+EQ966240.1	tRNAscan-SE	exon	224875	224911	.	-	.	ID=EQ966240.1.trna4.exon2;Parent=EQ966240.1.trna4;
+EQ966240.1	tRNAscan-SE	tRNA	269368	269452	65.9	+	.	ID=EQ966240.1.trna3;Name=EQ966240.1.tRNA3-ArgTCG;isotype=Arg;anticodon=TCG;gene_biotype=tRNA;
+EQ966240.1	tRNAscan-SE	exon	269368	269403	.	+	.	ID=EQ966240.1.trna3.exon1;Parent=EQ966240.1.trna3;
+EQ966240.1	tRNAscan-SE	exon	269417	269452	.	+	.	ID=EQ966240.1.trna3.exon2;Parent=EQ966240.1.trna3;
+##gff-version 3
+EQ966241.1	tRNAscan-SE	tRNA	265587	265677	63.0	+	.	ID=EQ966241.1.trna1;Name=EQ966241.1.tRNA1-SerCGA;isotype=Ser;anticodon=CGA;gene_biotype=tRNA;
+EQ966241.1	tRNAscan-SE	exon	265587	265623	.	+	.	ID=EQ966241.1.trna1.exon1;Parent=EQ966241.1.trna1;
+EQ966241.1	tRNAscan-SE	exon	265633	265677	.	+	.	ID=EQ966241.1.trna1.exon2;Parent=EQ966241.1.trna1;
+##gff-version 3
+EQ966242.1	tRNAscan-SE	tRNA	561832	561913	46.5	+	.	ID=EQ966242.1.trna1;Name=EQ966242.1.tRNA1-GlyGCC;isotype=Gly;anticodon=GCC;gene_biotype=tRNA;
+EQ966242.1	tRNAscan-SE	exon	561832	561867	.	+	.	ID=EQ966242.1.trna1.exon1;Parent=EQ966242.1.trna1;
+EQ966242.1	tRNAscan-SE	exon	561879	561913	.	+	.	ID=EQ966242.1.trna1.exon2;Parent=EQ966242.1.trna1;
+EQ966242.1	tRNAscan-SE	pseudogene	709017	709088	41.6	+	.	ID=EQ966242.1.trna2;Name=EQ966242.1.tRNA2-LeuCAA;isotype=Leu;anticodon=CAA;gene_biotype=pseudogene;
+EQ966242.1	tRNAscan-SE	exon	709017	709088	.	+	.	ID=EQ966242.1.trna2.exon1;Parent=EQ966242.1.trna2;
+EQ966242.1	tRNAscan-SE	pseudogene	715752	715823	37.5	-	.	ID=EQ966242.1.trna3;Name=EQ966242.1.tRNA3-LeuCAA;isotype=Leu;anticodon=CAA;gene_biotype=pseudogene;
+EQ966242.1	tRNAscan-SE	exon	715752	715823	.	-	.	ID=EQ966242.1.trna3.exon1;Parent=EQ966242.1.trna3;
+##gff-version 3
+EQ966243.1	tRNAscan-SE	tRNA	97336	97407	73.9	-	.	ID=EQ966243.1.trna8;Name=EQ966243.1.tRNA8-ThrCGT;isotype=Thr;anticodon=CGT;gene_biotype=tRNA;
+EQ966243.1	tRNAscan-SE	exon	97336	97407	.	-	.	ID=EQ966243.1.trna8.exon1;Parent=EQ966243.1.trna8;
+EQ966243.1	tRNAscan-SE	tRNA	98516	98597	45.6	+	.	ID=EQ966243.1.trna1;Name=EQ966243.1.tRNA1-AspGTC;isotype=Asp;anticodon=GTC;gene_biotype=tRNA;
+EQ966243.1	tRNAscan-SE	exon	98516	98552	.	+	.	ID=EQ966243.1.trna1.exon1;Parent=EQ966243.1.trna1;
+EQ966243.1	tRNAscan-SE	exon	98563	98597	.	+	.	ID=EQ966243.1.trna1.exon2;Parent=EQ966243.1.trna1;
+EQ966243.1	tRNAscan-SE	tRNA	137185	137266	55.8	+	.	ID=EQ966243.1.trna2;Name=EQ966243.1.tRNA2-GluCTC;isotype=Glu;anticodon=CTC;gene_biotype=tRNA;
+EQ966243.1	tRNAscan-SE	exon	137185	137221	.	+	.	ID=EQ966243.1.trna2.exon1;Parent=EQ966243.1.trna2;
+EQ966243.1	tRNAscan-SE	exon	137232	137266	.	+	.	ID=EQ966243.1.trna2.exon2;Parent=EQ966243.1.trna2;
+EQ966243.1	tRNAscan-SE	pseudogene	137454	137537	35.5	+	.	ID=EQ966243.1.trna3;Name=EQ966243.1.tRNA3-AspGTC;isotype=Asp;anticodon=GTC;gene_biotype=pseudogene;
+EQ966243.1	tRNAscan-SE	exon	137454	137490	.	+	.	ID=EQ966243.1.trna3.exon1;Parent=EQ966243.1.trna3;
+EQ966243.1	tRNAscan-SE	exon	137503	137537	.	+	.	ID=EQ966243.1.trna3.exon2;Parent=EQ966243.1.trna3;
+EQ966243.1	tRNAscan-SE	pseudogene	156068	156149	35.6	-	.	ID=EQ966243.1.trna7;Name=EQ966243.1.tRNA7-AspGTC;isotype=Asp;anticodon=GTC;gene_biotype=pseudogene;
+EQ966243.1	tRNAscan-SE	exon	156113	156149	.	-	.	ID=EQ966243.1.trna7.exon1;Parent=EQ966243.1.trna7;
+EQ966243.1	tRNAscan-SE	exon	156068	156102	.	-	.	ID=EQ966243.1.trna7.exon2;Parent=EQ966243.1.trna7;
+EQ966243.1	tRNAscan-SE	tRNA	307892	307984	66.8	+	.	ID=EQ966243.1.trna4;Name=EQ966243.1.tRNA4-ValTAC;isotype=Val;anticodon=TAC;gene_biotype=tRNA;
+EQ966243.1	tRNAscan-SE	exon	307892	307928	.	+	.	ID=EQ966243.1.trna4.exon1;Parent=EQ966243.1.trna4;
+EQ966243.1	tRNAscan-SE	exon	307949	307984	.	+	.	ID=EQ966243.1.trna4.exon2;Parent=EQ966243.1.trna4;
+EQ966243.1	tRNAscan-SE	tRNA	313676	313759	62.8	+	.	ID=EQ966243.1.trna5;Name=EQ966243.1.tRNA5-ValCAC;isotype=Val;anticodon=CAC;gene_biotype=tRNA;
+EQ966243.1	tRNAscan-SE	exon	313676	313713	.	+	.	ID=EQ966243.1.trna5.exon1;Parent=EQ966243.1.trna5;
+EQ966243.1	tRNAscan-SE	exon	313724	313759	.	+	.	ID=EQ966243.1.trna5.exon2;Parent=EQ966243.1.trna5;
+EQ966243.1	tRNAscan-SE	tRNA	313820	313901	41.3	+	.	ID=EQ966243.1.trna6;Name=EQ966243.1.tRNA6-ValCAC;isotype=Val;anticodon=CAC;gene_biotype=tRNA;
+EQ966243.1	tRNAscan-SE	exon	313820	313856	.	+	.	ID=EQ966243.1.trna6.exon1;Parent=EQ966243.1.trna6;
+EQ966243.1	tRNAscan-SE	exon	313866	313901	.	+	.	ID=EQ966243.1.trna6.exon2;Parent=EQ966243.1.trna6;
+##gff-version 3
+EQ966244.1	tRNAscan-SE	tRNA	247815	247886	73.9	-	.	ID=EQ966244.1.trna8;Name=EQ966244.1.tRNA8-ThrCGT;isotype=Thr;anticodon=CGT;gene_biotype=tRNA;
+EQ966244.1	tRNAscan-SE	exon	247815	247886	.	-	.	ID=EQ966244.1.trna8.exon1;Parent=EQ966244.1.trna8;
+EQ966244.1	tRNAscan-SE	tRNA	248999	249080	45.6	+	.	ID=EQ966244.1.trna1;Name=EQ966244.1.tRNA1-AspGTC;isotype=Asp;anticodon=GTC;gene_biotype=tRNA;
+EQ966244.1	tRNAscan-SE	exon	248999	249035	.	+	.	ID=EQ966244.1.trna1.exon1;Parent=EQ966244.1.trna1;
+EQ966244.1	tRNAscan-SE	exon	249046	249080	.	+	.	ID=EQ966244.1.trna1.exon2;Parent=EQ966244.1.trna1;
+EQ966244.1	tRNAscan-SE	pseudogene	318107	318190	35.5	-	.	ID=EQ966244.1.trna7;Name=EQ966244.1.tRNA7-AspGTC;isotype=Asp;anticodon=GTC;gene_biotype=pseudogene;
+EQ966244.1	tRNAscan-SE	exon	318154	318190	.	-	.	ID=EQ966244.1.trna7.exon1;Parent=EQ966244.1.trna7;
+EQ966244.1	tRNAscan-SE	exon	318107	318141	.	-	.	ID=EQ966244.1.trna7.exon2;Parent=EQ966244.1.trna7;
+EQ966244.1	tRNAscan-SE	tRNA	318385	318466	55.8	-	.	ID=EQ966244.1.trna6;Name=EQ966244.1.tRNA6-GluCTC;isotype=Glu;anticodon=CTC;gene_biotype=tRNA;
+EQ966244.1	tRNAscan-SE	exon	318430	318466	.	-	.	ID=EQ966244.1.trna6.exon1;Parent=EQ966244.1.trna6;
+EQ966244.1	tRNAscan-SE	exon	318385	318419	.	-	.	ID=EQ966244.1.trna6.exon2;Parent=EQ966244.1.trna6;
+EQ966244.1	tRNAscan-SE	pseudogene	335250	335331	35.6	-	.	ID=EQ966244.1.trna5;Name=EQ966244.1.tRNA5-AspGTC;isotype=Asp;anticodon=GTC;gene_biotype=pseudogene;
+EQ966244.1	tRNAscan-SE	exon	335295	335331	.	-	.	ID=EQ966244.1.trna5.exon1;Parent=EQ966244.1.trna5;
+EQ966244.1	tRNAscan-SE	exon	335250	335284	.	-	.	ID=EQ966244.1.trna5.exon2;Parent=EQ966244.1.trna5;
+EQ966244.1	tRNAscan-SE	tRNA	515795	515910	71.3	+	.	ID=EQ966244.1.trna2;Name=EQ966244.1.tRNA2-ValTAC;isotype=Val;anticodon=TAC;gene_biotype=tRNA;
+EQ966244.1	tRNAscan-SE	exon	515795	515831	.	+	.	ID=EQ966244.1.trna2.exon1;Parent=EQ966244.1.trna2;
+EQ966244.1	tRNAscan-SE	exon	515875	515910	.	+	.	ID=EQ966244.1.trna2.exon2;Parent=EQ966244.1.trna2;
+EQ966244.1	tRNAscan-SE	tRNA	522404	522487	67.5	+	.	ID=EQ966244.1.trna3;Name=EQ966244.1.tRNA3-ValCAC;isotype=Val;anticodon=CAC;gene_biotype=tRNA;
+EQ966244.1	tRNAscan-SE	exon	522404	522441	.	+	.	ID=EQ966244.1.trna3.exon1;Parent=EQ966244.1.trna3;
+EQ966244.1	tRNAscan-SE	exon	522452	522487	.	+	.	ID=EQ966244.1.trna3.exon2;Parent=EQ966244.1.trna3;
+EQ966244.1	tRNAscan-SE	tRNA	522548	522629	41.4	+	.	ID=EQ966244.1.trna4;Name=EQ966244.1.tRNA4-IleTAT;isotype=Ile;anticodon=TAT;gene_biotype=tRNA;
+EQ966244.1	tRNAscan-SE	exon	522548	522629	.	+	.	ID=EQ966244.1.trna4.exon1;Parent=EQ966244.1.trna4;
+##gff-version 3
+EQ966246.1	tRNAscan-SE	tRNA	280528	280629	59.1	+	.	ID=EQ966246.1.trna1;Name=EQ966246.1.tRNA1-GlnCTG;isotype=Gln;anticodon=CTG;gene_biotype=tRNA;
+EQ966246.1	tRNAscan-SE	exon	280528	280566	.	+	.	ID=EQ966246.1.trna1.exon1;Parent=EQ966246.1.trna1;
+EQ966246.1	tRNAscan-SE	exon	280595	280629	.	+	.	ID=EQ966246.1.trna1.exon2;Parent=EQ966246.1.trna1;
+##gff-version 3
+EQ966247.1	tRNAscan-SE	tRNA	154528	154615	55.5	-	.	ID=EQ966247.1.trna2;Name=EQ966247.1.tRNA2-ArgACG;isotype=Arg;anticodon=ACG;gene_biotype=tRNA;
+EQ966247.1	tRNAscan-SE	exon	154580	154615	.	-	.	ID=EQ966247.1.trna2.exon1;Parent=EQ966247.1.trna2;
+EQ966247.1	tRNAscan-SE	exon	154528	154563	.	-	.	ID=EQ966247.1.trna2.exon2;Parent=EQ966247.1.trna2;
+EQ966247.1	tRNAscan-SE	tRNA	223720	223801	49.7	+	.	ID=EQ966247.1.trna1;Name=EQ966247.1.tRNA1-GlyGCC;isotype=Gly;anticodon=GCC;gene_biotype=tRNA;
+EQ966247.1	tRNAscan-SE	exon	223720	223755	.	+	.	ID=EQ966247.1.trna1.exon1;Parent=EQ966247.1.trna1;
+EQ966247.1	tRNAscan-SE	exon	223767	223801	.	+	.	ID=EQ966247.1.trna1.exon2;Parent=EQ966247.1.trna1;
+##gff-version 3
+EQ966248.1	tRNAscan-SE	tRNA	279940	280012	60.9	+	.	ID=EQ966248.1.trna1;Name=EQ966248.1.tRNA1-iMetCAT;isotype=iMet;anticodon=CAT;gene_biotype=tRNA;
+EQ966248.1	tRNAscan-SE	exon	279940	280012	.	+	.	ID=EQ966248.1.trna1.exon1;Parent=EQ966248.1.trna1;
+EQ966248.1	tRNAscan-SE	tRNA	289325	289429	67.3	-	.	ID=EQ966248.1.trna5;Name=EQ966248.1.tRNA5-SerAGA;isotype=Ser;anticodon=AGA;gene_biotype=tRNA;
+EQ966248.1	tRNAscan-SE	exon	289393	289429	.	-	.	ID=EQ966248.1.trna5.exon1;Parent=EQ966248.1.trna5;
+EQ966248.1	tRNAscan-SE	exon	289325	289369	.	-	.	ID=EQ966248.1.trna5.exon2;Parent=EQ966248.1.trna5;
+EQ966248.1	tRNAscan-SE	tRNA	376284	376371	38.1	-	.	ID=EQ966248.1.trna4;Name=EQ966248.1.tRNA4-HisGTG;isotype=His;anticodon=GTG;gene_biotype=tRNA;
+EQ966248.1	tRNAscan-SE	exon	376335	376371	.	-	.	ID=EQ966248.1.trna4.exon1;Parent=EQ966248.1.trna4;
+EQ966248.1	tRNAscan-SE	exon	376284	376318	.	-	.	ID=EQ966248.1.trna4.exon2;Parent=EQ966248.1.trna4;
+EQ966248.1	tRNAscan-SE	tRNA	386812	386894	43.6	+	.	ID=EQ966248.1.trna2;Name=EQ966248.1.tRNA2-AspGTC;isotype=Asp;anticodon=GTC;gene_biotype=tRNA;
+EQ966248.1	tRNAscan-SE	exon	386812	386848	.	+	.	ID=EQ966248.1.trna2.exon1;Parent=EQ966248.1.trna2;
+EQ966248.1	tRNAscan-SE	exon	386860	386894	.	+	.	ID=EQ966248.1.trna2.exon2;Parent=EQ966248.1.trna2;
+EQ966248.1	tRNAscan-SE	tRNA	698345	698426	66.9	-	.	ID=EQ966248.1.trna3;Name=EQ966248.1.tRNA3-ThrAGT;isotype=Thr;anticodon=AGT;gene_biotype=tRNA;
+EQ966248.1	tRNAscan-SE	exon	698390	698426	.	-	.	ID=EQ966248.1.trna3.exon1;Parent=EQ966248.1.trna3;
+EQ966248.1	tRNAscan-SE	exon	698345	698380	.	-	.	ID=EQ966248.1.trna3.exon2;Parent=EQ966248.1.trna3;
+##gff-version 3
+EQ966249.1	tRNAscan-SE	tRNA	7385	7501	64.1	-	.	ID=EQ966249.1.trna3;Name=EQ966249.1.tRNA3-SerAGA;isotype=Ser;anticodon=AGA;gene_biotype=tRNA;
+EQ966249.1	tRNAscan-SE	exon	7465	7501	.	-	.	ID=EQ966249.1.trna3.exon1;Parent=EQ966249.1.trna3;
+EQ966249.1	tRNAscan-SE	exon	7385	7429	.	-	.	ID=EQ966249.1.trna3.exon2;Parent=EQ966249.1.trna3;
+EQ966249.1	tRNAscan-SE	tRNA	27686	27802	64.1	-	.	ID=EQ966249.1.trna2;Name=EQ966249.1.tRNA2-SerAGA;isotype=Ser;anticodon=AGA;gene_biotype=tRNA;
+EQ966249.1	tRNAscan-SE	exon	27766	27802	.	-	.	ID=EQ966249.1.trna2.exon1;Parent=EQ966249.1.trna2;
+EQ966249.1	tRNAscan-SE	exon	27686	27730	.	-	.	ID=EQ966249.1.trna2.exon2;Parent=EQ966249.1.trna2;
+EQ966249.1	tRNAscan-SE	tRNA	87111	87194	58.2	-	.	ID=EQ966249.1.trna1;Name=EQ966249.1.tRNA1-ProAGG;isotype=Pro;anticodon=AGG;gene_biotype=tRNA;
+EQ966249.1	tRNAscan-SE	exon	87159	87194	.	-	.	ID=EQ966249.1.trna1.exon1;Parent=EQ966249.1.trna1;
+EQ966249.1	tRNAscan-SE	exon	87111	87146	.	-	.	ID=EQ966249.1.trna1.exon2;Parent=EQ966249.1.trna1;
+##gff-version 3
+EQ966250.1	tRNAscan-SE	pseudogene	270548	270619	24.8	+	.	ID=EQ966250.1.trna1;Name=EQ966250.1.tRNA1-LeuCAA;isotype=Leu;anticodon=CAA;gene_biotype=pseudogene;
+EQ966250.1	tRNAscan-SE	exon	270548	270619	.	+	.	ID=EQ966250.1.trna1.exon1;Parent=EQ966250.1.trna1;
+##gff-version 3
+EQ966251.1	tRNAscan-SE	tRNA	62406	62498	59.1	+	.	ID=EQ966251.1.trna1;Name=EQ966251.1.tRNA1-SerGCT;isotype=Ser;anticodon=GCT;gene_biotype=tRNA;
+EQ966251.1	tRNAscan-SE	exon	62406	62442	.	+	.	ID=EQ966251.1.trna1.exon1;Parent=EQ966251.1.trna1;
+EQ966251.1	tRNAscan-SE	exon	62454	62498	.	+	.	ID=EQ966251.1.trna1.exon2;Parent=EQ966251.1.trna1;
+EQ966251.1	tRNAscan-SE	tRNA	142631	142709	68.7	+	.	ID=EQ966251.1.trna2;Name=EQ966251.1.tRNA2-CysGCA;isotype=Cys;anticodon=GCA;gene_biotype=tRNA;
+EQ966251.1	tRNAscan-SE	exon	142631	142666	.	+	.	ID=EQ966251.1.trna2.exon1;Parent=EQ966251.1.trna2;
+EQ966251.1	tRNAscan-SE	exon	142674	142709	.	+	.	ID=EQ966251.1.trna2.exon2;Parent=EQ966251.1.trna2;
+EQ966251.1	tRNAscan-SE	tRNA	572722	572811	64.3	-	.	ID=EQ966251.1.trna3;Name=EQ966251.1.tRNA3-PheGAA;isotype=Phe;anticodon=GAA;gene_biotype=tRNA;
+EQ966251.1	tRNAscan-SE	exon	572775	572811	.	-	.	ID=EQ966251.1.trna3.exon1;Parent=EQ966251.1.trna3;
+EQ966251.1	tRNAscan-SE	exon	572722	572757	.	-	.	ID=EQ966251.1.trna3.exon2;Parent=EQ966251.1.trna3;
+##gff-version 3
+EQ966252.1	tRNAscan-SE	tRNA	268	349	62.3	-	.	ID=EQ966252.1.trna6;Name=EQ966252.1.tRNA6-ValCAC;isotype=Val;anticodon=CAC;gene_biotype=tRNA;
+EQ966252.1	tRNAscan-SE	exon	313	349	.	-	.	ID=EQ966252.1.trna6.exon1;Parent=EQ966252.1.trna6;
+EQ966252.1	tRNAscan-SE	exon	268	303	.	-	.	ID=EQ966252.1.trna6.exon2;Parent=EQ966252.1.trna6;
+EQ966252.1	tRNAscan-SE	tRNA	194008	194084	66.8	-	.	ID=EQ966252.1.trna5;Name=EQ966252.1.tRNA5-ThrTGT;isotype=Thr;anticodon=TGT;gene_biotype=tRNA;
+EQ966252.1	tRNAscan-SE	exon	194049	194084	.	-	.	ID=EQ966252.1.trna5.exon1;Parent=EQ966252.1.trna5;
+EQ966252.1	tRNAscan-SE	exon	194008	194043	.	-	.	ID=EQ966252.1.trna5.exon2;Parent=EQ966252.1.trna5;
+EQ966252.1	tRNAscan-SE	tRNA	527319	527403	66.4	-	.	ID=EQ966252.1.trna4;Name=EQ966252.1.tRNA4-GlnCTG;isotype=Gln;anticodon=CTG;gene_biotype=tRNA;
+EQ966252.1	tRNAscan-SE	exon	527367	527403	.	-	.	ID=EQ966252.1.trna4.exon1;Parent=EQ966252.1.trna4;
+EQ966252.1	tRNAscan-SE	exon	527319	527353	.	-	.	ID=EQ966252.1.trna4.exon2;Parent=EQ966252.1.trna4;
+EQ966252.1	tRNAscan-SE	tRNA	554667	554750	67.0	+	.	ID=EQ966252.1.trna1;Name=EQ966252.1.tRNA1-AlaTGC;isotype=Ala;anticodon=TGC;gene_biotype=tRNA;
+EQ966252.1	tRNAscan-SE	exon	554667	554702	.	+	.	ID=EQ966252.1.trna1.exon1;Parent=EQ966252.1.trna1;
+EQ966252.1	tRNAscan-SE	exon	554715	554750	.	+	.	ID=EQ966252.1.trna1.exon2;Parent=EQ966252.1.trna1;
+EQ966252.1	tRNAscan-SE	tRNA	582786	582859	72.8	+	.	ID=EQ966252.1.trna2;Name=EQ966252.1.tRNA2-ValAAC;isotype=Val;anticodon=AAC;gene_biotype=tRNA;
+EQ966252.1	tRNAscan-SE	exon	582786	582859	.	+	.	ID=EQ966252.1.trna2.exon1;Parent=EQ966252.1.trna2;
+EQ966252.1	tRNAscan-SE	tRNA	618866	618939	72.8	-	.	ID=EQ966252.1.trna3;Name=EQ966252.1.tRNA3-ValAAC;isotype=Val;anticodon=AAC;gene_biotype=tRNA;
+EQ966252.1	tRNAscan-SE	exon	618866	618939	.	-	.	ID=EQ966252.1.trna3.exon1;Parent=EQ966252.1.trna3;
+##gff-version 3
+EQ966253.1	tRNAscan-SE	tRNA	18904	18987	48.2	+	.	ID=EQ966253.1.trna1;Name=EQ966253.1.tRNA1-GluTTC;isotype=Glu;anticodon=TTC;gene_biotype=tRNA;
+EQ966253.1	tRNAscan-SE	exon	18904	18940	.	+	.	ID=EQ966253.1.trna1.exon1;Parent=EQ966253.1.trna1;
+EQ966253.1	tRNAscan-SE	exon	18953	18987	.	+	.	ID=EQ966253.1.trna1.exon2;Parent=EQ966253.1.trna1;
+EQ966253.1	tRNAscan-SE	tRNA	30993	31063	54.9	+	.	ID=EQ966253.1.trna2;Name=EQ966253.1.tRNA2-GlyCCC;isotype=Gly;anticodon=CCC;gene_biotype=tRNA;
+EQ966253.1	tRNAscan-SE	exon	30993	31063	.	+	.	ID=EQ966253.1.trna2.exon1;Parent=EQ966253.1.trna2;
+EQ966253.1	tRNAscan-SE	tRNA	80638	80719	58.3	-	.	ID=EQ966253.1.trna9;Name=EQ966253.1.tRNA9-GluCTC;isotype=Glu;anticodon=CTC;gene_biotype=tRNA;
+EQ966253.1	tRNAscan-SE	exon	80683	80719	.	-	.	ID=EQ966253.1.trna9.exon1;Parent=EQ966253.1.trna9;
+EQ966253.1	tRNAscan-SE	exon	80638	80672	.	-	.	ID=EQ966253.1.trna9.exon2;Parent=EQ966253.1.trna9;
+EQ966253.1	tRNAscan-SE	tRNA	195191	195294	76.0	+	.	ID=EQ966253.1.trna3;Name=EQ966253.1.tRNA3-MetCAT;isotype=Met;anticodon=CAT;gene_biotype=tRNA;
+EQ966253.1	tRNAscan-SE	exon	195191	195228	.	+	.	ID=EQ966253.1.trna3.exon1;Parent=EQ966253.1.trna3;
+EQ966253.1	tRNAscan-SE	exon	195259	195294	.	+	.	ID=EQ966253.1.trna3.exon2;Parent=EQ966253.1.trna3;
+EQ966253.1	tRNAscan-SE	tRNA	210459	210541	65.4	+	.	ID=EQ966253.1.trna4;Name=EQ966253.1.tRNA4-PheGAA;isotype=Phe;anticodon=GAA;gene_biotype=tRNA;
+EQ966253.1	tRNAscan-SE	exon	210459	210495	.	+	.	ID=EQ966253.1.trna4.exon1;Parent=EQ966253.1.trna4;
+EQ966253.1	tRNAscan-SE	exon	210506	210541	.	+	.	ID=EQ966253.1.trna4.exon2;Parent=EQ966253.1.trna4;
+EQ966253.1	tRNAscan-SE	tRNA	225666	225748	67.8	-	.	ID=EQ966253.1.trna8;Name=EQ966253.1.tRNA8-PheGAA;isotype=Phe;anticodon=GAA;gene_biotype=tRNA;
+EQ966253.1	tRNAscan-SE	exon	225712	225748	.	-	.	ID=EQ966253.1.trna8.exon1;Parent=EQ966253.1.trna8;
+EQ966253.1	tRNAscan-SE	exon	225666	225701	.	-	.	ID=EQ966253.1.trna8.exon2;Parent=EQ966253.1.trna8;
+EQ966253.1	tRNAscan-SE	tRNA	229301	229383	66.7	+	.	ID=EQ966253.1.trna5;Name=EQ966253.1.tRNA5-PheGAA;isotype=Phe;anticodon=GAA;gene_biotype=tRNA;
+EQ966253.1	tRNAscan-SE	exon	229301	229337	.	+	.	ID=EQ966253.1.trna5.exon1;Parent=EQ966253.1.trna5;
+EQ966253.1	tRNAscan-SE	exon	229348	229383	.	+	.	ID=EQ966253.1.trna5.exon2;Parent=EQ966253.1.trna5;
+EQ966253.1	tRNAscan-SE	tRNA	365556	365650	59.4	-	.	ID=EQ966253.1.trna7;Name=EQ966253.1.tRNA7-SerCGA;isotype=Ser;anticodon=CGA;gene_biotype=tRNA;
+EQ966253.1	tRNAscan-SE	exon	365614	365650	.	-	.	ID=EQ966253.1.trna7.exon1;Parent=EQ966253.1.trna7;
+EQ966253.1	tRNAscan-SE	exon	365556	365600	.	-	.	ID=EQ966253.1.trna7.exon2;Parent=EQ966253.1.trna7;
+EQ966253.1	tRNAscan-SE	tRNA	424756	424851	68.5	+	.	ID=EQ966253.1.trna6;Name=EQ966253.1.tRNA6-ThrTGT;isotype=Thr;anticodon=TGT;gene_biotype=tRNA;
+EQ966253.1	tRNAscan-SE	exon	424756	424791	.	+	.	ID=EQ966253.1.trna6.exon1;Parent=EQ966253.1.trna6;
+EQ966253.1	tRNAscan-SE	exon	424816	424851	.	+	.	ID=EQ966253.1.trna6.exon2;Parent=EQ966253.1.trna6;
+##gff-version 3
+EQ966254.1	tRNAscan-SE	tRNA	41032	41137	76.0	+	.	ID=EQ966254.1.trna1;Name=EQ966254.1.tRNA1-MetCAT;isotype=Met;anticodon=CAT;gene_biotype=tRNA;
+EQ966254.1	tRNAscan-SE	exon	41032	41069	.	+	.	ID=EQ966254.1.trna1.exon1;Parent=EQ966254.1.trna1;
+EQ966254.1	tRNAscan-SE	exon	41102	41137	.	+	.	ID=EQ966254.1.trna1.exon2;Parent=EQ966254.1.trna1;
+EQ966254.1	tRNAscan-SE	tRNA	516591	516684	56.5	-	.	ID=EQ966254.1.trna2;Name=EQ966254.1.tRNA2-SerGCT;isotype=Ser;anticodon=GCT;gene_biotype=tRNA;
+EQ966254.1	tRNAscan-SE	exon	516648	516684	.	-	.	ID=EQ966254.1.trna2.exon1;Parent=EQ966254.1.trna2;
+EQ966254.1	tRNAscan-SE	exon	516591	516635	.	-	.	ID=EQ966254.1.trna2.exon2;Parent=EQ966254.1.trna2;
+##gff-version 3
+EQ966255.1	tRNAscan-SE	pseudogene	16376	16447	36.9	-	.	ID=EQ966255.1.trna2;Name=EQ966255.1.tRNA2-LeuCAA;isotype=Leu;anticodon=CAA;gene_biotype=pseudogene;
+EQ966255.1	tRNAscan-SE	exon	16376	16447	.	-	.	ID=EQ966255.1.trna2.exon1;Parent=EQ966255.1.trna2;
+EQ966255.1	tRNAscan-SE	tRNA	292352	292434	73.1	+	.	ID=EQ966255.1.trna1;Name=EQ966255.1.tRNA1-TyrGTA;isotype=Tyr;anticodon=GTA;gene_biotype=tRNA;
+EQ966255.1	tRNAscan-SE	exon	292352	292388	.	+	.	ID=EQ966255.1.trna1.exon1;Parent=EQ966255.1.trna1;
+EQ966255.1	tRNAscan-SE	exon	292399	292434	.	+	.	ID=EQ966255.1.trna1.exon2;Parent=EQ966255.1.trna1;
+##gff-version 3
+EQ966256.1	tRNAscan-SE	tRNA	5338	5410	60.9	-	.	ID=EQ966256.1.trna2;Name=EQ966256.1.tRNA2-iMetCAT;isotype=iMet;anticodon=CAT;gene_biotype=tRNA;
+EQ966256.1	tRNAscan-SE	exon	5338	5410	.	-	.	ID=EQ966256.1.trna2.exon1;Parent=EQ966256.1.trna2;
+EQ966256.1	tRNAscan-SE	tRNA	379544	379632	61.2	+	.	ID=EQ966256.1.trna1;Name=EQ966256.1.tRNA1-ArgCCT;isotype=Arg;anticodon=CCT;gene_biotype=tRNA;
+EQ966256.1	tRNAscan-SE	exon	379544	379580	.	+	.	ID=EQ966256.1.trna1.exon1;Parent=EQ966256.1.trna1;
+EQ966256.1	tRNAscan-SE	exon	379597	379632	.	+	.	ID=EQ966256.1.trna1.exon2;Parent=EQ966256.1.trna1;
+##gff-version 3
+EQ966257.1	tRNAscan-SE	tRNA	51687	51778	62.9	+	.	ID=EQ966257.1.trna1;Name=EQ966257.1.tRNA1-ValCAC;isotype=Val;anticodon=CAC;gene_biotype=tRNA;
+EQ966257.1	tRNAscan-SE	exon	51687	51724	.	+	.	ID=EQ966257.1.trna1.exon1;Parent=EQ966257.1.trna1;
+EQ966257.1	tRNAscan-SE	exon	51743	51778	.	+	.	ID=EQ966257.1.trna1.exon2;Parent=EQ966257.1.trna1;
+##gff-version 3
+EQ966259.1	tRNAscan-SE	tRNA	97146	97238	58.7	-	.	ID=EQ966259.1.trna2;Name=EQ966259.1.tRNA2-LeuCAG;isotype=Leu;anticodon=CAG;gene_biotype=tRNA;
+EQ966259.1	tRNAscan-SE	exon	97201	97238	.	-	.	ID=EQ966259.1.trna2.exon1;Parent=EQ966259.1.trna2;
+EQ966259.1	tRNAscan-SE	exon	97146	97187	.	-	.	ID=EQ966259.1.trna2.exon2;Parent=EQ966259.1.trna2;
+EQ966259.1	tRNAscan-SE	tRNA	326024	326128	62.3	-	.	ID=EQ966259.1.trna1;Name=EQ966259.1.tRNA1-GlnTTG;isotype=Gln;anticodon=TTG;gene_biotype=tRNA;
+EQ966259.1	tRNAscan-SE	exon	326091	326128	.	-	.	ID=EQ966259.1.trna1.exon1;Parent=EQ966259.1.trna1;
+EQ966259.1	tRNAscan-SE	exon	326024	326058	.	-	.	ID=EQ966259.1.trna1.exon2;Parent=EQ966259.1.trna1;
+##gff-version 3
+EQ966262.1	tRNAscan-SE	tRNA	43627	43700	82.6	+	.	ID=EQ966262.1.trna1;Name=EQ966262.1.tRNA1-IleAAT;isotype=Ile;anticodon=AAT;gene_biotype=tRNA;
+EQ966262.1	tRNAscan-SE	exon	43627	43700	.	+	.	ID=EQ966262.1.trna1.exon1;Parent=EQ966262.1.trna1;
+EQ966262.1	tRNAscan-SE	tRNA	49170	49243	79.7	-	.	ID=EQ966262.1.trna2;Name=EQ966262.1.tRNA2-IleAAT;isotype=Ile;anticodon=AAT;gene_biotype=tRNA;
+EQ966262.1	tRNAscan-SE	exon	49170	49243	.	-	.	ID=EQ966262.1.trna2.exon1;Parent=EQ966262.1.trna2;
+##gff-version 3
+EQ966263.1	tRNAscan-SE	tRNA	387245	387315	58.3	-	.	ID=EQ966263.1.trna1;Name=EQ966263.1.tRNA1-GlyCCC;isotype=Gly;anticodon=CCC;gene_biotype=tRNA;
+EQ966263.1	tRNAscan-SE	exon	387245	387315	.	-	.	ID=EQ966263.1.trna1.exon1;Parent=EQ966263.1.trna1;
+##gff-version 3
+EQ966265.1	tRNAscan-SE	tRNA	304823	304927	63.5	-	.	ID=EQ966265.1.trna2;Name=EQ966265.1.tRNA2-GlnTTG;isotype=Gln;anticodon=TTG;gene_biotype=tRNA;
+EQ966265.1	tRNAscan-SE	exon	304889	304927	.	-	.	ID=EQ966265.1.trna2.exon1;Parent=EQ966265.1.trna2;
+EQ966265.1	tRNAscan-SE	exon	304823	304857	.	-	.	ID=EQ966265.1.trna2.exon2;Parent=EQ966265.1.trna2;
+EQ966265.1	tRNAscan-SE	tRNA	478317	478407	58.8	-	.	ID=EQ966265.1.trna1;Name=EQ966265.1.tRNA1-LeuCAG;isotype=Leu;anticodon=CAG;gene_biotype=tRNA;
+EQ966265.1	tRNAscan-SE	exon	478370	478407	.	-	.	ID=EQ966265.1.trna1.exon1;Parent=EQ966265.1.trna1;
+EQ966265.1	tRNAscan-SE	exon	478317	478358	.	-	.	ID=EQ966265.1.trna1.exon2;Parent=EQ966265.1.trna1;
+##gff-version 3
+EQ966266.1	tRNAscan-SE	tRNA	164926	164997	65.6	-	.	ID=EQ966266.1.trna3;Name=EQ966266.1.tRNA3-GluCTC;isotype=Glu;anticodon=CTC;gene_biotype=tRNA;
+EQ966266.1	tRNAscan-SE	exon	164926	164997	.	-	.	ID=EQ966266.1.trna3.exon1;Parent=EQ966266.1.trna3;
+EQ966266.1	tRNAscan-SE	tRNA	263342	263413	65.6	+	.	ID=EQ966266.1.trna1;Name=EQ966266.1.tRNA1-GluCTC;isotype=Glu;anticodon=CTC;gene_biotype=tRNA;
+EQ966266.1	tRNAscan-SE	exon	263342	263413	.	+	.	ID=EQ966266.1.trna1.exon1;Parent=EQ966266.1.trna1;
+EQ966266.1	tRNAscan-SE	tRNA	273551	273622	65.6	-	.	ID=EQ966266.1.trna2;Name=EQ966266.1.tRNA2-GluCTC;isotype=Glu;anticodon=CTC;gene_biotype=tRNA;
+EQ966266.1	tRNAscan-SE	exon	273551	273622	.	-	.	ID=EQ966266.1.trna2.exon1;Parent=EQ966266.1.trna2;
+##gff-version 3
+EQ966267.1	tRNAscan-SE	tRNA	499405	499514	68.0	-	.	ID=EQ966267.1.trna1;Name=EQ966267.1.tRNA1-LeuCAA;isotype=Leu;anticodon=CAA;gene_biotype=tRNA;
+EQ966267.1	tRNAscan-SE	exon	499477	499514	.	-	.	ID=EQ966267.1.trna1.exon1;Parent=EQ966267.1.trna1;
+EQ966267.1	tRNAscan-SE	exon	499405	499450	.	-	.	ID=EQ966267.1.trna1.exon2;Parent=EQ966267.1.trna1;
+##gff-version 3
+EQ966269.1	tRNAscan-SE	pseudogene	86682	86753	28.7	+	.	ID=EQ966269.1.trna1;Name=EQ966269.1.tRNA1-LeuCAA;isotype=Leu;anticodon=CAA;gene_biotype=pseudogene;
+EQ966269.1	tRNAscan-SE	exon	86682	86753	.	+	.	ID=EQ966269.1.trna1.exon1;Parent=EQ966269.1.trna1;
+##gff-version 3
+EQ966270.1	tRNAscan-SE	tRNA	79294	79392	59.4	-	.	ID=EQ966270.1.trna1;Name=EQ966270.1.tRNA1-ArgCCG;isotype=Arg;anticodon=CCG;gene_biotype=tRNA;
+EQ966270.1	tRNAscan-SE	exon	79356	79392	.	-	.	ID=EQ966270.1.trna1.exon1;Parent=EQ966270.1.trna1;
+EQ966270.1	tRNAscan-SE	exon	79294	79329	.	-	.	ID=EQ966270.1.trna1.exon2;Parent=EQ966270.1.trna1;
+##gff-version 3
+EQ966272.1	tRNAscan-SE	tRNA	222873	222970	63.2	+	.	ID=EQ966272.1.trna1;Name=EQ966272.1.tRNA1-ProAGG;isotype=Pro;anticodon=AGG;gene_biotype=tRNA;
+EQ966272.1	tRNAscan-SE	exon	222873	222908	.	+	.	ID=EQ966272.1.trna1.exon1;Parent=EQ966272.1.trna1;
+EQ966272.1	tRNAscan-SE	exon	222935	222970	.	+	.	ID=EQ966272.1.trna1.exon2;Parent=EQ966272.1.trna1;
+##gff-version 3
+EQ966273.1	tRNAscan-SE	tRNA	157163	157257	60.8	+	.	ID=EQ966273.1.trna1;Name=EQ966273.1.tRNA1-AlaAGC;isotype=Ala;anticodon=AGC;gene_biotype=tRNA;
+EQ966273.1	tRNAscan-SE	exon	157163	157200	.	+	.	ID=EQ966273.1.trna1.exon1;Parent=EQ966273.1.trna1;
+EQ966273.1	tRNAscan-SE	exon	157222	157257	.	+	.	ID=EQ966273.1.trna1.exon2;Parent=EQ966273.1.trna1;
+EQ966273.1	tRNAscan-SE	tRNA	198179	198260	67.8	+	.	ID=EQ966273.1.trna2;Name=EQ966273.1.tRNA2-CysGCA;isotype=Cys;anticodon=GCA;gene_biotype=tRNA;
+EQ966273.1	tRNAscan-SE	exon	198179	198214	.	+	.	ID=EQ966273.1.trna2.exon1;Parent=EQ966273.1.trna2;
+EQ966273.1	tRNAscan-SE	exon	198225	198260	.	+	.	ID=EQ966273.1.trna2.exon2;Parent=EQ966273.1.trna2;
+EQ966273.1	tRNAscan-SE	tRNA	385753	385842	58.9	+	.	ID=EQ966273.1.trna3;Name=EQ966273.1.tRNA3-LeuCAG;isotype=Leu;anticodon=CAG;gene_biotype=tRNA;
+EQ966273.1	tRNAscan-SE	exon	385753	385790	.	+	.	ID=EQ966273.1.trna3.exon1;Parent=EQ966273.1.trna3;
+EQ966273.1	tRNAscan-SE	exon	385801	385842	.	+	.	ID=EQ966273.1.trna3.exon2;Parent=EQ966273.1.trna3;
+##gff-version 3
+EQ966277.1	tRNAscan-SE	pseudogene	42977	43048	41.6	-	.	ID=EQ966277.1.trna5;Name=EQ966277.1.tRNA5-LeuCAA;isotype=Leu;anticodon=CAA;gene_biotype=pseudogene;
+EQ966277.1	tRNAscan-SE	exon	42977	43048	.	-	.	ID=EQ966277.1.trna5.exon1;Parent=EQ966277.1.trna5;
+EQ966277.1	tRNAscan-SE	tRNA	316045	316131	70.8	+	.	ID=EQ966277.1.trna1;Name=EQ966277.1.tRNA1-LysCTT;isotype=Lys;anticodon=CTT;gene_biotype=tRNA;
+EQ966277.1	tRNAscan-SE	exon	316045	316082	.	+	.	ID=EQ966277.1.trna1.exon1;Parent=EQ966277.1.trna1;
+EQ966277.1	tRNAscan-SE	exon	316096	316131	.	+	.	ID=EQ966277.1.trna1.exon2;Parent=EQ966277.1.trna1;
+EQ966277.1	tRNAscan-SE	tRNA	405112	405216	65.6	-	.	ID=EQ966277.1.trna4;Name=EQ966277.1.tRNA4-GlnCTG;isotype=Gln;anticodon=CTG;gene_biotype=tRNA;
+EQ966277.1	tRNAscan-SE	exon	405180	405216	.	-	.	ID=EQ966277.1.trna4.exon1;Parent=EQ966277.1.trna4;
+EQ966277.1	tRNAscan-SE	exon	405112	405146	.	-	.	ID=EQ966277.1.trna4.exon2;Parent=EQ966277.1.trna4;
+EQ966277.1	tRNAscan-SE	tRNA	427224	427309	70.9	+	.	ID=EQ966277.1.trna2;Name=EQ966277.1.tRNA2-LysCTT;isotype=Lys;anticodon=CTT;gene_biotype=tRNA;
+EQ966277.1	tRNAscan-SE	exon	427224	427261	.	+	.	ID=EQ966277.1.trna2.exon1;Parent=EQ966277.1.trna2;
+EQ966277.1	tRNAscan-SE	exon	427274	427309	.	+	.	ID=EQ966277.1.trna2.exon2;Parent=EQ966277.1.trna2;
+EQ966277.1	tRNAscan-SE	tRNA	454644	454729	70.9	+	.	ID=EQ966277.1.trna3;Name=EQ966277.1.tRNA3-LysCTT;isotype=Lys;anticodon=CTT;gene_biotype=tRNA;
+EQ966277.1	tRNAscan-SE	exon	454644	454681	.	+	.	ID=EQ966277.1.trna3.exon1;Parent=EQ966277.1.trna3;
+EQ966277.1	tRNAscan-SE	exon	454694	454729	.	+	.	ID=EQ966277.1.trna3.exon2;Parent=EQ966277.1.trna3;
+##gff-version 3
+EQ966278.1	tRNAscan-SE	pseudogene	420954	421048	35.1	+	.	ID=EQ966278.1.trna1;Name=EQ966278.1.tRNA1-AspGTC;isotype=Asp;anticodon=GTC;gene_biotype=pseudogene;
+EQ966278.1	tRNAscan-SE	exon	420954	420990	.	+	.	ID=EQ966278.1.trna1.exon1;Parent=EQ966278.1.trna1;
+EQ966278.1	tRNAscan-SE	exon	421014	421048	.	+	.	ID=EQ966278.1.trna1.exon2;Parent=EQ966278.1.trna1;
+##gff-version 3
+EQ966279.1	tRNAscan-SE	tRNA	8936	9028	59.3	-	.	ID=EQ966279.1.trna1;Name=EQ966279.1.tRNA1-ProCGG;isotype=Pro;anticodon=CGG;gene_biotype=tRNA;
+EQ966279.1	tRNAscan-SE	exon	8993	9028	.	-	.	ID=EQ966279.1.trna1.exon1;Parent=EQ966279.1.trna1;
+EQ966279.1	tRNAscan-SE	exon	8936	8971	.	-	.	ID=EQ966279.1.trna1.exon2;Parent=EQ966279.1.trna1;
+##gff-version 3
+EQ966280.1	tRNAscan-SE	tRNA	24483	24567	75.8	-	.	ID=EQ966280.1.trna3;Name=EQ966280.1.tRNA3-ArgTCG;isotype=Arg;anticodon=TCG;gene_biotype=tRNA;
+EQ966280.1	tRNAscan-SE	exon	24532	24567	.	-	.	ID=EQ966280.1.trna3.exon1;Parent=EQ966280.1.trna3;
+EQ966280.1	tRNAscan-SE	exon	24483	24518	.	-	.	ID=EQ966280.1.trna3.exon2;Parent=EQ966280.1.trna3;
+EQ966280.1	tRNAscan-SE	tRNA	76565	76646	54.9	+	.	ID=EQ966280.1.trna1;Name=EQ966280.1.tRNA1-TrpCCA;isotype=Trp;anticodon=CCA;gene_biotype=tRNA;
+EQ966280.1	tRNAscan-SE	exon	76565	76600	.	+	.	ID=EQ966280.1.trna1.exon1;Parent=EQ966280.1.trna1;
+EQ966280.1	tRNAscan-SE	exon	76610	76646	.	+	.	ID=EQ966280.1.trna1.exon2;Parent=EQ966280.1.trna1;
+EQ966280.1	tRNAscan-SE	tRNA	158447	158529	54.8	-	.	ID=EQ966280.1.trna2;Name=EQ966280.1.tRNA2-TrpCCA;isotype=Trp;anticodon=CCA;gene_biotype=tRNA;
+EQ966280.1	tRNAscan-SE	exon	158494	158529	.	-	.	ID=EQ966280.1.trna2.exon1;Parent=EQ966280.1.trna2;
+EQ966280.1	tRNAscan-SE	exon	158447	158483	.	-	.	ID=EQ966280.1.trna2.exon2;Parent=EQ966280.1.trna2;
+##gff-version 3
+EQ966281.1	tRNAscan-SE	tRNA	221534	221611	45.7	+	.	ID=EQ966281.1.trna1;Name=EQ966281.1.tRNA1-AspGTC;isotype=Asp;anticodon=GTC;gene_biotype=tRNA;
+EQ966281.1	tRNAscan-SE	exon	221534	221570	.	+	.	ID=EQ966281.1.trna1.exon1;Parent=EQ966281.1.trna1;
+EQ966281.1	tRNAscan-SE	exon	221577	221611	.	+	.	ID=EQ966281.1.trna1.exon2;Parent=EQ966281.1.trna1;
+##gff-version 3
+EQ966282.1	tRNAscan-SE	tRNA	183544	183616	71.3	-	.	ID=EQ966282.1.trna1;Name=EQ966282.1.tRNA1-ArgTCT;isotype=Arg;anticodon=TCT;gene_biotype=tRNA;
+EQ966282.1	tRNAscan-SE	exon	183544	183616	.	-	.	ID=EQ966282.1.trna1.exon1;Parent=EQ966282.1.trna1;
+##gff-version 3
+EQ966283.1	tRNAscan-SE	tRNA	344552	344643	67.5	-	.	ID=EQ966283.1.trna1;Name=EQ966283.1.tRNA1-LeuAAG;isotype=Leu;anticodon=AAG;gene_biotype=tRNA;
+EQ966283.1	tRNAscan-SE	exon	344606	344643	.	-	.	ID=EQ966283.1.trna1.exon1;Parent=EQ966283.1.trna1;
+EQ966283.1	tRNAscan-SE	exon	344552	344593	.	-	.	ID=EQ966283.1.trna1.exon2;Parent=EQ966283.1.trna1;
+##gff-version 3
+EQ966285.1	tRNAscan-SE	tRNA	24865	24951	70.8	-	.	ID=EQ966285.1.trna2;Name=EQ966285.1.tRNA2-LysCTT;isotype=Lys;anticodon=CTT;gene_biotype=tRNA;
+EQ966285.1	tRNAscan-SE	exon	24914	24951	.	-	.	ID=EQ966285.1.trna2.exon1;Parent=EQ966285.1.trna2;
+EQ966285.1	tRNAscan-SE	exon	24865	24900	.	-	.	ID=EQ966285.1.trna2.exon2;Parent=EQ966285.1.trna2;
+EQ966285.1	tRNAscan-SE	tRNA	382150	382236	73.9	+	.	ID=EQ966285.1.trna1;Name=EQ966285.1.tRNA1-IleAAT;isotype=Ile;anticodon=AAT;gene_biotype=tRNA;
+EQ966285.1	tRNAscan-SE	exon	382150	382187	.	+	.	ID=EQ966285.1.trna1.exon1;Parent=EQ966285.1.trna1;
+EQ966285.1	tRNAscan-SE	exon	382201	382236	.	+	.	ID=EQ966285.1.trna1.exon2;Parent=EQ966285.1.trna1;
+##gff-version 3
+EQ966286.1	tRNAscan-SE	tRNA	399041	399126	63.0	-	.	ID=EQ966286.1.trna1;Name=EQ966286.1.tRNA1-AlaAGC;isotype=Ala;anticodon=AGC;gene_biotype=tRNA;
+EQ966286.1	tRNAscan-SE	exon	399089	399126	.	-	.	ID=EQ966286.1.trna1.exon1;Parent=EQ966286.1.trna1;
+EQ966286.1	tRNAscan-SE	exon	399041	399076	.	-	.	ID=EQ966286.1.trna1.exon2;Parent=EQ966286.1.trna1;
+##gff-version 3
+EQ966290.1	tRNAscan-SE	tRNA	111906	111997	47.6	+	.	ID=EQ966290.1.trna1;Name=EQ966290.1.tRNA1-GluTTC;isotype=Glu;anticodon=TTC;gene_biotype=tRNA;
+EQ966290.1	tRNAscan-SE	exon	111906	111942	.	+	.	ID=EQ966290.1.trna1.exon1;Parent=EQ966290.1.trna1;
+EQ966290.1	tRNAscan-SE	exon	111963	111997	.	+	.	ID=EQ966290.1.trna1.exon2;Parent=EQ966290.1.trna1;
+EQ966290.1	tRNAscan-SE	tRNA	270979	271060	47.4	-	.	ID=EQ966290.1.trna5;Name=EQ966290.1.tRNA5-GluCTC;isotype=Glu;anticodon=CTC;gene_biotype=tRNA;
+EQ966290.1	tRNAscan-SE	exon	271024	271060	.	-	.	ID=EQ966290.1.trna5.exon1;Parent=EQ966290.1.trna5;
+EQ966290.1	tRNAscan-SE	exon	270979	271013	.	-	.	ID=EQ966290.1.trna5.exon2;Parent=EQ966290.1.trna5;
+EQ966290.1	tRNAscan-SE	tRNA	278994	279086	47.6	+	.	ID=EQ966290.1.trna2;Name=EQ966290.1.tRNA2-GluTTC;isotype=Glu;anticodon=TTC;gene_biotype=tRNA;
+EQ966290.1	tRNAscan-SE	exon	278994	279030	.	+	.	ID=EQ966290.1.trna2.exon1;Parent=EQ966290.1.trna2;
+EQ966290.1	tRNAscan-SE	exon	279052	279086	.	+	.	ID=EQ966290.1.trna2.exon2;Parent=EQ966290.1.trna2;
+EQ966290.1	tRNAscan-SE	tRNA	312476	312547	73.9	-	.	ID=EQ966290.1.trna4;Name=EQ966290.1.tRNA4-ThrCGT;isotype=Thr;anticodon=CGT;gene_biotype=tRNA;
+EQ966290.1	tRNAscan-SE	exon	312476	312547	.	-	.	ID=EQ966290.1.trna4.exon1;Parent=EQ966290.1.trna4;
+EQ966290.1	tRNAscan-SE	tRNA	393893	393965	60.9	+	.	ID=EQ966290.1.trna3;Name=EQ966290.1.tRNA3-iMetCAT;isotype=iMet;anticodon=CAT;gene_biotype=tRNA;
+EQ966290.1	tRNAscan-SE	exon	393893	393965	.	+	.	ID=EQ966290.1.trna3.exon1;Parent=EQ966290.1.trna3;
+##gff-version 3
+EQ966292.1	tRNAscan-SE	tRNA	45585	45666	73.9	+	.	ID=EQ966292.1.trna1;Name=EQ966292.1.tRNA1-TyrGTA;isotype=Tyr;anticodon=GTA;gene_biotype=tRNA;
+EQ966292.1	tRNAscan-SE	exon	45585	45621	.	+	.	ID=EQ966292.1.trna1.exon1;Parent=EQ966292.1.trna1;
+EQ966292.1	tRNAscan-SE	exon	45631	45666	.	+	.	ID=EQ966292.1.trna1.exon2;Parent=EQ966292.1.trna1;
+EQ966292.1	tRNAscan-SE	tRNA	53922	54012	63.6	-	.	ID=EQ966292.1.trna2;Name=EQ966292.1.tRNA2-SerCGA;isotype=Ser;anticodon=CGA;gene_biotype=tRNA;
+EQ966292.1	tRNAscan-SE	exon	53976	54012	.	-	.	ID=EQ966292.1.trna2.exon1;Parent=EQ966292.1.trna2;
+EQ966292.1	tRNAscan-SE	exon	53922	53966	.	-	.	ID=EQ966292.1.trna2.exon2;Parent=EQ966292.1.trna2;
+##gff-version 3
+EQ966293.1	tRNAscan-SE	tRNA	35573	35657	66.4	-	.	ID=EQ966293.1.trna5;Name=EQ966293.1.tRNA5-GlnCTG;isotype=Gln;anticodon=CTG;gene_biotype=tRNA;
+EQ966293.1	tRNAscan-SE	exon	35621	35657	.	-	.	ID=EQ966293.1.trna5.exon1;Parent=EQ966293.1.trna5;
+EQ966293.1	tRNAscan-SE	exon	35573	35607	.	-	.	ID=EQ966293.1.trna5.exon2;Parent=EQ966293.1.trna5;
+EQ966293.1	tRNAscan-SE	tRNA	62435	62518	67.0	+	.	ID=EQ966293.1.trna1;Name=EQ966293.1.tRNA1-AlaTGC;isotype=Ala;anticodon=TGC;gene_biotype=tRNA;
+EQ966293.1	tRNAscan-SE	exon	62435	62470	.	+	.	ID=EQ966293.1.trna1.exon1;Parent=EQ966293.1.trna1;
+EQ966293.1	tRNAscan-SE	exon	62483	62518	.	+	.	ID=EQ966293.1.trna1.exon2;Parent=EQ966293.1.trna1;
+EQ966293.1	tRNAscan-SE	tRNA	92845	92918	72.8	+	.	ID=EQ966293.1.trna2;Name=EQ966293.1.tRNA2-ValAAC;isotype=Val;anticodon=AAC;gene_biotype=tRNA;
+EQ966293.1	tRNAscan-SE	exon	92845	92918	.	+	.	ID=EQ966293.1.trna2.exon1;Parent=EQ966293.1.trna2;
+EQ966293.1	tRNAscan-SE	tRNA	131994	132067	72.8	-	.	ID=EQ966293.1.trna4;Name=EQ966293.1.tRNA4-ValAAC;isotype=Val;anticodon=AAC;gene_biotype=tRNA;
+EQ966293.1	tRNAscan-SE	exon	131994	132067	.	-	.	ID=EQ966293.1.trna4.exon1;Parent=EQ966293.1.trna4;
+EQ966293.1	tRNAscan-SE	tRNA	241638	241755	38.6	-	.	ID=EQ966293.1.trna3;Name=EQ966293.1.tRNA3-TrpCCA;isotype=Trp;anticodon=CCA;gene_biotype=tRNA;
+EQ966293.1	tRNAscan-SE	exon	241721	241755	.	-	.	ID=EQ966293.1.trna3.exon1;Parent=EQ966293.1.trna3;
+EQ966293.1	tRNAscan-SE	exon	241638	241673	.	-	.	ID=EQ966293.1.trna3.exon2;Parent=EQ966293.1.trna3;
+##gff-version 3
+EQ966294.1	tRNAscan-SE	tRNA	29159	29238	54.5	+	.	ID=EQ966294.1.trna1;Name=EQ966294.1.tRNA1-CysGCA;isotype=Cys;anticodon=GCA;gene_biotype=tRNA;
+EQ966294.1	tRNAscan-SE	exon	29159	29194	.	+	.	ID=EQ966294.1.trna1.exon1;Parent=EQ966294.1.trna1;
+EQ966294.1	tRNAscan-SE	exon	29202	29238	.	+	.	ID=EQ966294.1.trna1.exon2;Parent=EQ966294.1.trna1;
+##gff-version 3
+EQ966297.1	tRNAscan-SE	tRNA	90458	90559	60.9	+	.	ID=EQ966297.1.trna1;Name=EQ966297.1.tRNA1-AsnGTT;isotype=Asn;anticodon=GTT;gene_biotype=tRNA;
+EQ966297.1	tRNAscan-SE	exon	90458	90495	.	+	.	ID=EQ966297.1.trna1.exon1;Parent=EQ966297.1.trna1;
+EQ966297.1	tRNAscan-SE	exon	90524	90559	.	+	.	ID=EQ966297.1.trna1.exon2;Parent=EQ966297.1.trna1;
+##gff-version 3
+EQ966299.1	tRNAscan-SE	tRNA	751	843	60.0	-	.	ID=EQ966299.1.trna2;Name=EQ966299.1.tRNA2-ProAGG;isotype=Pro;anticodon=AGG;gene_biotype=tRNA;
+EQ966299.1	tRNAscan-SE	exon	808	843	.	-	.	ID=EQ966299.1.trna2.exon1;Parent=EQ966299.1.trna2;
+EQ966299.1	tRNAscan-SE	exon	751	786	.	-	.	ID=EQ966299.1.trna2.exon2;Parent=EQ966299.1.trna2;
+EQ966299.1	tRNAscan-SE	tRNA	40401	40483	58.2	+	.	ID=EQ966299.1.trna1;Name=EQ966299.1.tRNA1-ProAGG;isotype=Pro;anticodon=AGG;gene_biotype=tRNA;
+EQ966299.1	tRNAscan-SE	exon	40401	40436	.	+	.	ID=EQ966299.1.trna1.exon1;Parent=EQ966299.1.trna1;
+EQ966299.1	tRNAscan-SE	exon	40448	40483	.	+	.	ID=EQ966299.1.trna1.exon2;Parent=EQ966299.1.trna1;
+##gff-version 3
+EQ966302.1	tRNAscan-SE	tRNA	62135	62232	53.8	-	.	ID=EQ966302.1.trna1;Name=EQ966302.1.tRNA1-ArgACG;isotype=Arg;anticodon=ACG;gene_biotype=tRNA;
+EQ966302.1	tRNAscan-SE	exon	62197	62232	.	-	.	ID=EQ966302.1.trna1.exon1;Parent=EQ966302.1.trna1;
+EQ966302.1	tRNAscan-SE	exon	62135	62170	.	-	.	ID=EQ966302.1.trna1.exon2;Parent=EQ966302.1.trna1;
+##gff-version 3
+EQ966303.1	tRNAscan-SE	tRNA	150826	150920	64.0	-	.	ID=EQ966303.1.trna1;Name=EQ966303.1.tRNA1-LeuTAA;isotype=Leu;anticodon=TAA;gene_biotype=tRNA;
+EQ966303.1	tRNAscan-SE	exon	150882	150920	.	-	.	ID=EQ966303.1.trna1.exon1;Parent=EQ966303.1.trna1;
+EQ966303.1	tRNAscan-SE	exon	150826	150872	.	-	.	ID=EQ966303.1.trna1.exon2;Parent=EQ966303.1.trna1;
+##gff-version 3
+EQ966304.1	tRNAscan-SE	tRNA	177464	177561	59.4	-	.	ID=EQ966304.1.trna1;Name=EQ966304.1.tRNA1-LeuTAG;isotype=Leu;anticodon=TAG;gene_biotype=tRNA;
+EQ966304.1	tRNAscan-SE	exon	177525	177561	.	-	.	ID=EQ966304.1.trna1.exon1;Parent=EQ966304.1.trna1;
+EQ966304.1	tRNAscan-SE	exon	177464	177506	.	-	.	ID=EQ966304.1.trna1.exon2;Parent=EQ966304.1.trna1;
+##gff-version 3
+EQ966306.1	tRNAscan-SE	tRNA	141978	142078	58.9	+	.	ID=EQ966306.1.trna1;Name=EQ966306.1.tRNA1-AlaCGC;isotype=Ala;anticodon=CGC;gene_biotype=tRNA;
+EQ966306.1	tRNAscan-SE	exon	141978	142013	.	+	.	ID=EQ966306.1.trna1.exon1;Parent=EQ966306.1.trna1;
+EQ966306.1	tRNAscan-SE	exon	142043	142078	.	+	.	ID=EQ966306.1.trna1.exon2;Parent=EQ966306.1.trna1;
+##gff-version 3
+EQ966307.1	tRNAscan-SE	tRNA	283307	283380	72.5	-	.	ID=EQ966307.1.trna1;Name=EQ966307.1.tRNA1-ValAAC;isotype=Val;anticodon=AAC;gene_biotype=tRNA;
+EQ966307.1	tRNAscan-SE	exon	283307	283380	.	-	.	ID=EQ966307.1.trna1.exon1;Parent=EQ966307.1.trna1;
+##gff-version 3
+EQ966308.1	tRNAscan-SE	tRNA	217652	217729	48.1	+	.	ID=EQ966308.1.trna1;Name=EQ966308.1.tRNA1-GlyGCC;isotype=Gly;anticodon=GCC;gene_biotype=tRNA;
+EQ966308.1	tRNAscan-SE	exon	217652	217687	.	+	.	ID=EQ966308.1.trna1.exon1;Parent=EQ966308.1.trna1;
+EQ966308.1	tRNAscan-SE	exon	217695	217729	.	+	.	ID=EQ966308.1.trna1.exon2;Parent=EQ966308.1.trna1;
+EQ966308.1	tRNAscan-SE	tRNA	225718	225795	48.1	+	.	ID=EQ966308.1.trna2;Name=EQ966308.1.tRNA2-GlyGCC;isotype=Gly;anticodon=GCC;gene_biotype=tRNA;
+EQ966308.1	tRNAscan-SE	exon	225718	225753	.	+	.	ID=EQ966308.1.trna2.exon1;Parent=EQ966308.1.trna2;
+EQ966308.1	tRNAscan-SE	exon	225761	225795	.	+	.	ID=EQ966308.1.trna2.exon2;Parent=EQ966308.1.trna2;
+EQ966308.1	tRNAscan-SE	tRNA	230982	231059	48.1	-	.	ID=EQ966308.1.trna7;Name=EQ966308.1.tRNA7-GlyGCC;isotype=Gly;anticodon=GCC;gene_biotype=tRNA;
+EQ966308.1	tRNAscan-SE	exon	231024	231059	.	-	.	ID=EQ966308.1.trna7.exon1;Parent=EQ966308.1.trna7;
+EQ966308.1	tRNAscan-SE	exon	230982	231016	.	-	.	ID=EQ966308.1.trna7.exon2;Parent=EQ966308.1.trna7;
+EQ966308.1	tRNAscan-SE	tRNA	235402	235482	64.9	+	.	ID=EQ966308.1.trna3;Name=EQ966308.1.tRNA3-AlaCGC;isotype=Ala;anticodon=CGC;gene_biotype=tRNA;
+EQ966308.1	tRNAscan-SE	exon	235402	235437	.	+	.	ID=EQ966308.1.trna3.exon1;Parent=EQ966308.1.trna3;
+EQ966308.1	tRNAscan-SE	exon	235447	235482	.	+	.	ID=EQ966308.1.trna3.exon2;Parent=EQ966308.1.trna3;
+EQ966308.1	tRNAscan-SE	tRNA	276515	276600	66.2	+	.	ID=EQ966308.1.trna4;Name=EQ966308.1.tRNA4-AlaTGC;isotype=Ala;anticodon=TGC;gene_biotype=tRNA;
+EQ966308.1	tRNAscan-SE	exon	276515	276550	.	+	.	ID=EQ966308.1.trna4.exon1;Parent=EQ966308.1.trna4;
+EQ966308.1	tRNAscan-SE	exon	276565	276600	.	+	.	ID=EQ966308.1.trna4.exon2;Parent=EQ966308.1.trna4;
+EQ966308.1	tRNAscan-SE	tRNA	290621	290718	64.2	-	.	ID=EQ966308.1.trna6;Name=EQ966308.1.tRNA6-AlaCGC;isotype=Ala;anticodon=CGC;gene_biotype=tRNA;
+EQ966308.1	tRNAscan-SE	exon	290683	290718	.	-	.	ID=EQ966308.1.trna6.exon1;Parent=EQ966308.1.trna6;
+EQ966308.1	tRNAscan-SE	exon	290621	290656	.	-	.	ID=EQ966308.1.trna6.exon2;Parent=EQ966308.1.trna6;
+EQ966308.1	tRNAscan-SE	tRNA	293321	293401	64.9	+	.	ID=EQ966308.1.trna5;Name=EQ966308.1.tRNA5-AlaCGC;isotype=Ala;anticodon=CGC;gene_biotype=tRNA;
+EQ966308.1	tRNAscan-SE	exon	293321	293356	.	+	.	ID=EQ966308.1.trna5.exon1;Parent=EQ966308.1.trna5;
+EQ966308.1	tRNAscan-SE	exon	293366	293401	.	+	.	ID=EQ966308.1.trna5.exon2;Parent=EQ966308.1.trna5;
+##gff-version 3
+EQ966309.1	tRNAscan-SE	tRNA	32027	32132	73.4	-	.	ID=EQ966309.1.trna5;Name=EQ966309.1.tRNA5-LysTTT;isotype=Lys;anticodon=TTT;gene_biotype=tRNA;
+EQ966309.1	tRNAscan-SE	exon	32095	32132	.	-	.	ID=EQ966309.1.trna5.exon1;Parent=EQ966309.1.trna5;
+EQ966309.1	tRNAscan-SE	exon	32027	32062	.	-	.	ID=EQ966309.1.trna5.exon2;Parent=EQ966309.1.trna5;
+EQ966309.1	tRNAscan-SE	tRNA	43085	43164	48.1	+	.	ID=EQ966309.1.trna1;Name=EQ966309.1.tRNA1-GlyGCC;isotype=Gly;anticodon=GCC;gene_biotype=tRNA;
+EQ966309.1	tRNAscan-SE	exon	43085	43120	.	+	.	ID=EQ966309.1.trna1.exon1;Parent=EQ966309.1.trna1;
+EQ966309.1	tRNAscan-SE	exon	43130	43164	.	+	.	ID=EQ966309.1.trna1.exon2;Parent=EQ966309.1.trna1;
+EQ966309.1	tRNAscan-SE	tRNA	45329	45408	48.0	-	.	ID=EQ966309.1.trna4;Name=EQ966309.1.tRNA4-GlyGCC;isotype=Gly;anticodon=GCC;gene_biotype=tRNA;
+EQ966309.1	tRNAscan-SE	exon	45373	45408	.	-	.	ID=EQ966309.1.trna4.exon1;Parent=EQ966309.1.trna4;
+EQ966309.1	tRNAscan-SE	exon	45329	45363	.	-	.	ID=EQ966309.1.trna4.exon2;Parent=EQ966309.1.trna4;
+EQ966309.1	tRNAscan-SE	tRNA	196804	196885	66.9	+	.	ID=EQ966309.1.trna2;Name=EQ966309.1.tRNA2-ThrAGT;isotype=Thr;anticodon=AGT;gene_biotype=tRNA;
+EQ966309.1	tRNAscan-SE	exon	196804	196840	.	+	.	ID=EQ966309.1.trna2.exon1;Parent=EQ966309.1.trna2;
+EQ966309.1	tRNAscan-SE	exon	196850	196885	.	+	.	ID=EQ966309.1.trna2.exon2;Parent=EQ966309.1.trna2;
+EQ966309.1	tRNAscan-SE	tRNA	217682	217767	70.9	+	.	ID=EQ966309.1.trna3;Name=EQ966309.1.tRNA3-LysCTT;isotype=Lys;anticodon=CTT;gene_biotype=tRNA;
+EQ966309.1	tRNAscan-SE	exon	217682	217719	.	+	.	ID=EQ966309.1.trna3.exon1;Parent=EQ966309.1.trna3;
+EQ966309.1	tRNAscan-SE	exon	217732	217767	.	+	.	ID=EQ966309.1.trna3.exon2;Parent=EQ966309.1.trna3;
+##gff-version 3
+EQ966310.1	tRNAscan-SE	pseudogene	47794	47869	28.6	-	.	ID=EQ966310.1.trna1;Name=EQ966310.1.tRNA1-LeuCAA;isotype=Leu;anticodon=CAA;gene_biotype=pseudogene;
+EQ966310.1	tRNAscan-SE	exon	47794	47869	.	-	.	ID=EQ966310.1.trna1.exon1;Parent=EQ966310.1.trna1;
+##gff-version 3
+EQ966311.1	tRNAscan-SE	tRNA	277482	277563	55.5	+	.	ID=EQ966311.1.trna1;Name=EQ966311.1.tRNA1-ArgACG;isotype=Arg;anticodon=ACG;gene_biotype=tRNA;
+EQ966311.1	tRNAscan-SE	exon	277482	277517	.	+	.	ID=EQ966311.1.trna1.exon1;Parent=EQ966311.1.trna1;
+EQ966311.1	tRNAscan-SE	exon	277528	277563	.	+	.	ID=EQ966311.1.trna1.exon2;Parent=EQ966311.1.trna1;
+EQ966311.1	tRNAscan-SE	tRNA	293484	293564	55.5	-	.	ID=EQ966311.1.trna2;Name=EQ966311.1.tRNA2-ArgACG;isotype=Arg;anticodon=ACG;gene_biotype=tRNA;
+EQ966311.1	tRNAscan-SE	exon	293529	293564	.	-	.	ID=EQ966311.1.trna2.exon1;Parent=EQ966311.1.trna2;
+EQ966311.1	tRNAscan-SE	exon	293484	293519	.	-	.	ID=EQ966311.1.trna2.exon2;Parent=EQ966311.1.trna2;
+##gff-version 3
+EQ966313.1	tRNAscan-SE	tRNA	108423	108494	73.9	+	.	ID=EQ966313.1.trna1;Name=EQ966313.1.tRNA1-ThrCGT;isotype=Thr;anticodon=CGT;gene_biotype=tRNA;
+EQ966313.1	tRNAscan-SE	exon	108423	108494	.	+	.	ID=EQ966313.1.trna1.exon1;Parent=EQ966313.1.trna1;
+EQ966313.1	tRNAscan-SE	tRNA	167070	167141	73.9	+	.	ID=EQ966313.1.trna2;Name=EQ966313.1.tRNA2-ThrCGT;isotype=Thr;anticodon=CGT;gene_biotype=tRNA;
+EQ966313.1	tRNAscan-SE	exon	167070	167141	.	+	.	ID=EQ966313.1.trna2.exon1;Parent=EQ966313.1.trna2;
+EQ966313.1	tRNAscan-SE	tRNA	254798	254897	59.4	+	.	ID=EQ966313.1.trna3;Name=EQ966313.1.tRNA3-ArgCCG;isotype=Arg;anticodon=CCG;gene_biotype=tRNA;
+EQ966313.1	tRNAscan-SE	exon	254798	254834	.	+	.	ID=EQ966313.1.trna3.exon1;Parent=EQ966313.1.trna3;
+EQ966313.1	tRNAscan-SE	exon	254862	254897	.	+	.	ID=EQ966313.1.trna3.exon2;Parent=EQ966313.1.trna3;
+##gff-version 3
+EQ966314.1	tRNAscan-SE	tRNA	268223	268333	72.3	+	.	ID=EQ966314.1.trna1;Name=EQ966314.1.tRNA1-AsnGTT;isotype=Asn;anticodon=GTT;gene_biotype=tRNA;
+EQ966314.1	tRNAscan-SE	exon	268223	268260	.	+	.	ID=EQ966314.1.trna1.exon1;Parent=EQ966314.1.trna1;
+EQ966314.1	tRNAscan-SE	exon	268298	268333	.	+	.	ID=EQ966314.1.trna1.exon2;Parent=EQ966314.1.trna1;
+##gff-version 3
+EQ966315.1	tRNAscan-SE	tRNA	143596	143671	37.6	+	.	ID=EQ966315.1.trna1;Name=EQ966315.1.tRNA1-ArgACG;isotype=Arg;anticodon=ACG;gene_biotype=tRNA;
+EQ966315.1	tRNAscan-SE	exon	143596	143671	.	+	.	ID=EQ966315.1.trna1.exon1;Parent=EQ966315.1.trna1;
+EQ966315.1	tRNAscan-SE	tRNA	165144	165232	67.3	+	.	ID=EQ966315.1.trna2;Name=EQ966315.1.tRNA2-SerAGA;isotype=Ser;anticodon=AGA;gene_biotype=tRNA;
+EQ966315.1	tRNAscan-SE	exon	165144	165180	.	+	.	ID=EQ966315.1.trna2.exon1;Parent=EQ966315.1.trna2;
+EQ966315.1	tRNAscan-SE	exon	165188	165232	.	+	.	ID=EQ966315.1.trna2.exon2;Parent=EQ966315.1.trna2;
+EQ966315.1	tRNAscan-SE	tRNA	212537	212633	58.6	+	.	ID=EQ966315.1.trna3;Name=EQ966315.1.tRNA3-ArgCCT;isotype=Arg;anticodon=CCT;gene_biotype=tRNA;
+EQ966315.1	tRNAscan-SE	exon	212537	212573	.	+	.	ID=EQ966315.1.trna3.exon1;Parent=EQ966315.1.trna3;
+EQ966315.1	tRNAscan-SE	exon	212598	212633	.	+	.	ID=EQ966315.1.trna3.exon2;Parent=EQ966315.1.trna3;
+EQ966315.1	tRNAscan-SE	tRNA	303249	303332	59.7	-	.	ID=EQ966315.1.trna4;Name=EQ966315.1.tRNA4-ProCGG;isotype=Pro;anticodon=CGG;gene_biotype=tRNA;
+EQ966315.1	tRNAscan-SE	exon	303297	303332	.	-	.	ID=EQ966315.1.trna4.exon1;Parent=EQ966315.1.trna4;
+EQ966315.1	tRNAscan-SE	exon	303249	303284	.	-	.	ID=EQ966315.1.trna4.exon2;Parent=EQ966315.1.trna4;
+##gff-version 3
+EQ966316.1	tRNAscan-SE	tRNA	10130	10211	55.5	-	.	ID=EQ966316.1.trna1;Name=EQ966316.1.tRNA1-ArgACG;isotype=Arg;anticodon=ACG;gene_biotype=tRNA;
+EQ966316.1	tRNAscan-SE	exon	10176	10211	.	-	.	ID=EQ966316.1.trna1.exon1;Parent=EQ966316.1.trna1;
+EQ966316.1	tRNAscan-SE	exon	10130	10165	.	-	.	ID=EQ966316.1.trna1.exon2;Parent=EQ966316.1.trna1;
+##gff-version 3
+EQ966318.1	tRNAscan-SE	tRNA	289949	290036	56.3	-	.	ID=EQ966318.1.trna2;Name=EQ966318.1.tRNA2-LeuAAG;isotype=Leu;anticodon=AAG;gene_biotype=tRNA;
+EQ966318.1	tRNAscan-SE	exon	289999	290036	.	-	.	ID=EQ966318.1.trna2.exon1;Parent=EQ966318.1.trna2;
+EQ966318.1	tRNAscan-SE	exon	289949	289990	.	-	.	ID=EQ966318.1.trna2.exon2;Parent=EQ966318.1.trna2;
+EQ966318.1	tRNAscan-SE	tRNA	290379	290466	67.7	+	.	ID=EQ966318.1.trna1;Name=EQ966318.1.tRNA1-LeuAAG;isotype=Leu;anticodon=AAG;gene_biotype=tRNA;
+EQ966318.1	tRNAscan-SE	exon	290379	290416	.	+	.	ID=EQ966318.1.trna1.exon1;Parent=EQ966318.1.trna1;
+EQ966318.1	tRNAscan-SE	exon	290425	290466	.	+	.	ID=EQ966318.1.trna1.exon2;Parent=EQ966318.1.trna1;
+##gff-version 3
+EQ966322.1	tRNAscan-SE	pseudogene	2995	3066	33.9	-	.	ID=EQ966322.1.trna2;Name=EQ966322.1.tRNA2-LeuCAA;isotype=Leu;anticodon=CAA;gene_biotype=pseudogene;
+EQ966322.1	tRNAscan-SE	exon	2995	3066	.	-	.	ID=EQ966322.1.trna2.exon1;Parent=EQ966322.1.trna2;
+EQ966322.1	tRNAscan-SE	tRNA	81315	81410	41.3	+	.	ID=EQ966322.1.trna1;Name=EQ966322.1.tRNA1-HisGTG;isotype=His;anticodon=GTG;gene_biotype=tRNA;
+EQ966322.1	tRNAscan-SE	exon	81315	81351	.	+	.	ID=EQ966322.1.trna1.exon1;Parent=EQ966322.1.trna1;
+EQ966322.1	tRNAscan-SE	exon	81376	81410	.	+	.	ID=EQ966322.1.trna1.exon2;Parent=EQ966322.1.trna1;
+##gff-version 3
+EQ966323.1	tRNAscan-SE	tRNA	117550	117643	41.4	-	.	ID=EQ966323.1.trna3;Name=EQ966323.1.tRNA3-HisGTG;isotype=His;anticodon=GTG;gene_biotype=tRNA;
+EQ966323.1	tRNAscan-SE	exon	117607	117643	.	-	.	ID=EQ966323.1.trna3.exon1;Parent=EQ966323.1.trna3;
+EQ966323.1	tRNAscan-SE	exon	117550	117584	.	-	.	ID=EQ966323.1.trna3.exon2;Parent=EQ966323.1.trna3;
+EQ966323.1	tRNAscan-SE	tRNA	129689	129772	72.0	+	.	ID=EQ966323.1.trna1;Name=EQ966323.1.tRNA1-IleAAT;isotype=Ile;anticodon=AAT;gene_biotype=tRNA;
+EQ966323.1	tRNAscan-SE	exon	129689	129726	.	+	.	ID=EQ966323.1.trna1.exon1;Parent=EQ966323.1.trna1;
+EQ966323.1	tRNAscan-SE	exon	129737	129772	.	+	.	ID=EQ966323.1.trna1.exon2;Parent=EQ966323.1.trna1;
+EQ966323.1	tRNAscan-SE	tRNA	146667	146752	53.5	-	.	ID=EQ966323.1.trna2;Name=EQ966323.1.tRNA2-GlyTCC;isotype=Gly;anticodon=TCC;gene_biotype=tRNA;
+EQ966323.1	tRNAscan-SE	exon	146717	146752	.	-	.	ID=EQ966323.1.trna2.exon1;Parent=EQ966323.1.trna2;
+EQ966323.1	tRNAscan-SE	exon	146667	146701	.	-	.	ID=EQ966323.1.trna2.exon2;Parent=EQ966323.1.trna2;
+##gff-version 3
+EQ966330.1	tRNAscan-SE	tRNA	44601	44694	54.0	-	.	ID=EQ966330.1.trna1;Name=EQ966330.1.tRNA1-ArgACG;isotype=Arg;anticodon=ACG;gene_biotype=tRNA;
+EQ966330.1	tRNAscan-SE	exon	44659	44694	.	-	.	ID=EQ966330.1.trna1.exon1;Parent=EQ966330.1.trna1;
+EQ966330.1	tRNAscan-SE	exon	44601	44636	.	-	.	ID=EQ966330.1.trna1.exon2;Parent=EQ966330.1.trna1;
+##gff-version 3
+EQ966331.1	tRNAscan-SE	tRNA	266694	266800	75.9	-	.	ID=EQ966331.1.trna1;Name=EQ966331.1.tRNA1-MetCAT;isotype=Met;anticodon=CAT;gene_biotype=tRNA;
+EQ966331.1	tRNAscan-SE	exon	266763	266800	.	-	.	ID=EQ966331.1.trna1.exon1;Parent=EQ966331.1.trna1;
+EQ966331.1	tRNAscan-SE	exon	266694	266729	.	-	.	ID=EQ966331.1.trna1.exon2;Parent=EQ966331.1.trna1;
+##gff-version 3
+EQ966333.1	tRNAscan-SE	tRNA	94059	94142	67.5	+	.	ID=EQ966333.1.trna1;Name=EQ966333.1.tRNA1-ThrAGT;isotype=Thr;anticodon=AGT;gene_biotype=tRNA;
+EQ966333.1	tRNAscan-SE	exon	94059	94095	.	+	.	ID=EQ966333.1.trna1.exon1;Parent=EQ966333.1.trna1;
+EQ966333.1	tRNAscan-SE	exon	94107	94142	.	+	.	ID=EQ966333.1.trna1.exon2;Parent=EQ966333.1.trna1;
+EQ966333.1	tRNAscan-SE	tRNA	94388	94490	65.7	-	.	ID=EQ966333.1.trna2;Name=EQ966333.1.tRNA2-ThrAGT;isotype=Thr;anticodon=AGT;gene_biotype=tRNA;
+EQ966333.1	tRNAscan-SE	exon	94454	94490	.	-	.	ID=EQ966333.1.trna2.exon1;Parent=EQ966333.1.trna2;
+EQ966333.1	tRNAscan-SE	exon	94388	94423	.	-	.	ID=EQ966333.1.trna2.exon2;Parent=EQ966333.1.trna2;
+##gff-version 3
+EQ966335.1	tRNAscan-SE	tRNA	230995	231079	59.6	-	.	ID=EQ966335.1.trna2;Name=EQ966335.1.tRNA2-ProCGG;isotype=Pro;anticodon=CGG;gene_biotype=tRNA;
+EQ966335.1	tRNAscan-SE	exon	231044	231079	.	-	.	ID=EQ966335.1.trna2.exon1;Parent=EQ966335.1.trna2;
+EQ966335.1	tRNAscan-SE	exon	230995	231030	.	-	.	ID=EQ966335.1.trna2.exon2;Parent=EQ966335.1.trna2;
+EQ966335.1	tRNAscan-SE	tRNA	246168	246255	67.7	+	.	ID=EQ966335.1.trna1;Name=EQ966335.1.tRNA1-LeuAAG;isotype=Leu;anticodon=AAG;gene_biotype=tRNA;
+EQ966335.1	tRNAscan-SE	exon	246168	246205	.	+	.	ID=EQ966335.1.trna1.exon1;Parent=EQ966335.1.trna1;
+EQ966335.1	tRNAscan-SE	exon	246214	246255	.	+	.	ID=EQ966335.1.trna1.exon2;Parent=EQ966335.1.trna1;
+##gff-version 3
+EQ966338.1	tRNAscan-SE	tRNA	207220	207308	55.2	+	.	ID=EQ966338.1.trna1;Name=EQ966338.1.tRNA1-ArgACG;isotype=Arg;anticodon=ACG;gene_biotype=tRNA;
+EQ966338.1	tRNAscan-SE	exon	207220	207255	.	+	.	ID=EQ966338.1.trna1.exon1;Parent=EQ966338.1.trna1;
+EQ966338.1	tRNAscan-SE	exon	207273	207308	.	+	.	ID=EQ966338.1.trna1.exon2;Parent=EQ966338.1.trna1;
+##gff-version 3
+EQ966339.1	tRNAscan-SE	tRNA	166858	166959	60.9	+	.	ID=EQ966339.1.trna1;Name=EQ966339.1.tRNA1-AsnGTT;isotype=Asn;anticodon=GTT;gene_biotype=tRNA;
+EQ966339.1	tRNAscan-SE	exon	166858	166895	.	+	.	ID=EQ966339.1.trna1.exon1;Parent=EQ966339.1.trna1;
+EQ966339.1	tRNAscan-SE	exon	166924	166959	.	+	.	ID=EQ966339.1.trna1.exon2;Parent=EQ966339.1.trna1;
+##gff-version 3
+EQ966340.1	tRNAscan-SE	tRNA	43875	43955	64.9	-	.	ID=EQ966340.1.trna3;Name=EQ966340.1.tRNA3-AlaCGC;isotype=Ala;anticodon=CGC;gene_biotype=tRNA;
+EQ966340.1	tRNAscan-SE	exon	43920	43955	.	-	.	ID=EQ966340.1.trna3.exon1;Parent=EQ966340.1.trna3;
+EQ966340.1	tRNAscan-SE	exon	43875	43910	.	-	.	ID=EQ966340.1.trna3.exon2;Parent=EQ966340.1.trna3;
+EQ966340.1	tRNAscan-SE	tRNA	46486	46584	64.2	+	.	ID=EQ966340.1.trna1;Name=EQ966340.1.tRNA1-AlaCGC;isotype=Ala;anticodon=CGC;gene_biotype=tRNA;
+EQ966340.1	tRNAscan-SE	exon	46486	46521	.	+	.	ID=EQ966340.1.trna1.exon1;Parent=EQ966340.1.trna1;
+EQ966340.1	tRNAscan-SE	exon	46549	46584	.	+	.	ID=EQ966340.1.trna1.exon2;Parent=EQ966340.1.trna1;
+EQ966340.1	tRNAscan-SE	tRNA	61109	61194	66.2	-	.	ID=EQ966340.1.trna2;Name=EQ966340.1.tRNA2-AlaTGC;isotype=Ala;anticodon=TGC;gene_biotype=tRNA;
+EQ966340.1	tRNAscan-SE	exon	61159	61194	.	-	.	ID=EQ966340.1.trna2.exon1;Parent=EQ966340.1.trna2;
+EQ966340.1	tRNAscan-SE	exon	61109	61144	.	-	.	ID=EQ966340.1.trna2.exon2;Parent=EQ966340.1.trna2;
+##gff-version 3
+EQ966341.1	tRNAscan-SE	tRNA	206462	206553	66.8	-	.	ID=EQ966341.1.trna1;Name=EQ966341.1.tRNA1-PheGAA;isotype=Phe;anticodon=GAA;gene_biotype=tRNA;
+EQ966341.1	tRNAscan-SE	exon	206517	206553	.	-	.	ID=EQ966341.1.trna1.exon1;Parent=EQ966341.1.trna1;
+EQ966341.1	tRNAscan-SE	exon	206462	206497	.	-	.	ID=EQ966341.1.trna1.exon2;Parent=EQ966341.1.trna1;
+##gff-version 3
+EQ966342.1	tRNAscan-SE	tRNA	208644	208731	40.8	-	.	ID=EQ966342.1.trna1;Name=EQ966342.1.tRNA1-HisGTG;isotype=His;anticodon=GTG;gene_biotype=tRNA;
+EQ966342.1	tRNAscan-SE	exon	208695	208731	.	-	.	ID=EQ966342.1.trna1.exon1;Parent=EQ966342.1.trna1;
+EQ966342.1	tRNAscan-SE	exon	208644	208678	.	-	.	ID=EQ966342.1.trna1.exon2;Parent=EQ966342.1.trna1;
+##gff-version 3
+EQ966345.1	tRNAscan-SE	tRNA	112325	112412	46.3	-	.	ID=EQ966345.1.trna1;Name=EQ966345.1.tRNA1-GlyGCC;isotype=Gly;anticodon=GCC;gene_biotype=tRNA;
+EQ966345.1	tRNAscan-SE	exon	112377	112412	.	-	.	ID=EQ966345.1.trna1.exon1;Parent=EQ966345.1.trna1;
+EQ966345.1	tRNAscan-SE	exon	112325	112359	.	-	.	ID=EQ966345.1.trna1.exon2;Parent=EQ966345.1.trna1;
+##gff-version 3
+EQ966346.1	tRNAscan-SE	tRNA	250443	250516	83.1	+	.	ID=EQ966346.1.trna1;Name=EQ966346.1.tRNA1-IleAAT;isotype=Ile;anticodon=AAT;gene_biotype=tRNA;
+EQ966346.1	tRNAscan-SE	exon	250443	250516	.	+	.	ID=EQ966346.1.trna1.exon1;Parent=EQ966346.1.trna1;
+EQ966346.1	tRNAscan-SE	tRNA	256055	256128	82.6	-	.	ID=EQ966346.1.trna2;Name=EQ966346.1.tRNA2-IleAAT;isotype=Ile;anticodon=AAT;gene_biotype=tRNA;
+EQ966346.1	tRNAscan-SE	exon	256055	256128	.	-	.	ID=EQ966346.1.trna2.exon1;Parent=EQ966346.1.trna2;
+##gff-version 3
+EQ966347.1	tRNAscan-SE	tRNA	122872	122954	56.7	-	.	ID=EQ966347.1.trna1;Name=EQ966347.1.tRNA1-GlyTCC;isotype=Gly;anticodon=TCC;gene_biotype=tRNA;
+EQ966347.1	tRNAscan-SE	exon	122919	122954	.	-	.	ID=EQ966347.1.trna1.exon1;Parent=EQ966347.1.trna1;
+EQ966347.1	tRNAscan-SE	exon	122872	122906	.	-	.	ID=EQ966347.1.trna1.exon2;Parent=EQ966347.1.trna1;
+##gff-version 3
+EQ966350.1	tRNAscan-SE	tRNA	35719	35827	66.9	-	.	ID=EQ966350.1.trna2;Name=EQ966350.1.tRNA2-LeuAAG;isotype=Leu;anticodon=AAG;gene_biotype=tRNA;
+EQ966350.1	tRNAscan-SE	exon	35790	35827	.	-	.	ID=EQ966350.1.trna2.exon1;Parent=EQ966350.1.trna2;
+EQ966350.1	tRNAscan-SE	exon	35719	35760	.	-	.	ID=EQ966350.1.trna2.exon2;Parent=EQ966350.1.trna2;
+EQ966350.1	tRNAscan-SE	tRNA	103840	103920	72.1	+	.	ID=EQ966350.1.trna1;Name=EQ966350.1.tRNA1-IleAAT;isotype=Ile;anticodon=AAT;gene_biotype=tRNA;
+EQ966350.1	tRNAscan-SE	exon	103840	103877	.	+	.	ID=EQ966350.1.trna1.exon1;Parent=EQ966350.1.trna1;
+EQ966350.1	tRNAscan-SE	exon	103885	103920	.	+	.	ID=EQ966350.1.trna1.exon2;Parent=EQ966350.1.trna1;
+##gff-version 3
+EQ966353.1	tRNAscan-SE	tRNA	145807	145889	73.4	-	.	ID=EQ966353.1.trna3;Name=EQ966353.1.tRNA3-AsnGTT;isotype=Asn;anticodon=GTT;gene_biotype=tRNA;
+EQ966353.1	tRNAscan-SE	exon	145852	145889	.	-	.	ID=EQ966353.1.trna3.exon1;Parent=EQ966353.1.trna3;
+EQ966353.1	tRNAscan-SE	exon	145807	145842	.	-	.	ID=EQ966353.1.trna3.exon2;Parent=EQ966353.1.trna3;
+EQ966353.1	tRNAscan-SE	tRNA	158133	158215	73.4	-	.	ID=EQ966353.1.trna2;Name=EQ966353.1.tRNA2-AsnGTT;isotype=Asn;anticodon=GTT;gene_biotype=tRNA;
+EQ966353.1	tRNAscan-SE	exon	158178	158215	.	-	.	ID=EQ966353.1.trna2.exon1;Parent=EQ966353.1.trna2;
+EQ966353.1	tRNAscan-SE	exon	158133	158168	.	-	.	ID=EQ966353.1.trna2.exon2;Parent=EQ966353.1.trna2;
+EQ966353.1	tRNAscan-SE	tRNA	169869	169962	56.5	-	.	ID=EQ966353.1.trna1;Name=EQ966353.1.tRNA1-SerGCT;isotype=Ser;anticodon=GCT;gene_biotype=tRNA;
+EQ966353.1	tRNAscan-SE	exon	169926	169962	.	-	.	ID=EQ966353.1.trna1.exon1;Parent=EQ966353.1.trna1;
+EQ966353.1	tRNAscan-SE	exon	169869	169913	.	-	.	ID=EQ966353.1.trna1.exon2;Parent=EQ966353.1.trna1;
+##gff-version 3
+EQ966354.1	tRNAscan-SE	tRNA	159235	159344	68.0	-	.	ID=EQ966354.1.trna1;Name=EQ966354.1.tRNA1-LeuCAA;isotype=Leu;anticodon=CAA;gene_biotype=tRNA;
+EQ966354.1	tRNAscan-SE	exon	159307	159344	.	-	.	ID=EQ966354.1.trna1.exon1;Parent=EQ966354.1.trna1;
+EQ966354.1	tRNAscan-SE	exon	159235	159280	.	-	.	ID=EQ966354.1.trna1.exon2;Parent=EQ966354.1.trna1;
+##gff-version 3
+EQ966356.1	tRNAscan-SE	tRNA	159948	160068	41.3	+	.	ID=EQ966356.1.trna1;Name=EQ966356.1.tRNA1-GlyGCC;isotype=Gly;anticodon=GCC;gene_biotype=tRNA;
+EQ966356.1	tRNAscan-SE	exon	159948	159983	.	+	.	ID=EQ966356.1.trna1.exon1;Parent=EQ966356.1.trna1;
+EQ966356.1	tRNAscan-SE	exon	160034	160068	.	+	.	ID=EQ966356.1.trna1.exon2;Parent=EQ966356.1.trna1;
+##gff-version 3
+EQ966357.1	tRNAscan-SE	tRNA	145660	145737	45.7	-	.	ID=EQ966357.1.trna1;Name=EQ966357.1.tRNA1-AspGTC;isotype=Asp;anticodon=GTC;gene_biotype=tRNA;
+EQ966357.1	tRNAscan-SE	exon	145701	145737	.	-	.	ID=EQ966357.1.trna1.exon1;Parent=EQ966357.1.trna1;
+EQ966357.1	tRNAscan-SE	exon	145660	145694	.	-	.	ID=EQ966357.1.trna1.exon2;Parent=EQ966357.1.trna1;
+##gff-version 3
+EQ966359.1	tRNAscan-SE	tRNA	27106	27187	56.7	+	.	ID=EQ966359.1.trna1;Name=EQ966359.1.tRNA1-GlyTCC;isotype=Gly;anticodon=TCC;gene_biotype=tRNA;
+EQ966359.1	tRNAscan-SE	exon	27106	27141	.	+	.	ID=EQ966359.1.trna1.exon1;Parent=EQ966359.1.trna1;
+EQ966359.1	tRNAscan-SE	exon	27153	27187	.	+	.	ID=EQ966359.1.trna1.exon2;Parent=EQ966359.1.trna1;
+EQ966359.1	tRNAscan-SE	tRNA	64055	64150	45.1	+	.	ID=EQ966359.1.trna2;Name=EQ966359.1.tRNA2-AspGTC;isotype=Asp;anticodon=GTC;gene_biotype=tRNA;
+EQ966359.1	tRNAscan-SE	exon	64055	64091	.	+	.	ID=EQ966359.1.trna2.exon1;Parent=EQ966359.1.trna2;
+EQ966359.1	tRNAscan-SE	exon	64116	64150	.	+	.	ID=EQ966359.1.trna2.exon2;Parent=EQ966359.1.trna2;
+##gff-version 3
+EQ966360.1	tRNAscan-SE	pseudogene	89509	89580	27.7	+	.	ID=EQ966360.1.trna1;Name=EQ966360.1.tRNA1-LeuCAA;isotype=Leu;anticodon=CAA;gene_biotype=pseudogene;
+EQ966360.1	tRNAscan-SE	exon	89509	89580	.	+	.	ID=EQ966360.1.trna1.exon1;Parent=EQ966360.1.trna1;
+##gff-version 3
+EQ966361.1	tRNAscan-SE	tRNA	200293	200383	65.2	-	.	ID=EQ966361.1.trna1;Name=EQ966361.1.tRNA1-SerCGA;isotype=Ser;anticodon=CGA;gene_biotype=tRNA;
+EQ966361.1	tRNAscan-SE	exon	200347	200383	.	-	.	ID=EQ966361.1.trna1.exon1;Parent=EQ966361.1.trna1;
+EQ966361.1	tRNAscan-SE	exon	200293	200337	.	-	.	ID=EQ966361.1.trna1.exon2;Parent=EQ966361.1.trna1;
+##gff-version 3
+EQ966362.1	tRNAscan-SE	tRNA	187471	187542	39.6	+	.	ID=EQ966362.1.trna1;Name=EQ966362.1.tRNA1-LeuCAA;isotype=Leu;anticodon=CAA;gene_biotype=tRNA;
+EQ966362.1	tRNAscan-SE	exon	187471	187542	.	+	.	ID=EQ966362.1.trna1.exon1;Parent=EQ966362.1.trna1;
+##gff-version 3
+EQ966364.1	tRNAscan-SE	tRNA	91867	91948	62.3	+	.	ID=EQ966364.1.trna1;Name=EQ966364.1.tRNA1-ValCAC;isotype=Val;anticodon=CAC;gene_biotype=tRNA;
+EQ966364.1	tRNAscan-SE	exon	91867	91903	.	+	.	ID=EQ966364.1.trna1.exon1;Parent=EQ966364.1.trna1;
+EQ966364.1	tRNAscan-SE	exon	91913	91948	.	+	.	ID=EQ966364.1.trna1.exon2;Parent=EQ966364.1.trna1;
+##gff-version 3
+EQ966366.1	tRNAscan-SE	tRNA	29247	29330	73.1	+	.	ID=EQ966366.1.trna1;Name=EQ966366.1.tRNA1-TyrGTA;isotype=Tyr;anticodon=GTA;gene_biotype=tRNA;
+EQ966366.1	tRNAscan-SE	exon	29247	29283	.	+	.	ID=EQ966366.1.trna1.exon1;Parent=EQ966366.1.trna1;
+EQ966366.1	tRNAscan-SE	exon	29295	29330	.	+	.	ID=EQ966366.1.trna1.exon2;Parent=EQ966366.1.trna1;
+##gff-version 3
+EQ966367.1	tRNAscan-SE	tRNA	33856	33948	60.0	+	.	ID=EQ966367.1.trna1;Name=EQ966367.1.tRNA1-ProAGG;isotype=Pro;anticodon=AGG;gene_biotype=tRNA;
+EQ966367.1	tRNAscan-SE	exon	33856	33891	.	+	.	ID=EQ966367.1.trna1.exon1;Parent=EQ966367.1.trna1;
+EQ966367.1	tRNAscan-SE	exon	33913	33948	.	+	.	ID=EQ966367.1.trna1.exon2;Parent=EQ966367.1.trna1;
+EQ966367.1	tRNAscan-SE	tRNA	151615	151702	70.8	-	.	ID=EQ966367.1.trna2;Name=EQ966367.1.tRNA2-LysCTT;isotype=Lys;anticodon=CTT;gene_biotype=tRNA;
+EQ966367.1	tRNAscan-SE	exon	151665	151702	.	-	.	ID=EQ966367.1.trna2.exon1;Parent=EQ966367.1.trna2;
+EQ966367.1	tRNAscan-SE	exon	151615	151650	.	-	.	ID=EQ966367.1.trna2.exon2;Parent=EQ966367.1.trna2;
+##gff-version 3
+EQ966368.1	tRNAscan-SE	pseudogene	207190	207261	41.6	-	.	ID=EQ966368.1.trna1;Name=EQ966368.1.tRNA1-LeuCAA;isotype=Leu;anticodon=CAA;gene_biotype=pseudogene;
+EQ966368.1	tRNAscan-SE	exon	207190	207261	.	-	.	ID=EQ966368.1.trna1.exon1;Parent=EQ966368.1.trna1;
+##gff-version 3
+EQ966370.1	tRNAscan-SE	tRNA	17473	17555	54.8	-	.	ID=EQ966370.1.trna2;Name=EQ966370.1.tRNA2-TrpCCA;isotype=Trp;anticodon=CCA;gene_biotype=tRNA;
+EQ966370.1	tRNAscan-SE	exon	17520	17555	.	-	.	ID=EQ966370.1.trna2.exon1;Parent=EQ966370.1.trna2;
+EQ966370.1	tRNAscan-SE	exon	17473	17509	.	-	.	ID=EQ966370.1.trna2.exon2;Parent=EQ966370.1.trna2;
+EQ966370.1	tRNAscan-SE	tRNA	43719	43790	72.9	+	.	ID=EQ966370.1.trna1;Name=EQ966370.1.tRNA1-CysGCA;isotype=Cys;anticodon=GCA;gene_biotype=tRNA;
+EQ966370.1	tRNAscan-SE	exon	43719	43790	.	+	.	ID=EQ966370.1.trna1.exon1;Parent=EQ966370.1.trna1;
+##gff-version 3
+EQ966371.1	tRNAscan-SE	tRNA	8808	8893	66.0	+	.	ID=EQ966371.1.trna1;Name=EQ966371.1.tRNA1-ValCAC;isotype=Val;anticodon=CAC;gene_biotype=tRNA;
+EQ966371.1	tRNAscan-SE	exon	8808	8845	.	+	.	ID=EQ966371.1.trna1.exon1;Parent=EQ966371.1.trna1;
+EQ966371.1	tRNAscan-SE	exon	8858	8893	.	+	.	ID=EQ966371.1.trna1.exon2;Parent=EQ966371.1.trna1;
+EQ966371.1	tRNAscan-SE	tRNA	44771	44854	40.1	+	.	ID=EQ966371.1.trna2;Name=EQ966371.1.tRNA2-GluTTC;isotype=Glu;anticodon=TTC;gene_biotype=tRNA;
+EQ966371.1	tRNAscan-SE	exon	44771	44807	.	+	.	ID=EQ966371.1.trna2.exon1;Parent=EQ966371.1.trna2;
+EQ966371.1	tRNAscan-SE	exon	44820	44854	.	+	.	ID=EQ966371.1.trna2.exon2;Parent=EQ966371.1.trna2;
+EQ966371.1	tRNAscan-SE	tRNA	57291	57361	54.9	+	.	ID=EQ966371.1.trna3;Name=EQ966371.1.tRNA3-GlyCCC;isotype=Gly;anticodon=CCC;gene_biotype=tRNA;
+EQ966371.1	tRNAscan-SE	exon	57291	57361	.	+	.	ID=EQ966371.1.trna3.exon1;Parent=EQ966371.1.trna3;
+##gff-version 3
+EQ966374.1	tRNAscan-SE	tRNA	143103	143185	66.7	-	.	ID=EQ966374.1.trna4;Name=EQ966374.1.tRNA4-PheGAA;isotype=Phe;anticodon=GAA;gene_biotype=tRNA;
+EQ966374.1	tRNAscan-SE	exon	143149	143185	.	-	.	ID=EQ966374.1.trna4.exon1;Parent=EQ966374.1.trna4;
+EQ966374.1	tRNAscan-SE	exon	143103	143138	.	-	.	ID=EQ966374.1.trna4.exon2;Parent=EQ966374.1.trna4;
+EQ966374.1	tRNAscan-SE	tRNA	146513	146595	66.7	+	.	ID=EQ966374.1.trna1;Name=EQ966374.1.tRNA1-PheGAA;isotype=Phe;anticodon=GAA;gene_biotype=tRNA;
+EQ966374.1	tRNAscan-SE	exon	146513	146549	.	+	.	ID=EQ966374.1.trna1.exon1;Parent=EQ966374.1.trna1;
+EQ966374.1	tRNAscan-SE	exon	146560	146595	.	+	.	ID=EQ966374.1.trna1.exon2;Parent=EQ966374.1.trna1;
+EQ966374.1	tRNAscan-SE	tRNA	161791	161873	65.4	-	.	ID=EQ966374.1.trna3;Name=EQ966374.1.tRNA3-PheGAA;isotype=Phe;anticodon=GAA;gene_biotype=tRNA;
+EQ966374.1	tRNAscan-SE	exon	161837	161873	.	-	.	ID=EQ966374.1.trna3.exon1;Parent=EQ966374.1.trna3;
+EQ966374.1	tRNAscan-SE	exon	161791	161826	.	-	.	ID=EQ966374.1.trna3.exon2;Parent=EQ966374.1.trna3;
+EQ966374.1	tRNAscan-SE	tRNA	178388	178491	76.0	-	.	ID=EQ966374.1.trna2;Name=EQ966374.1.tRNA2-MetCAT;isotype=Met;anticodon=CAT;gene_biotype=tRNA;
+EQ966374.1	tRNAscan-SE	exon	178454	178491	.	-	.	ID=EQ966374.1.trna2.exon1;Parent=EQ966374.1.trna2;
+EQ966374.1	tRNAscan-SE	exon	178388	178423	.	-	.	ID=EQ966374.1.trna2.exon2;Parent=EQ966374.1.trna2;
+##gff-version 3
+EQ966375.1	tRNAscan-SE	tRNA	106520	106610	65.6	-	.	ID=EQ966375.1.trna1;Name=EQ966375.1.tRNA1-SerTGA;isotype=Ser;anticodon=TGA;gene_biotype=tRNA;
+EQ966375.1	tRNAscan-SE	exon	106574	106610	.	-	.	ID=EQ966375.1.trna1.exon1;Parent=EQ966375.1.trna1;
+EQ966375.1	tRNAscan-SE	exon	106520	106564	.	-	.	ID=EQ966375.1.trna1.exon2;Parent=EQ966375.1.trna1;
+##gff-version 3
+EQ966377.1	tRNAscan-SE	tRNA	7150	7243	56.5	-	.	ID=EQ966377.1.trna1;Name=EQ966377.1.tRNA1-SerGCT;isotype=Ser;anticodon=GCT;gene_biotype=tRNA;
+EQ966377.1	tRNAscan-SE	exon	7207	7243	.	-	.	ID=EQ966377.1.trna1.exon1;Parent=EQ966377.1.trna1;
+EQ966377.1	tRNAscan-SE	exon	7150	7194	.	-	.	ID=EQ966377.1.trna1.exon2;Parent=EQ966377.1.trna1;
+##gff-version 3
+EQ966379.1	tRNAscan-SE	tRNA	183127	183231	62.3	-	.	ID=EQ966379.1.trna1;Name=EQ966379.1.tRNA1-GlnTTG;isotype=Gln;anticodon=TTG;gene_biotype=tRNA;
+EQ966379.1	tRNAscan-SE	exon	183194	183231	.	-	.	ID=EQ966379.1.trna1.exon1;Parent=EQ966379.1.trna1;
+EQ966379.1	tRNAscan-SE	exon	183127	183161	.	-	.	ID=EQ966379.1.trna1.exon2;Parent=EQ966379.1.trna1;
+##gff-version 3
+EQ966382.1	tRNAscan-SE	tRNA	49680	49752	60.9	-	.	ID=EQ966382.1.trna4;Name=EQ966382.1.tRNA4-iMetCAT;isotype=iMet;anticodon=CAT;gene_biotype=tRNA;
+EQ966382.1	tRNAscan-SE	exon	49680	49752	.	-	.	ID=EQ966382.1.trna4.exon1;Parent=EQ966382.1.trna4;
+EQ966382.1	tRNAscan-SE	tRNA	116665	116766	70.3	+	.	ID=EQ966382.1.trna1;Name=EQ966382.1.tRNA1-LysCTT;isotype=Lys;anticodon=CTT;gene_biotype=tRNA;
+EQ966382.1	tRNAscan-SE	exon	116665	116702	.	+	.	ID=EQ966382.1.trna1.exon1;Parent=EQ966382.1.trna1;
+EQ966382.1	tRNAscan-SE	exon	116731	116766	.	+	.	ID=EQ966382.1.trna1.exon2;Parent=EQ966382.1.trna1;
+EQ966382.1	tRNAscan-SE	tRNA	123228	123325	70.4	-	.	ID=EQ966382.1.trna3;Name=EQ966382.1.tRNA3-LysCTT;isotype=Lys;anticodon=CTT;gene_biotype=tRNA;
+EQ966382.1	tRNAscan-SE	exon	123288	123325	.	-	.	ID=EQ966382.1.trna3.exon1;Parent=EQ966382.1.trna3;
+EQ966382.1	tRNAscan-SE	exon	123228	123263	.	-	.	ID=EQ966382.1.trna3.exon2;Parent=EQ966382.1.trna3;
+EQ966382.1	tRNAscan-SE	tRNA	181488	181593	73.4	-	.	ID=EQ966382.1.trna2;Name=EQ966382.1.tRNA2-LysTTT;isotype=Lys;anticodon=TTT;gene_biotype=tRNA;
+EQ966382.1	tRNAscan-SE	exon	181556	181593	.	-	.	ID=EQ966382.1.trna2.exon1;Parent=EQ966382.1.trna2;
+EQ966382.1	tRNAscan-SE	exon	181488	181523	.	-	.	ID=EQ966382.1.trna2.exon2;Parent=EQ966382.1.trna2;
+##gff-version 3
+EQ966388.1	tRNAscan-SE	tRNA	31924	32009	63.0	-	.	ID=EQ966388.1.trna1;Name=EQ966388.1.tRNA1-AlaAGC;isotype=Ala;anticodon=AGC;gene_biotype=tRNA;
+EQ966388.1	tRNAscan-SE	exon	31972	32009	.	-	.	ID=EQ966388.1.trna1.exon1;Parent=EQ966388.1.trna1;
+EQ966388.1	tRNAscan-SE	exon	31924	31959	.	-	.	ID=EQ966388.1.trna1.exon2;Parent=EQ966388.1.trna1;
+##gff-version 3
+EQ966389.1	tRNAscan-SE	pseudogene	110398	110492	35.1	+	.	ID=EQ966389.1.trna1;Name=EQ966389.1.tRNA1-AspGTC;isotype=Asp;anticodon=GTC;gene_biotype=pseudogene;
+EQ966389.1	tRNAscan-SE	exon	110398	110434	.	+	.	ID=EQ966389.1.trna1.exon1;Parent=EQ966389.1.trna1;
+EQ966389.1	tRNAscan-SE	exon	110458	110492	.	+	.	ID=EQ966389.1.trna1.exon2;Parent=EQ966389.1.trna1;
+##gff-version 3
+EQ966390.1	tRNAscan-SE	tRNA	89558	89631	72.8	-	.	ID=EQ966390.1.trna1;Name=EQ966390.1.tRNA1-ValAAC;isotype=Val;anticodon=AAC;gene_biotype=tRNA;
+EQ966390.1	tRNAscan-SE	exon	89558	89631	.	-	.	ID=EQ966390.1.trna1.exon1;Parent=EQ966390.1.trna1;
+##gff-version 3
+EQ966401.1	tRNAscan-SE	tRNA	13927	14009	75.5	+	.	ID=EQ966401.1.trna1;Name=EQ966401.1.tRNA1-ArgTCG;isotype=Arg;anticodon=TCG;gene_biotype=tRNA;
+EQ966401.1	tRNAscan-SE	exon	13927	13962	.	+	.	ID=EQ966401.1.trna1.exon1;Parent=EQ966401.1.trna1;
+EQ966401.1	tRNAscan-SE	exon	13974	14009	.	+	.	ID=EQ966401.1.trna1.exon2;Parent=EQ966401.1.trna1;
+EQ966401.1	tRNAscan-SE	tRNA	16820	16902	75.5	-	.	ID=EQ966401.1.trna4;Name=EQ966401.1.tRNA4-ArgTCG;isotype=Arg;anticodon=TCG;gene_biotype=tRNA;
+EQ966401.1	tRNAscan-SE	exon	16867	16902	.	-	.	ID=EQ966401.1.trna4.exon1;Parent=EQ966401.1.trna4;
+EQ966401.1	tRNAscan-SE	exon	16820	16855	.	-	.	ID=EQ966401.1.trna4.exon2;Parent=EQ966401.1.trna4;
+EQ966401.1	tRNAscan-SE	tRNA	28121	28206	56.9	+	.	ID=EQ966401.1.trna2;Name=EQ966401.1.tRNA2-GlyTCC;isotype=Gly;anticodon=TCC;gene_biotype=tRNA;
+EQ966401.1	tRNAscan-SE	exon	28121	28156	.	+	.	ID=EQ966401.1.trna2.exon1;Parent=EQ966401.1.trna2;
+EQ966401.1	tRNAscan-SE	exon	28172	28206	.	+	.	ID=EQ966401.1.trna2.exon2;Parent=EQ966401.1.trna2;
+EQ966401.1	tRNAscan-SE	tRNA	45088	45171	72.0	-	.	ID=EQ966401.1.trna3;Name=EQ966401.1.tRNA3-IleAAT;isotype=Ile;anticodon=AAT;gene_biotype=tRNA;
+EQ966401.1	tRNAscan-SE	exon	45134	45171	.	-	.	ID=EQ966401.1.trna3.exon1;Parent=EQ966401.1.trna3;
+EQ966401.1	tRNAscan-SE	exon	45088	45123	.	-	.	ID=EQ966401.1.trna3.exon2;Parent=EQ966401.1.trna3;
+##gff-version 3
+EQ966402.1	tRNAscan-SE	tRNA	145021	145108	75.2	-	.	ID=EQ966402.1.trna1;Name=EQ966402.1.tRNA1-IleTAT;isotype=Ile;anticodon=TAT;gene_biotype=tRNA;
+EQ966402.1	tRNAscan-SE	exon	145071	145108	.	-	.	ID=EQ966402.1.trna1.exon1;Parent=EQ966402.1.trna1;
+EQ966402.1	tRNAscan-SE	exon	145021	145056	.	-	.	ID=EQ966402.1.trna1.exon2;Parent=EQ966402.1.trna1;
+##gff-version 3
+EQ966403.1	tRNAscan-SE	tRNA	125168	125249	49.0	-	.	ID=EQ966403.1.trna1;Name=EQ966403.1.tRNA1-GlyGCC;isotype=Gly;anticodon=GCC;gene_biotype=tRNA;
+EQ966403.1	tRNAscan-SE	exon	125214	125249	.	-	.	ID=EQ966403.1.trna1.exon1;Parent=EQ966403.1.trna1;
+EQ966403.1	tRNAscan-SE	exon	125168	125202	.	-	.	ID=EQ966403.1.trna1.exon2;Parent=EQ966403.1.trna1;
+##gff-version 3
+EQ966413.1	tRNAscan-SE	tRNA	135209	135280	65.6	-	.	ID=EQ966413.1.trna1;Name=EQ966413.1.tRNA1-GluCTC;isotype=Glu;anticodon=CTC;gene_biotype=tRNA;
+EQ966413.1	tRNAscan-SE	exon	135209	135280	.	-	.	ID=EQ966413.1.trna1.exon1;Parent=EQ966413.1.trna1;
+##gff-version 3
+EQ966418.1	tRNAscan-SE	tRNA	103508	103581	72.8	-	.	ID=EQ966418.1.trna3;Name=EQ966418.1.tRNA3-ValAAC;isotype=Val;anticodon=AAC;gene_biotype=tRNA;
+EQ966418.1	tRNAscan-SE	exon	103508	103581	.	-	.	ID=EQ966418.1.trna3.exon1;Parent=EQ966418.1.trna3;
+EQ966418.1	tRNAscan-SE	tRNA	105956	106029	69.4	+	.	ID=EQ966418.1.trna1;Name=EQ966418.1.tRNA1-ValTAC;isotype=Val;anticodon=TAC;gene_biotype=tRNA;
+EQ966418.1	tRNAscan-SE	exon	105956	106029	.	+	.	ID=EQ966418.1.trna1.exon1;Parent=EQ966418.1.trna1;
+EQ966418.1	tRNAscan-SE	tRNA	131771	131853	59.2	-	.	ID=EQ966418.1.trna2;Name=EQ966418.1.tRNA2-GlnCTG;isotype=Gln;anticodon=CTG;gene_biotype=tRNA;
+EQ966418.1	tRNAscan-SE	exon	131816	131853	.	-	.	ID=EQ966418.1.trna2.exon1;Parent=EQ966418.1.trna2;
+EQ966418.1	tRNAscan-SE	exon	131771	131805	.	-	.	ID=EQ966418.1.trna2.exon2;Parent=EQ966418.1.trna2;
+##gff-version 3
+EQ966424.1	tRNAscan-SE	tRNA	121355	121442	38.1	-	.	ID=EQ966424.1.trna2;Name=EQ966424.1.tRNA2-HisGTG;isotype=His;anticodon=GTG;gene_biotype=tRNA;
+EQ966424.1	tRNAscan-SE	exon	121406	121442	.	-	.	ID=EQ966424.1.trna2.exon1;Parent=EQ966424.1.trna2;
+EQ966424.1	tRNAscan-SE	exon	121355	121389	.	-	.	ID=EQ966424.1.trna2.exon2;Parent=EQ966424.1.trna2;
+EQ966424.1	tRNAscan-SE	tRNA	138212	138294	43.6	+	.	ID=EQ966424.1.trna1;Name=EQ966424.1.tRNA1-AspGTC;isotype=Asp;anticodon=GTC;gene_biotype=tRNA;
+EQ966424.1	tRNAscan-SE	exon	138212	138248	.	+	.	ID=EQ966424.1.trna1.exon1;Parent=EQ966424.1.trna1;
+EQ966424.1	tRNAscan-SE	exon	138260	138294	.	+	.	ID=EQ966424.1.trna1.exon2;Parent=EQ966424.1.trna1;
+##gff-version 3
+EQ966425.1	tRNAscan-SE	tRNA	75935	76039	67.0	+	.	ID=EQ966425.1.trna1;Name=EQ966425.1.tRNA1-LeuAAG;isotype=Leu;anticodon=AAG;gene_biotype=tRNA;
+EQ966425.1	tRNAscan-SE	exon	75935	75972	.	+	.	ID=EQ966425.1.trna1.exon1;Parent=EQ966425.1.trna1;
+EQ966425.1	tRNAscan-SE	exon	75998	76039	.	+	.	ID=EQ966425.1.trna1.exon2;Parent=EQ966425.1.trna1;
+##gff-version 3
+EQ966429.1	tRNAscan-SE	tRNA	138280	138352	60.9	+	.	ID=EQ966429.1.trna1;Name=EQ966429.1.tRNA1-iMetCAT;isotype=iMet;anticodon=CAT;gene_biotype=tRNA;
+EQ966429.1	tRNAscan-SE	exon	138280	138352	.	+	.	ID=EQ966429.1.trna1.exon1;Parent=EQ966429.1.trna1;
+##gff-version 3
+EQ966430.1	tRNAscan-SE	tRNA	43581	43659	54.1	-	.	ID=EQ966430.1.trna1;Name=EQ966430.1.tRNA1-GluCTC;isotype=Glu;anticodon=CTC;gene_biotype=tRNA;
+EQ966430.1	tRNAscan-SE	exon	43623	43659	.	-	.	ID=EQ966430.1.trna1.exon1;Parent=EQ966430.1.trna1;
+EQ966430.1	tRNAscan-SE	exon	43581	43615	.	-	.	ID=EQ966430.1.trna1.exon2;Parent=EQ966430.1.trna1;
+##gff-version 3
+EQ966435.1	tRNAscan-SE	tRNA	55528	55599	64.6	+	.	ID=EQ966435.1.trna1;Name=EQ966435.1.tRNA1-GluCTC;isotype=Glu;anticodon=CTC;gene_biotype=tRNA;
+EQ966435.1	tRNAscan-SE	exon	55528	55599	.	+	.	ID=EQ966435.1.trna1.exon1;Parent=EQ966435.1.trna1;
+##gff-version 3
+EQ966436.1	tRNAscan-SE	tRNA	134124	134205	61.2	+	.	ID=EQ966436.1.trna1;Name=EQ966436.1.tRNA1-AlaAGC;isotype=Ala;anticodon=AGC;gene_biotype=tRNA;
+EQ966436.1	tRNAscan-SE	exon	134124	134161	.	+	.	ID=EQ966436.1.trna1.exon1;Parent=EQ966436.1.trna1;
+EQ966436.1	tRNAscan-SE	exon	134170	134205	.	+	.	ID=EQ966436.1.trna1.exon2;Parent=EQ966436.1.trna1;
+##gff-version 3
+EQ966446.1	tRNAscan-SE	tRNA	22591	22661	58.3	+	.	ID=EQ966446.1.trna1;Name=EQ966446.1.tRNA1-GlyCCC;isotype=Gly;anticodon=CCC;gene_biotype=tRNA;
+EQ966446.1	tRNAscan-SE	exon	22591	22661	.	+	.	ID=EQ966446.1.trna1.exon1;Parent=EQ966446.1.trna1;
+##gff-version 3
+EQ966451.1	tRNAscan-SE	tRNA	55901	55972	72.4	-	.	ID=EQ966451.1.trna1;Name=EQ966451.1.tRNA1-ThrCGT;isotype=Thr;anticodon=CGT;gene_biotype=tRNA;
+EQ966451.1	tRNAscan-SE	exon	55901	55972	.	-	.	ID=EQ966451.1.trna1.exon1;Parent=EQ966451.1.trna1;
+##gff-version 3
+EQ966454.1	tRNAscan-SE	tRNA	11065	11146	58.1	+	.	ID=EQ966454.1.trna1;Name=EQ966454.1.tRNA1-ProTGG;isotype=Pro;anticodon=TGG;gene_biotype=tRNA;
+EQ966454.1	tRNAscan-SE	exon	11065	11100	.	+	.	ID=EQ966454.1.trna1.exon1;Parent=EQ966454.1.trna1;
+EQ966454.1	tRNAscan-SE	exon	11111	11146	.	+	.	ID=EQ966454.1.trna1.exon2;Parent=EQ966454.1.trna1;
+##gff-version 3
+EQ966456.1	tRNAscan-SE	pseudogene	55817	55888	41.6	+	.	ID=EQ966456.1.trna1;Name=EQ966456.1.tRNA1-LeuCAA;isotype=Leu;anticodon=CAA;gene_biotype=pseudogene;
+EQ966456.1	tRNAscan-SE	exon	55817	55888	.	+	.	ID=EQ966456.1.trna1.exon1;Parent=EQ966456.1.trna1;
+EQ966456.1	tRNAscan-SE	tRNA	85113	85201	55.4	-	.	ID=EQ966456.1.trna2;Name=EQ966456.1.tRNA2-ArgACG;isotype=Arg;anticodon=ACG;gene_biotype=tRNA;
+EQ966456.1	tRNAscan-SE	exon	85166	85201	.	-	.	ID=EQ966456.1.trna2.exon1;Parent=EQ966456.1.trna2;
+EQ966456.1	tRNAscan-SE	exon	85113	85148	.	-	.	ID=EQ966456.1.trna2.exon2;Parent=EQ966456.1.trna2;
+##gff-version 3
+EQ966458.1	tRNAscan-SE	tRNA	107277	107381	63.5	+	.	ID=EQ966458.1.trna1;Name=EQ966458.1.tRNA1-GlnTTG;isotype=Gln;anticodon=TTG;gene_biotype=tRNA;
+EQ966458.1	tRNAscan-SE	exon	107277	107315	.	+	.	ID=EQ966458.1.trna1.exon1;Parent=EQ966458.1.trna1;
+EQ966458.1	tRNAscan-SE	exon	107347	107381	.	+	.	ID=EQ966458.1.trna1.exon2;Parent=EQ966458.1.trna1;
+##gff-version 3
+EQ966460.1	tRNAscan-SE	tRNA	37828	37899	65.6	+	.	ID=EQ966460.1.trna1;Name=EQ966460.1.tRNA1-GluCTC;isotype=Glu;anticodon=CTC;gene_biotype=tRNA;
+EQ966460.1	tRNAscan-SE	exon	37828	37899	.	+	.	ID=EQ966460.1.trna1.exon1;Parent=EQ966460.1.trna1;
+EQ966460.1	tRNAscan-SE	tRNA	46984	47055	65.6	-	.	ID=EQ966460.1.trna2;Name=EQ966460.1.tRNA2-GluCTC;isotype=Glu;anticodon=CTC;gene_biotype=tRNA;
+EQ966460.1	tRNAscan-SE	exon	46984	47055	.	-	.	ID=EQ966460.1.trna2.exon1;Parent=EQ966460.1.trna2;
+##gff-version 3
+EQ966468.1	tRNAscan-SE	tRNA	56475	56576	70.3	+	.	ID=EQ966468.1.trna1;Name=EQ966468.1.tRNA1-LysCTT;isotype=Lys;anticodon=CTT;gene_biotype=tRNA;
+EQ966468.1	tRNAscan-SE	exon	56475	56512	.	+	.	ID=EQ966468.1.trna1.exon1;Parent=EQ966468.1.trna1;
+EQ966468.1	tRNAscan-SE	exon	56541	56576	.	+	.	ID=EQ966468.1.trna1.exon2;Parent=EQ966468.1.trna1;
+EQ966468.1	tRNAscan-SE	tRNA	62980	63076	70.5	-	.	ID=EQ966468.1.trna2;Name=EQ966468.1.tRNA2-LysCTT;isotype=Lys;anticodon=CTT;gene_biotype=tRNA;
+EQ966468.1	tRNAscan-SE	exon	63039	63076	.	-	.	ID=EQ966468.1.trna2.exon1;Parent=EQ966468.1.trna2;
+EQ966468.1	tRNAscan-SE	exon	62980	63015	.	-	.	ID=EQ966468.1.trna2.exon2;Parent=EQ966468.1.trna2;
+##gff-version 3
+EQ966470.1	tRNAscan-SE	tRNA	36118	36199	73.8	+	.	ID=EQ966470.1.trna1;Name=EQ966470.1.tRNA1-TyrGTA;isotype=Tyr;anticodon=GTA;gene_biotype=tRNA;
+EQ966470.1	tRNAscan-SE	exon	36118	36154	.	+	.	ID=EQ966470.1.trna1.exon1;Parent=EQ966470.1.trna1;
+EQ966470.1	tRNAscan-SE	exon	36164	36199	.	+	.	ID=EQ966470.1.trna1.exon2;Parent=EQ966470.1.trna1;
+##gff-version 3
+EQ966483.1	tRNAscan-SE	pseudogene	72556	72627	40.7	-	.	ID=EQ966483.1.trna1;Name=EQ966483.1.tRNA1-LeuCAA;isotype=Leu;anticodon=CAA;gene_biotype=pseudogene;
+EQ966483.1	tRNAscan-SE	exon	72556	72627	.	-	.	ID=EQ966483.1.trna1.exon1;Parent=EQ966483.1.trna1;
+##gff-version 3
+EQ966484.1	tRNAscan-SE	tRNA	19099	19209	72.3	+	.	ID=EQ966484.1.trna1;Name=EQ966484.1.tRNA1-AsnGTT;isotype=Asn;anticodon=GTT;gene_biotype=tRNA;
+EQ966484.1	tRNAscan-SE	exon	19099	19136	.	+	.	ID=EQ966484.1.trna1.exon1;Parent=EQ966484.1.trna1;
+EQ966484.1	tRNAscan-SE	exon	19174	19209	.	+	.	ID=EQ966484.1.trna1.exon2;Parent=EQ966484.1.trna1;
+EQ966484.1	tRNAscan-SE	tRNA	73935	74016	62.3	-	.	ID=EQ966484.1.trna2;Name=EQ966484.1.tRNA2-ValCAC;isotype=Val;anticodon=CAC;gene_biotype=tRNA;
+EQ966484.1	tRNAscan-SE	exon	73980	74016	.	-	.	ID=EQ966484.1.trna2.exon1;Parent=EQ966484.1.trna2;
+EQ966484.1	tRNAscan-SE	exon	73935	73970	.	-	.	ID=EQ966484.1.trna2.exon2;Parent=EQ966484.1.trna2;
+##gff-version 3
+EQ966499.1	tRNAscan-SE	tRNA	22167	22274	58.2	-	.	ID=EQ966499.1.trna1;Name=EQ966499.1.tRNA1-LeuCAG;isotype=Leu;anticodon=CAG;gene_biotype=tRNA;
+EQ966499.1	tRNAscan-SE	exon	22237	22274	.	-	.	ID=EQ966499.1.trna1.exon1;Parent=EQ966499.1.trna1;
+EQ966499.1	tRNAscan-SE	exon	22167	22208	.	-	.	ID=EQ966499.1.trna1.exon2;Parent=EQ966499.1.trna1;
+##gff-version 3
+EQ966511.1	tRNAscan-SE	tRNA	43747	43829	56.7	-	.	ID=EQ966511.1.trna1;Name=EQ966511.1.tRNA1-GlyTCC;isotype=Gly;anticodon=TCC;gene_biotype=tRNA;
+EQ966511.1	tRNAscan-SE	exon	43794	43829	.	-	.	ID=EQ966511.1.trna1.exon1;Parent=EQ966511.1.trna1;
+EQ966511.1	tRNAscan-SE	exon	43747	43781	.	-	.	ID=EQ966511.1.trna1.exon2;Parent=EQ966511.1.trna1;
+##gff-version 3
+EQ966514.1	tRNAscan-SE	tRNA	8219	8315	58.6	-	.	ID=EQ966514.1.trna3;Name=EQ966514.1.tRNA3-ArgCCT;isotype=Arg;anticodon=CCT;gene_biotype=tRNA;
+EQ966514.1	tRNAscan-SE	exon	8279	8315	.	-	.	ID=EQ966514.1.trna3.exon1;Parent=EQ966514.1.trna3;
+EQ966514.1	tRNAscan-SE	exon	8219	8254	.	-	.	ID=EQ966514.1.trna3.exon2;Parent=EQ966514.1.trna3;
+EQ966514.1	tRNAscan-SE	tRNA	36025	36113	67.3	-	.	ID=EQ966514.1.trna2;Name=EQ966514.1.tRNA2-SerAGA;isotype=Ser;anticodon=AGA;gene_biotype=tRNA;
+EQ966514.1	tRNAscan-SE	exon	36077	36113	.	-	.	ID=EQ966514.1.trna2.exon1;Parent=EQ966514.1.trna2;
+EQ966514.1	tRNAscan-SE	exon	36025	36069	.	-	.	ID=EQ966514.1.trna2.exon2;Parent=EQ966514.1.trna2;
+EQ966514.1	tRNAscan-SE	pseudogene	59321	59396	27.6	-	.	ID=EQ966514.1.trna1;Name=EQ966514.1.tRNA1-ArgACG;isotype=Arg;anticodon=ACG;gene_biotype=pseudogene;
+EQ966514.1	tRNAscan-SE	exon	59321	59396	.	-	.	ID=EQ966514.1.trna1.exon1;Parent=EQ966514.1.trna1;
+##gff-version 3
+EQ966515.1	tRNAscan-SE	tRNA	18466	18553	70.8	-	.	ID=EQ966515.1.trna1;Name=EQ966515.1.tRNA1-LysCTT;isotype=Lys;anticodon=CTT;gene_biotype=tRNA;
+EQ966515.1	tRNAscan-SE	exon	18516	18553	.	-	.	ID=EQ966515.1.trna1.exon1;Parent=EQ966515.1.trna1;
+EQ966515.1	tRNAscan-SE	exon	18466	18501	.	-	.	ID=EQ966515.1.trna1.exon2;Parent=EQ966515.1.trna1;
+##gff-version 3
+EQ966518.1	tRNAscan-SE	tRNA	47312	47407	68.5	+	.	ID=EQ966518.1.trna1;Name=EQ966518.1.tRNA1-ThrTGT;isotype=Thr;anticodon=TGT;gene_biotype=tRNA;
+EQ966518.1	tRNAscan-SE	exon	47312	47347	.	+	.	ID=EQ966518.1.trna1.exon1;Parent=EQ966518.1.trna1;
+EQ966518.1	tRNAscan-SE	exon	47372	47407	.	+	.	ID=EQ966518.1.trna1.exon2;Parent=EQ966518.1.trna1;
+##gff-version 3
+EQ966519.1	tRNAscan-SE	tRNA	34919	34991	71.3	+	.	ID=EQ966519.1.trna1;Name=EQ966519.1.tRNA1-ArgTCT;isotype=Arg;anticodon=TCT;gene_biotype=tRNA;
+EQ966519.1	tRNAscan-SE	exon	34919	34991	.	+	.	ID=EQ966519.1.trna1.exon1;Parent=EQ966519.1.trna1;
+##gff-version 3
+EQ966520.1	tRNAscan-SE	tRNA	44000	44094	35.1	-	.	ID=EQ966520.1.trna1;Name=EQ966520.1.tRNA1-LeuTAA;isotype=Leu;anticodon=TAA;gene_biotype=tRNA;
+EQ966520.1	tRNAscan-SE	exon	44056	44094	.	-	.	ID=EQ966520.1.trna1.exon1;Parent=EQ966520.1.trna1;
+EQ966520.1	tRNAscan-SE	exon	44000	44046	.	-	.	ID=EQ966520.1.trna1.exon2;Parent=EQ966520.1.trna1;
+##gff-version 3
+EQ966527.1	tRNAscan-SE	tRNA	40097	40189	59.3	-	.	ID=EQ966527.1.trna1;Name=EQ966527.1.tRNA1-ProCGG;isotype=Pro;anticodon=CGG;gene_biotype=tRNA;
+EQ966527.1	tRNAscan-SE	exon	40154	40189	.	-	.	ID=EQ966527.1.trna1.exon1;Parent=EQ966527.1.trna1;
+EQ966527.1	tRNAscan-SE	exon	40097	40132	.	-	.	ID=EQ966527.1.trna1.exon2;Parent=EQ966527.1.trna1;
+##gff-version 3
+EQ966548.1	tRNAscan-SE	tRNA	2555	2625	55.3	-	.	ID=EQ966548.1.trna1;Name=EQ966548.1.tRNA1-GlyGCC;isotype=Gly;anticodon=GCC;gene_biotype=tRNA;
+EQ966548.1	tRNAscan-SE	exon	2555	2625	.	-	.	ID=EQ966548.1.trna1.exon1;Parent=EQ966548.1.trna1;
+##gff-version 3
+EQ966564.1	tRNAscan-SE	tRNA	34177	34257	72.1	+	.	ID=EQ966564.1.trna1;Name=EQ966564.1.tRNA1-IleAAT;isotype=Ile;anticodon=AAT;gene_biotype=tRNA;
+EQ966564.1	tRNAscan-SE	exon	34177	34214	.	+	.	ID=EQ966564.1.trna1.exon1;Parent=EQ966564.1.trna1;
+EQ966564.1	tRNAscan-SE	exon	34222	34257	.	+	.	ID=EQ966564.1.trna1.exon2;Parent=EQ966564.1.trna1;
+##gff-version 3
+EQ966588.1	tRNAscan-SE	pseudogene	13448	13519	41.6	+	.	ID=EQ966588.1.trna1;Name=EQ966588.1.tRNA1-LeuCAA;isotype=Leu;anticodon=CAA;gene_biotype=pseudogene;
+EQ966588.1	tRNAscan-SE	exon	13448	13519	.	+	.	ID=EQ966588.1.trna1.exon1;Parent=EQ966588.1.trna1;
+##gff-version 3
+EQ966605.1	tRNAscan-SE	tRNA	43736	43825	64.2	+	.	ID=EQ966605.1.trna1;Name=EQ966605.1.tRNA1-PheGAA;isotype=Phe;anticodon=GAA;gene_biotype=tRNA;
+EQ966605.1	tRNAscan-SE	exon	43736	43772	.	+	.	ID=EQ966605.1.trna1.exon1;Parent=EQ966605.1.trna1;
+EQ966605.1	tRNAscan-SE	exon	43790	43825	.	+	.	ID=EQ966605.1.trna1.exon2;Parent=EQ966605.1.trna1;
+##gff-version 3
+EQ966704.1	tRNAscan-SE	pseudogene	6977	7048	41.6	+	.	ID=EQ966704.1.trna1;Name=EQ966704.1.tRNA1-LeuCAA;isotype=Leu;anticodon=CAA;gene_biotype=pseudogene;
+EQ966704.1	tRNAscan-SE	exon	6977	7048	.	+	.	ID=EQ966704.1.trna1.exon1;Parent=EQ966704.1.trna1;
+##gff-version 3
+EQ966706.1	tRNAscan-SE	tRNA	9592	9675	72.1	+	.	ID=EQ966706.1.trna1;Name=EQ966706.1.tRNA1-TyrGTA;isotype=Tyr;anticodon=GTA;gene_biotype=tRNA;
+EQ966706.1	tRNAscan-SE	exon	9592	9628	.	+	.	ID=EQ966706.1.trna1.exon1;Parent=EQ966706.1.trna1;
+EQ966706.1	tRNAscan-SE	exon	9640	9675	.	+	.	ID=EQ966706.1.trna1.exon2;Parent=EQ966706.1.trna1;
+##gff-version 3
+EQ966733.1	tRNAscan-SE	tRNA	11316	11392	66.8	-	.	ID=EQ966733.1.trna1;Name=EQ966733.1.tRNA1-ThrTGT;isotype=Thr;anticodon=TGT;gene_biotype=tRNA;
+EQ966733.1	tRNAscan-SE	exon	11357	11392	.	-	.	ID=EQ966733.1.trna1.exon1;Parent=EQ966733.1.trna1;
+EQ966733.1	tRNAscan-SE	exon	11316	11351	.	-	.	ID=EQ966733.1.trna1.exon2;Parent=EQ966733.1.trna1;
+##gff-version 3
+EQ966762.1	tRNAscan-SE	tRNA	2484	2565	58.1	+	.	ID=EQ966762.1.trna1;Name=EQ966762.1.tRNA1-ProTGG;isotype=Pro;anticodon=TGG;gene_biotype=tRNA;
+EQ966762.1	tRNAscan-SE	exon	2484	2519	.	+	.	ID=EQ966762.1.trna1.exon1;Parent=EQ966762.1.trna1;
+EQ966762.1	tRNAscan-SE	exon	2530	2565	.	+	.	ID=EQ966762.1.trna1.exon2;Parent=EQ966762.1.trna1;
+##gff-version 3
+EQ966847.1	tRNAscan-SE	tRNA	1380	1474	59.4	+	.	ID=EQ966847.1.trna1;Name=EQ966847.1.tRNA1-SerCGA;isotype=Ser;anticodon=CGA;gene_biotype=tRNA;
+EQ966847.1	tRNAscan-SE	exon	1380	1416	.	+	.	ID=EQ966847.1.trna1.exon1;Parent=EQ966847.1.trna1;
+EQ966847.1	tRNAscan-SE	exon	1430	1474	.	+	.	ID=EQ966847.1.trna1.exon2;Parent=EQ966847.1.trna1;
+##gff-version 3
+EQ966860.1	tRNAscan-SE	tRNA	6000	6082	56.7	-	.	ID=EQ966860.1.trna1;Name=EQ966860.1.tRNA1-GlyTCC;isotype=Gly;anticodon=TCC;gene_biotype=tRNA;
+EQ966860.1	tRNAscan-SE	exon	6047	6082	.	-	.	ID=EQ966860.1.trna1.exon1;Parent=EQ966860.1.trna1;
+EQ966860.1	tRNAscan-SE	exon	6000	6034	.	-	.	ID=EQ966860.1.trna1.exon2;Parent=EQ966860.1.trna1;
+##gff-version 3
+EQ966886.1	tRNAscan-SE	tRNA	1700	1784	59.6	+	.	ID=EQ966886.1.trna1;Name=EQ966886.1.tRNA1-ProCGG;isotype=Pro;anticodon=CGG;gene_biotype=tRNA;
+EQ966886.1	tRNAscan-SE	exon	1700	1735	.	+	.	ID=EQ966886.1.trna1.exon1;Parent=EQ966886.1.trna1;
+EQ966886.1	tRNAscan-SE	exon	1749	1784	.	+	.	ID=EQ966886.1.trna1.exon2;Parent=EQ966886.1.trna1;
+##gff-version 3
+EQ966971.1	tRNAscan-SE	tRNA	636	716	73.2	+	.	ID=EQ966971.1.trna1;Name=EQ966971.1.tRNA1-TyrGTA;isotype=Tyr;anticodon=GTA;gene_biotype=tRNA;
+EQ966971.1	tRNAscan-SE	exon	636	672	.	+	.	ID=EQ966971.1.trna1.exon1;Parent=EQ966971.1.trna1;
+EQ966971.1	tRNAscan-SE	exon	681	716	.	+	.	ID=EQ966971.1.trna1.exon2;Parent=EQ966971.1.trna1;
+##gff-version 3
+EQ967042.1	tRNAscan-SE	tRNA	7663	7734	65.6	-	.	ID=EQ967042.1.trna1;Name=EQ967042.1.tRNA1-GluCTC;isotype=Glu;anticodon=CTC;gene_biotype=tRNA;
+EQ967042.1	tRNAscan-SE	exon	7663	7734	.	-	.	ID=EQ967042.1.trna1.exon1;Parent=EQ967042.1.trna1;
+##gff-version 3
+EQ967043.1	tRNAscan-SE	tRNA	1590	1660	58.3	-	.	ID=EQ967043.1.trna1;Name=EQ967043.1.tRNA1-GlyCCC;isotype=Gly;anticodon=CCC;gene_biotype=tRNA;
+EQ967043.1	tRNAscan-SE	exon	1590	1660	.	-	.	ID=EQ967043.1.trna1.exon1;Parent=EQ967043.1.trna1;
+##gff-version 3
+EQ967083.1	tRNAscan-SE	tRNA	382	464	75.5	-	.	ID=EQ967083.1.trna1;Name=EQ967083.1.tRNA1-ArgTCG;isotype=Arg;anticodon=TCG;gene_biotype=tRNA;
+EQ967083.1	tRNAscan-SE	exon	429	464	.	-	.	ID=EQ967083.1.trna1.exon1;Parent=EQ967083.1.trna1;
+EQ967083.1	tRNAscan-SE	exon	382	417	.	-	.	ID=EQ967083.1.trna1.exon2;Parent=EQ967083.1.trna1;
+##gff-version 3
+EQ967398.1	tRNAscan-SE	pseudogene	419	490	41.6	-	.	ID=EQ967398.1.trna1;Name=EQ967398.1.tRNA1-LeuCAA;isotype=Leu;anticodon=CAA;gene_biotype=pseudogene;
+EQ967398.1	tRNAscan-SE	exon	419	490	.	-	.	ID=EQ967398.1.trna1.exon1;Parent=EQ967398.1.trna1;
