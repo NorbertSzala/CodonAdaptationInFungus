@@ -1,0 +1,22 @@
+Ala     : 17      AGC: 6       GGC:         CGC: 7       TGC: 4     
+Gly     : 25      ACC:         GCC: 13      CCC: 5       TCC: 7     
+Pro     : 12      AGG: 5       GGG:         CGG: 5       TGG: 2     
+Thr     : 16      AGT: 5       GGT:         CGT: 7       TGT: 4     
+Val     : 21      AAC: 9       GAC:         CAC: 8       TAC: 4     
+Ser     : 16      AGA: 5       GGA:         CGA: 6       TGA: 1       ACT:         GCT: 4     
+Arg     : 23      ACG: 11      GCG:         CCG: 2       TCG: 5       CCT: 3       TCT: 2     
+Leu     : 41      AAG: 8       GAG:         CAG: 5       TAG: 1       CAA: 25      TAA: 2     
+Phe     : 9       AAA:         GAA: 9                               
+Asn     : 6       ATT:         GTT: 6                               
+Lys     : 13                                CTT: 11      TTT: 2     
+Asp     : 14      ATC:         GTC: 14                              
+Glu     : 19                                CTC: 14      TTC: 5     
+His     : 6       ATG:         GTG: 6                               
+Gln     : 11                                CTG: 7       TTG: 4     
+Ile     : 11      AAT: 9       GAT:         CAT:         TAT: 2     
+Met/iMet: 10                                CAT: 10                 
+Tyr     : 7       ATA:         GTA: 7                               
+Supres  : 0                    CTA:         TTA:         TCA:       
+Cys     : 6       ACA:         GCA: 6                               
+Trp     : 6                                 CCA: 6                  
+SelCys  : 0                                              TCA:       

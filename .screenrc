@@ -1,0 +1,19 @@
+# initial settings
+shell -bash  
+startup_message off
+vbell off
+
+# hardstatus options
+hardstatus on
+#hardstatus string "%-w%{= BW}%50>%n %t%{-}%+w%<"
+hardstatus string " %H | %-w%{= BW}%n%f %t%{-}%+w %=%C%a %Y-%M-%d"
+#hardstatus string "%{+b Rk}(%{-b g}$LOGNAME@%H%{+b R}) (%{-b g}%C %a%{+b R}) %{-b g} %n %t"
+#hardstatus string  " [ %H ] %{wb} %c:%s | %d.%m.%Y %{wr} Load: %l %{wb} %w "
+#hardstatus alwayslastline '%L>%{= wk}[c=screen|d=detatch|K=kill]%=[<esc>=copy|<]>=paste]%=[H=log|h=hardcopy]%=[S=split|Q=only|X=r
+emove|<tab>=focus]%=[?=help]%=%-18=%{= kG}[ %m/%d %c:%s ]'
+hardstatus alwayslastline
+
+# key bindings (these mean F11 and F12)
+bindkey -k F1 prev
+bindkey -k F2 next
+bindkey -k F9 screen
