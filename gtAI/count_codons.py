@@ -100,7 +100,7 @@ def count_tRNA(path):
                 else:
                     codon += translate[nt]
             if len(codon) == 3:
-                codons.append(codon)
+                codons.append(codon[::-1])
 
         for codon in codons:    #adding amount of codons to dictionary
             if not codon in codons_count:

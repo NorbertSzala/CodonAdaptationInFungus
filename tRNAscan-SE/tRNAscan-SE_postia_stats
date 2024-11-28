@@ -1,6 +1,6 @@
 
 tRNAscan-SE v.2.0.9 (July 2021) scan results (on host mycelium)
-Started: Wed Oct 30 08:49:39 PM UTC 2024
+Started: Thu Nov 14 02:28:34 PM UTC 2024
 
 ------------------------------------------------------------
 Sequence file(s) to search:        /db/183_fungi_mai_2022/genomic_fna/GCA_000006255.1_Postia_placenta_V1.0_genomic.fna
@@ -34,11 +34,11 @@ Bases read:             90891856 (x2 for both strands)
 Bases in tRNAs:         25480
 tRNAs predicted:        296
 Av. tRNA length:        86
-Script CPU time:        3.68 s
-Scan CPU time:          457.47 s
-Scan speed:             397.4 Kbp/sec
+Script CPU time:        3.23 s
+Scan CPU time:          497.72 s
+Scan speed:             365.2 Kbp/sec
 
-First pass search(es) ended: Wed Oct 30 09:00:06 PM UTC 2024
+First pass search(es) ended: Thu Nov 14 02:39:23 PM UTC 2024
 
 Infernal Stats:
 -----------
@@ -46,13 +46,13 @@ Candidate tRNAs read:     296
 Infernal-confirmed tRNAs:     289
 Bases scanned by Infernal:  31400
 % seq scanned by Infernal:  0.0 %
-Script CPU time:          1.65 s
-Infernal CPU time:            246.04 s
-Scan speed:               127.6 bp/sec
+Script CPU time:          1.72 s
+Infernal CPU time:            283.05 s
+Scan speed:               110.9 bp/sec
 
-Infernal analysis of tRNAs ended: Wed Oct 30 09:08:59 PM UTC 2024
+Infernal analysis of tRNAs ended: Thu Nov 14 02:48:29 PM UTC 2024
 
-Overall scan speed: 256452.4 bp/sec
+Overall scan speed: 231359.4 bp/sec
 
 tRNAs decoding Standard 20 AA:              261
 Selenocysteine tRNAs (TCA):                 0

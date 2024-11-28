@@ -1,4 +1,5 @@
 # tRNAscan-SE programme results:
+The main goal of this programme is count and predict genes coding tRNA
 
 ## command:
 tRNAscan-SE -H -o tRNAscan-SE_postia_output -f tRNAscan-SE_postia_structure -s tRNAscan-SE_postia_isospecific -m tRNAscan-SE_postia_stats -j tRNAscan-SE_postia_gff -a tRNAscan-SE_postia_seqs /db/183_fungi_mai_2022/genomic_fna/GCA_000006255.1_Postia_placenta_V1.0_genomic.fna
