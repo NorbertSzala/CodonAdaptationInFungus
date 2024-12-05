@@ -21,6 +21,7 @@ require('tAI')
 
 count_codons <- scan('/home/norbert/IBB/skrypty/count_codons.txt') #file with counted genes coding tRNA #import file
 # count_codons <- scan('/home/norbert_s/gtAI/count_codons.txt') #import file
+# 
 
 codons_rav <- get.ws(tRNA = count_codons, sking = 0) #ignore START and STOP codons. Calculate relative adaptiveness values for each tRNA #sking = 0 for eukaryota. 
 
