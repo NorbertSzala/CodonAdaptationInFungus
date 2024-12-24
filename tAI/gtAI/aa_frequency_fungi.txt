@@ -1,0 +1,5 @@
+ Ala (A) 8.93   Gln (Q) 3.82   Leu (L) 9.81   Ser (S) 6.91
+   Arg (R) 5.84   Glu (E) 6.26   Lys (K) 4.96   Thr (T) 5.56
+   Asn (N) 3.81   Gly (G) 7.22   Met (M) 2.33   Trp (W) 1.30
+   Asp (D) 5.47   His (H) 2.23   Phe (F) 3.88   Tyr (Y) 2.87
+   Cys (C) 1.31   Ile (I) 5.50   Pro (P) 5.03   Val (V) 6.84
