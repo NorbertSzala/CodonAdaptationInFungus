@@ -18,19 +18,15 @@ fi
 
 # Przechodzimy przez każdy wiersz w pliku wejściowym
 while IFS=$'\t' read -r protein_id seq1 seq2 seq3; do
-    # Jeśli istnieje sekwencja 1, zapisujemy ją w formacie FASTA
-    if [ -n "$seq1" ]; then
-        echo ">$protein_id_seq1" >> "$output_file"
-        echo "$seq1" >> "$output_file"
-    fi
-    # Jeśli istnieje sekwencja 2, zapisujemy ją w formacie FASTA
-    if [ -n "$seq2" ]; then
-        echo ">$protein_id_seq2" >> "$output_file"
-        echo "$seq2" >> "$output_file"
-    fi
-    if [ -n "$seq3" ]; then
-        echo ">$protein_id_seq3" >> "$output_file"
-        echo "$seq3" >> "$output_file"
-    fi
-done < "$input_file"
+    # Dla każdej sekwencji w kolumnach 2, 3 i 4
+    for i in 1 2 3; do
+        seq_var="seq$i"
+        seq_value="${!seq_var}"
 
+        # Jeśli sekwencja istnieje, zapisujemy ją w formacie FASTA
+        if [ -n "$seq_value" ]; then
+            echo ">$protein_id_seq$i" >> "$output_file"
+            echo "$seq_value" >> "$output_file"
+        fi
+    done
+done < "$input_file"

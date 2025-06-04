@@ -1,0 +1,38 @@
+This folder contains data needed to count tAI for LCR in proteins.
+LCR_aa.csv was made using command: cut -f 1,2,3,10,11,14,15,16,18 Main_Dataset.tsv | awk '$4 > 0' > LCR_aa.csv
+https://zenodo.org/records/13928873
+
+Main_Dataset.tsv is a TSV table with the following columns:
+
+   1. Assembly ID from NCBI
+   2. Protein ID (NCBI accession)
+   3. Protein length
+   4. Presence of protein domains; Boolean
+    symbolic localization of protein domains; 10 bins scaled to sum up to total protein length
+    number of transmembrane elements predicted with TMHMM
+    total length of transmembrane elements
+    Symbolic localization of transmembrane elements; 10 bins scaled to sum up to total protein length
+    Presence of signal peptide; Boolean
+    Total number of LCR
+    Total length of LCR
+    Symbolic localization of LCR; 3 bins: N-termini (0-0.25 of protein length), middle (0.25-0.75 of protein length), and C-term (0.75-1 protein length)
+    Symbolic localization of LCR; 10 bins scaled to sum up to total protein length
+    LCR sequences in the N-terminal part of protein, separated by a comma
+    LCR sequences in the middle part of protein, separated by a comma
+    LCR sequences in the  C-terminal part of the protein, separated by a comma
+    Pfam domains overlapping with LCRs (>80% of LCR length)
+    Pfam domains in protein (ordered by domain start)
+   19. GO terms based on Pfam domains obtained by mapping on pfam2go, separated with the pipe symbol '|'
+
+
+
+##### GENERAL PURPOSES ######
+1. Extract the necessary information from `Main_Dataset.tsv` (as shown above).
+2. Find the corresponding sequences and merge them into one column. The structure should be:
+   assembly_id, prot_id, prot_seq, nt_seq
+3. Merge the resulting dataframes and add a row containing the LCR sequences to the second one.
+4. Use indexing (every amino acid = 3 nucleotides) to extract the correct nucleotide sequence.
+5. Calculate the percentage of LCR length relative to protein length and remove unnecessary columns. Final structure:
+   assembly_id, prot_id, LCR_nt, percentage
+6. Calculate the tAI for each LCR and compare the results from tAI counted in 7th step.
+7. Select proteins with tAI values in the top and bottom 10% and 1%. Retrieve their LCR sequences from earlier files and recalculate tAI.

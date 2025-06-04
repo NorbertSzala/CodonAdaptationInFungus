@@ -1,0 +1,987 @@
+---
+title: "plots_extended"
+author: "Norbert Szala"
+date: "2025-03-18"
+output: html_document
+---
+```{r Description}
+# Scirpt makes plots about general statistics in basic dataframe. There are plots like LCR presence vs LCR absence, comparing length of LCR across bins etc
+```
+
+
+```{r TODO}
+##### DONE #####
+
+# #gotermsy tylko ogolne - np. tylko ze slowem RNA, DNA, mitochondrial, #primary metabolism $proteazy, trawienie zewnatrzkomorkowe z zaleznosci od trybu zycia grzyba #celulazy itd, #azot, ekologia grzybow publikacja przeczytać
+# S1, S8, M -> proteazy zewnetrzne (merops db proteazy)
+# cazy db do wedlowodorow
+# tranportery tcdb
+# https://pmc.ncbi.nlm.nih.gov/articles/PMC9391592/
+```
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r libraries}
+library(ggplot2)
+library(ggthemes)
+library(viridis)
+library(dplyr)
+library(RColorBrewer)
+library(grDevices)
+library(dunn.test)
+library(scales)
+library(tidyr)
+library(ggExtra)
+library(nortest)
+library(cowplot)
+```
+
+```{r read data - local paths}
+main_path <- '/home/norbert/IBB/skrypty/Main_Dataset_splitted/data/'
+
+domain_bolean <- read.csv(paste0(main_path, 'domain_bolean_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'domain', 'tAI'))
+
+signal_bolean <- read.csv(paste0(main_path, 'signal_bolean_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'signal', 'tAI'))
+
+protein_length <- read.csv(paste0(main_path, 'protein_length_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'length', 'tAI'))
+
+LCR_number <- read.csv(paste0(main_path, 'LCR_number_columns.tsv'), sep='\t', header=FALSE, col.names = c('prot_id','LCR_count', 'tAI'))
+
+TM_count <- read.csv(paste0(main_path, 'transmembrane_count_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'TM_count_col', 'tAI'))
+
+TM_length <- read.csv(paste0(main_path, 'total_transmembrane_length_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'TM_length_col', 'tAI'))
+
+GOterms <- read.csv(paste0(main_path, 'GOterms_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'GOterms', 'tAI'))
+
+PFAM_LCR <- read.csv(paste0(main_path, 'PFAM_domains_LCR_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'PFAM_LCR_col', 'tAI'))
+
+PFAM_proteins <- read.csv(paste0(main_path, 'PFAM_domains_proteins_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'PFAM_prot', 'tAI'))
+
+organism_acc <- read.csv(paste0(main_path, 'organism_acc_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'assembly_id', 'tAI'))
+
+LCR_length <- read.csv(paste0(main_path, 'total_lcr_length.tsv'), sep = '\t', header = FALSE, col.names = c('prot_id', 'LCR_length', 'tAI'))
+output_path<- '/home/norbert/IBB/skrypty/Main_Dataset_splitted/plots_extensive/local_1000/'
+```
+
+```{r read data - mycelia paths}
+# main_path <- '/home/norbert_s/tAI/all_chunks/Main_Dataset_splitted/data/'
+# domain_bolean <- read.csv(paste0(main_path, 'domain_bolean_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'domain', 'tAI'))
+# 
+# signal_bolean <- read.csv(paste0(main_path, 'signal_bolean_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'signal', 'tAI'))
+# 
+# protein_length <- read.csv(paste0(main_path, 'protein_length_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'length', 'tAI'))
+# 
+# LCR_number <- read.csv(paste0(main_path, 'LCR_number_columns.tsv'), sep='\t', header=FALSE, col.names = c('prot_id','LCR_count', 'tAI'))
+# 
+# TM_count <- read.csv(paste0(main_path, 'transmembrane_count_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'TM_count_col', 'tAI'))
+# 
+# TM_length <- read.csv(paste0(main_path, 'total_transmembrane_length_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'TM_length_col', 'tAI'))
+# 
+# GOterms <- read.csv(paste0(main_path, 'GOterms_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'GOterms', 'tAI'))
+# 
+# PFAM_LCR <- read.csv(paste0(main_path, 'PFAM_domains_LCR_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'PFAM_LCR_col', 'tAI'))
+# 
+# PFAM_proteins <- read.csv(paste0(main_path, 'PFAM_domains_proteins_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'PFAM_prot', 'tAI'))
+# 
+# organism_acc <- read.csv(paste0(main_path, 'organism_acc_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'assembly_id', 'tAI'))
+# 
+# LCR_length <- read.csv(paste0(main_path, 'total_lcr_length.tsv'), sep = '\t', header = FALSE, col.names = c('prot_id', 'LCR_length', 'tAI'))
+# 
+# output_path<-'/home/norbert_s/tAI/all_chunks/Main_Dataset_splitted/plots_extensive/'
+```
+
+```{r trim data}
+#Hash when use in remote server
+domain_bolean <-head(domain_bolean, n=1000)
+signal_bolean <-head(signal_bolean, n=1000)
+protein_length<-head(protein_length, n=1000)
+LCR_number <-head(LCR_number, n=1000)
+GOterms <- head(GOterms, n=1000)
+PFAM_LCR <-head(PFAM_LCR, n=1000)
+PFAM_proteins<-head(PFAM_proteins, n=1000)
+TM_length<-head(TM_length, n=1000)
+TM_count<-head(TM_count, n=1000)
+organism_acc<-head
+LCR_length <- head(LCR_length, n=1000)
+```
+
+```{r modify data}
+#replace numerical values (booleans 0 or 1) by strings (Presence, No domain)
+domain_bolean <- domain_bolean %>%
+    mutate(presence = factor(case_when(
+        domain == 1 ~ 'Domain presence',
+        domain == 0 ~ 'Domain absence'
+), levels=c('Domain absence', 'Domain presence')))
+
+
+#replace numerical values (booleans 0 or 1) by strings (Presence, absence)
+signal_bolean <- signal_bolean %>%
+    mutate(presence = factor(case_when(
+        signal == 1 ~ 'Signal presence',
+        signal == 0 ~ 'Signal absence'
+        ), levels=c('Signal absence', 'Signal presence')))
+
+#That method of grouping proteins is not excelent
+# protein_length$length <- 
+#     as.numeric(protein_length$length)
+# breaks = seq(1, max(protein_length$length, na.rm = TRUE), length.out = 11)
+# protein_length$bin <- cut(
+#   protein_length$length,
+#   breaks = breaks,
+#   labels = 1:10,
+#   right = FALSE)
+# protein_length$bin[is.na(protein_length$bin)] <- 9
+
+#Now I opt to use this method to divide proteins to bins with equal counts of proteins. Then, first and last bin will consist 10% the shortest and the longest proteins
+protein_length <- protein_length %>%
+  mutate(length = as.numeric(length)) %>% 
+  arrange(length) %>% #sort
+  mutate(bin = ntile(length, 10)) #split 
+
+
+
+LCR_number <- LCR_number %>%
+  mutate(presence = factor(case_when(
+    LCR_count ==0 ~ 'LCR absence',
+    LCR_count != 0 ~'LCR presence'),
+    levels=c('LCR absence', 'LCR presence')))
+
+LCR_number <- LCR_number %>% 
+  mutate(LCR_count = as.numeric(LCR_count)) %>% 
+  mutate(LCR_bins = case_when(
+    LCR_count == 0 ~ "0 LCR",
+    LCR_count == 1 ~ "1 LCR",
+    LCR_count == 2 ~ "2 LCR",
+    LCR_count == 3 ~ "3 LCR",
+    LCR_count >= 4 ~ "≥4 LCR",
+    TRUE ~ NA_character_
+  ))
+
+#wprowadzamy podział na: 0LCR, 1 LCR, 2 LCR 3LCR wiecej niz 4 LCR
+
+
+
+GOterms <- GOterms[GOterms$GOterms != "",]
+GOterms <- GOterms %>%
+separate_rows(GOterms, sep = "\\|")
+
+
+
+PFAM_LCR <- PFAM_LCR %>% 
+  mutate(presence = factor(case_when(
+    PFAM_LCR_col == '' ~ 'PFAM LCR absence',
+    PFAM_LCR_col != '' ~ 'PFAM LCR presence'),
+    levels=c('PFAM LCR absence', 'PFAM LCR presence')))
+
+
+PFAM_proteins <- PFAM_proteins[PFAM_proteins$PFAM_prot != "",]
+PFAM_proteins <- PFAM_proteins %>%
+separate_rows(PFAM_prot, sep = " ")
+
+# TM_length$TM_length_col <- 
+    # as.numeric(TM_length$TM_length_col)
+# breaks = c(0, seq(1, max(TM_length$TM_length_col, na.rm = TRUE), length.out = 11))
+# TM_length$bin <- cut(
+#   TM_length$TM_length_col,
+#   breaks = breaks,
+#   labels = 0:10,
+#   right = FALSE
+# )
+# TM_length$bin[is.na(TM_length$bin)] <- 9
+TM_length <- TM_length %>% 
+  mutate(TM_length_col = as.numeric(TM_length_col))
+no_TM <- TM_length %>%  filter(TM_length_col == 0) %>% 
+  mutate(bin = 0)
+has_TM <- TM_length %>% filter(TM_length_col > 0)
+has_TM <- has_TM %>% 
+  mutate(bin = ntile(TM_length_col, 10))
+TM_length <- bind_rows(no_TM, has_TM)
+
+
+
+
+TM_count <- TM_count %>% 
+  mutate(presence = factor(case_when(
+    TM_count_col == 0 ~ 'Transmembrane elements absence',
+    TM_count_col != 0 ~ 'Transmembrane elements presence'),
+    levels = c('Transmembrane elements absence', 'Transmembrane elements presence')))
+
+
+LCR_length <- LCR_length %>% 
+  filter(LCR_length >= 1)
+
+
+mean_tAI <- mean(domain_bolean$tAI, na.rm=TRUE)
+```
+
+```{r functions}
+create_regression_equation <- function(data, formula) {
+  model <- lm(formula, data=data)
+  summary_model <- summary(model)
+  r_sq <- round(summary_model$r.squared, 5)
+  coef <- coef(model)
+  intercept <- round(coef[1], 2)
+  slope <- round(coef[2], 2)
+  p_value <- round(summary_model$coefficients[2, 4], 5)
+  if (p_value >= 0.05) {
+      equation_label <- paste("y = ", intercept, " + ", slope, " * x,", "        R² = ", r_sq, ",        p value ≥ 0.05.", sep = "")
+  } else {
+      equation_label <- paste("y = ", intercept, " + ", slope, " * x,", "        R² = ", r_sq, ",        p value < 0.05. ", sep = "")
+
+  }
+  return(equation_label)
+}
+
+#function to create label with statistical test result. Test can be chosen by setting argument parametric_assumption to TRUE (anova or kruskal wallis) or FALSE to T-student or Mann-Whitney.
+create_statistical_label <- function(data, var1, var2, parametric_assumption = TRUE) {
+  
+  if (parametric_assumption) {
+    ad_test <- ad.test(var1)#Anderson Darling test to check normality distribution
+    
+    if (ad_test$p.value < 0.05) {
+      # ANOVA test for parametric values with normal distribution
+      test = 'ANOVA '
+      anova_results <- summary(aov(var1 ~ var2, data = data))
+      p_value <- anova_results[[1]]$'Pr(>F)'[1]
+    } else {
+      # Kruskal-Wallis test for parametric values and lack of normal distribution
+      test = 'Kruskal-Wallis test '
+      kw_test <- kruskal.test(var1 ~ var2, data = data)
+      p_value <- kw_test$p.value
+    }
+  } else {
+    ad_test <- ad.test(var1)
+    
+    if (ad_test$p.value < 0.05) {
+      # Mann-Whitney test #non parametrical test with normal distribution
+      test = 'Mann-Whitney test '
+      mann_whitney_test <- wilcox.test(var1 ~ var2, data = data)
+      p_value <- mann_whitney_test$p.value
+    } else {
+      # T-test for not normal test not parametrical
+      test = 'T-student test '
+      t_student_result <- t.test(var1, mu = 0.5)
+      p_value <- t_student_result$p.value
+    }
+  }
+  
+  # Create the equation label
+  if (p_value >= 0.05) {
+    equation_label <- paste(test, "p-value ≥ 0.05")
+  } else {
+    equation_label <- paste(test, "p-value < 0.05")
+  }
+    
+
+  return(equation_label)
+}
+
+
+
+get_extreme_tAI_values <- function(table, column, extremum, variable) {
+  #' Get Extreme tAI Values
+  #' This function returns a dataframe with proteins that have extreme tAI values from top bins 
+  #' (the lowest and highest) depending on the bins. The 'extremum' parameter 
+  #' is an integer representing the top 'extremum' percentage of values.
+  #'
+  #' @param table A data frame containing the data.
+  #' @param column The name of the column containing tAI values.
+  #' @param extremum The top 'extremum' percentage of values.
+  #' @param variable Describes whether to consider percentage or bins.
+  #' @return A data frame with proteins having extreme tAI values.
+  #' @export
+  
+  # Ensure that the column is numeric
+  table[[column]] <- as.numeric(table[[column]])
+  
+  # Create breaks for binning
+  breaks <- seq(0, max(table[[column]], na.rm = TRUE), length.out = extremum + 1)
+  
+  # If we are using bins
+  if (variable == 'bins') {
+    table$label <- cut(
+      table[[column]],
+      breaks = breaks,
+      labels = 1:extremum,
+      right = FALSE
+    )
+    
+    # Filter the extreme values from the first and last bins
+    extremum_table <- table %>% 
+      filter(label == 1 | label == extremum)
+    
+    table$label <- as.character(table$label)  # Convert bin to character so we can change values
+    table$label[table$label == '1'] <- 'lowest'  # Replace 1 with 'lowest'
+    table$label[table$label == as.character(extremum)] <- 'highest'  # Replace extreme bin with 'highest'
+    
+    # Filter the extreme values (lowest and highest)
+    extremum_table <- table %>% 
+      filter(label == 'lowest' | label == 'highest')
+
+  }
+    
+  if (variable == 'percent') {
+    # Sort the values in the column
+    sorted_column <- sort(table[[column]], na.last = NA)
+    
+    # Calculate the lower and upper index for the extremum percentage
+    lower_index <- ceiling(length(sorted_column) * (extremum / 100)) # smallest 'extremum'% values
+    upper_index <- floor(length(sorted_column) * (1 - (extremum / 100))) # largest 'extremum'% values
+  
+    # Filter the extreme values
+    extremum_table <- table %>%
+      filter(table[[column]] <= sorted_column[lower_index] | table[[column]] >= sorted_column[upper_index])
+    
+    # Add 'lowest' for the smallest 'extremum'% values, 'highest' for the largest
+    extremum_table$label <- ifelse(
+      extremum_table[[column]] <= sorted_column[lower_index], 
+      'lowest', 
+      'highest'
+    )
+  }
+  
+  return(extremum_table)
+}
+
+
+count_extreme_goterms <- function(table, x) {
+  #' This function separates goterms from a common column (e.g., RNA|DNA|mito) into three independent rows with the same protein_ID and tAI in other columns.
+  #' It then counts the most common x independent goterms for the lowest and highest tAI.
+  #' @param table A data frame with grouped proteins and goterms by highest and lowest presence. Usually the output of get_extreme_tAI_values.
+  #' @param x (int) The number of top records with the most common goterms to return.
+  #' @return A list with the x most common goterms for the highest and lowest tAI.
+  #' @export
+  
+  # Separate the table into lowest and highest tAI
+  lowest <- table %>% 
+    filter(label == 'lowest')
+  highest <- table %>% 
+    filter(label == 'highest')
+  
+  # Separate the goterms by splitting the common column (assuming it's called 'goterms')
+  lowest <- lowest %>%
+    separate_rows(GOterms, sep = "\\|") %>% # Split the goterms column into multiple rows
+    mutate(GOterms = sub("\\{.*", "", GOterms)) %>% 
+    mutate(GOterms = paste0(GOterms, "_L"))
+    
+    
+  highest <- highest %>%
+    separate_rows(GOterms, sep = "\\|") %>%  # Split the goterms column into multiple rows
+    mutate(GOterms = sub("\\{.*", "", GOterms)) %>% 
+    mutate(GOterms = paste0(GOterms, "_D"))
+
+
+  
+  # Count the frequency of each goterm in lowest and highest tAI groups
+  lowest_counts <- lowest %>%
+    count(GOterms) %>%
+    arrange(desc(n)) %>%
+    head(x)  # Get the top 'x' most common GOterms for lowest tAI
+  
+  highest_counts <- highest %>%
+    count(GOterms) %>%
+    arrange(desc(n)) %>%
+    head(x)  # Get the top 'x' most common GOterms for highest tAI
+  
+  lowest_counts <- lowest_counts %>%
+    mutate(tAI_group = 'lowest')
+  
+  highest_counts <- highest_counts %>%
+    mutate(tAI_group = 'highest')
+  
+    # Join back with the original lowest and highest data frames to get tAI values
+  lowest_counts <- lowest_counts %>%
+    left_join(lowest %>% select(GOterms, tAI), by = c("GOterms" = "GOterms")) %>%
+    distinct()  # Ensure we don't duplicate rows
+  
+  highest_counts <- highest_counts %>%
+    left_join(highest %>% select(GOterms, tAI), by = c("GOterms" = "GOterms")) %>%
+    distinct()  # Ensure we don't duplicate rows
+  
+  hilo_goterms <- rbind(highest_counts, lowest_counts)
+  # Return a list with the most common GOterms
+  return(hilo_goterms)
+}
+
+
+```
+
+#Some words about statistical tests:
+#Anderson-Darling Test suppose to be better option for large dataset that shapiro-wilk
+#	Anderson-Darling normality test
+#data:  domain_bolean$tAI
+#A = 18.906, p-value < 2.2e-16
+#A- The higher value, the bigger difference between dataset and normal distribution
+#p-value lover than 0.05 means dataset has not have normal distribution
+
+#Mann-Whitney test - non-parametical test for two groups
+
+```{r domain presence violin}
+
+#Checking if there are differences between domain presence and domein absence in comparison to tAI
+
+equation_label <- create_statistical_label(domain_bolean, domain_bolean$tAI, domain_bolean$presence, FALSE)
+
+count_values <- domain_bolean %>% 
+    group_by(presence) %>% 
+    summarise(count=n())
+x_labels <- count_values %>% 
+    mutate(label = paste(presence, "\nn=", count)) %>% 
+    pull(label)
+
+total_counts <- nrow(domain_bolean)
+
+#violin
+domains_violin <- ggplot(domain_bolean, aes(presence, tAI, fill=as.factor(presence)))+
+    geom_violin(trim=FALSE)+
+    geom_boxplot(width=0.2, alpha=0.8, notch=TRUE, fill='#FFFFF0', color='black', size=0.5)+
+    labs(subtitle=equation_label, x='')+
+    theme_stata()+
+    theme(legend.position = 'none',
+          plot.subtitle = element_text(hjust=0),
+          axis.text.x = element_text(face='bold'),
+          axis.text.y=element_text(face='bold'),
+          panel.grid.major.y = element_line(color='gray', size=0.5),
+          panel.grid.minor.y = element_line(color='lightgray', size=0.3))+
+    annotate('text', x = Inf, y = Inf, label = paste('Total n =', total_counts), 
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')+
+    scale_fill_manual(values = c('Domain absence' = '#696969', 'Domain presence'='#C0C0C0'))+
+    scale_x_discrete(labels=x_labels)+
+    scale_y_continuous(breaks=seq(0,1, by=0.1),
+                       minor_breaks=seq(0,1, by=0.05))
+ggsave(paste0(output_path, 'domains_violin.png'), plot=domains_violin, width = 8, height = 6, dpi=300)
+#hist
+domains_hist <- ggplot(domain_bolean, aes(x=tAI, color=presence, fill=presence))+
+  geom_histogram(bins=30, color='black',  position='dodge', alpha=0.8)+
+  scale_fill_manual(values=c('Domain absence' = '#696969', 'Domain presence'='#C0C0C0'))+
+  geom_density(lwd=0.5, linetype=1, alpha=0)+
+  scale_color_manual(values=c('Domain absence' = '#696969', 'Domain presence'='#C0C0C0'))+
+  geom_vline(data=domain_bolean, aes(xintercept = mean_tAI), linetype = 'dashed',  linewidth = 1)+
+  labs(subtitle=equation_label)+
+  annotate('text', x = Inf, y = Inf, label = paste('Total n =', total_counts), 
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')+
+  theme_stata()+
+  theme(
+    legend.position = 'bottom',
+    plot.subtitle = element_text(hjust=0),
+    axis.text.x = element_text(face = 'bold'),
+    axis.text.y = element_text(face = 'bold')
+  )
+ggsave(paste0(output_path, 'domains_hist.png'), plot=domains_hist, width = 8, height = 6, dpi=300)
+  
+
+```
+
+
+```{r LCR presence violin and hist}
+#Checking if there are differences between LCR presence and LCR absence in comparison to tAI
+
+
+equation_label <- create_statistical_label(LCR_number, LCR_number$tAI, LCR_number$presence, FALSE)
+
+count_values <- LCR_number %>% 
+    group_by(presence) %>% 
+    summarise(count=n())
+x_labels <- count_values %>% 
+    mutate(label = paste(presence, "\nn=", count)) %>% 
+    pull(label)
+
+total_counts <- nrow(LCR_number)
+
+
+
+#violin
+LCR_presence_violin <- ggplot(LCR_number, aes(presence, tAI, fill=presence))+
+    geom_violin(trim=FALSE)+
+    geom_boxplot(width=0.2, alpha=0.8, notch=TRUE, fill='#FFFFF0', color='black')+
+    labs(subtitle=equation_label, x='')+
+    theme_stata()+
+    theme(legend.position = 'none',
+          plot.subtitle = element_text(hjust=0),
+          axis.text.x = element_text(face='bold'),
+          axis.text.y=element_text(face='bold'),
+          panel.grid.major.y = element_line(color='gray', size=0.5),
+          panel.grid.minor.y = element_line(color='lightgray', size=0.3))+
+  annotate('text', x = Inf, y = Inf, label = paste('Total n =', total_counts), 
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')+
+    scale_fill_manual(values = c('LCR absence' = '#696969', 'LCR presence'='#C0C0C0'))+
+    scale_x_discrete(labels=x_labels)+
+    scale_y_continuous(breaks=seq(0,1, by=0.1),
+                       minor_breaks=seq(0,1, by=0.05))
+
+LCR_presence_violin
+ggsave(paste0(output_path, 'LCR_presence_violin.png'), plot=LCR_presence_violin, width = 8, height = 6, dpi=300)
+
+#hist
+LCR_presence_hist <- ggplot(LCR_number, aes(x=tAI, color=presence, fill=presence))+
+  geom_histogram(bins=30, color='black',  position='dodge', alpha=0.8)+
+  scale_fill_manual(values=c('LCR absence' = '#696969', 'LCR presence'='#C0C0C0'))+
+  geom_density(lwd=0.5, linetype=1, alpha=0.0)+
+  scale_color_manual(values=c('LCR absence' = '#696969', 'LCR presence'='#C0C0C0'))+
+  geom_vline(data=LCR_number, aes(xintercept = mean_tAI), linetype = 'dashed',  linewidth = 1)+
+  labs(subtitle=equation_label)+
+  theme_stata()+
+  theme(
+    legend.position = 'bottom',
+    plot.subtitle = element_text(hjust=0),
+    axis.text.x = element_text(face = 'bold'),
+    axis.text.y = element_text(face = 'bold')
+  )+
+  annotate('text', x = Inf, y = Inf, label = paste('Total n =', total_counts), 
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')
+
+ggsave(paste0(output_path, 'LCR_presence_hist.png'), plot=LCR_presence_hist, width = 8, height = 6, dpi=300)
+
+
+```
+
+```{r number of LCR}
+#Checking if there is dependances between number of LCR in proteins and tAI
+
+
+colors <- colorRampPalette(brewer.pal(12, "Paired"))(length(unique(LCR_number$LCR_bins)))
+LCR_number$LCR_bins <- as.factor(LCR_number$LCR_bins)
+equation_label <- create_statistical_label(LCR_number, LCR_number$tAI, LCR_number$LCR_bins, TRUE)
+
+total_counts <- nrow(LCR_number)
+
+count_values <- LCR_number %>% 
+    group_by(LCR_bins) %>% 
+    summarise(count=n())
+x_labels <- count_values %>% 
+    mutate(label = paste(LCR_bins, "\nn=", count)) %>% 
+    pull(label)
+
+
+#violin
+LCR_number_violin <- ggplot(LCR_number, aes(LCR_bins, tAI, fill=as.factor(LCR_bins)))+
+    geom_violin(trim=FALSE)+
+    geom_boxplot(width=0.2, alpha=0.8, notch=TRUE, color='black')+
+    labs(subtitle=equation_label)+
+    theme_stata()+
+    theme(legend.position = 'none',
+          plot.subtitle = element_text(hjust=0),
+          axis.text.x = element_text(face='bold'),
+          axis.text.y=element_text(face='bold'),
+          panel.grid.major.y = element_line(color='gray', size=0.5),
+          panel.grid.minor.y = element_line(color='lightgray', size=0.3))+
+  annotate('text', x = Inf, y = Inf, label = paste('Total n =', total_counts), 
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')+
+    scale_fill_manual(values = colors)+
+    scale_x_discrete(labels=x_labels)+
+    scale_y_continuous(breaks=seq(0,1, by=0.1),
+                       minor_breaks=seq(0,1, by=0.05))
+
+ggsave(paste0(output_path, 'LCR_number_violin.png'), plot=LCR_number_violin, width = 8, height = 6, dpi=300)
+
+LCR_number_violin
+#boxplot
+LCR_number_hist <- ggplot(LCR_number, aes(LCR_bins, tAI, fill = LCR_bins))+
+  geom_boxplot(alpha=0.8, notch=TRUE, color='black')+
+  labs(subtitle=equation_label)+
+  theme_stata()+
+  theme(legend.position = 'none',
+        plot.subtitle = element_text(hjust=0),
+        axis.text.x = element_text(face='bold'),
+        axis.text.y=element_text(face='bold'),
+        panel.grid.major.y = element_line(color='gray', size=0.5),
+        panel.grid.minor.y = element_line(color='lightgray', size=0.3))+
+    annotate('text', x = Inf, y = Inf, label = paste('Total n =', total_counts), 
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')+
+  scale_fill_manual(values = colors)+
+  scale_x_discrete(labels=x_labels)+
+  scale_y_continuous(breaks=seq(0,1, by=0.1),
+                     minor_breaks=seq(0,1, by=0.05))
+
+LCR_number_hist
+ggsave(paste0(output_path, 'LCR_number_hist.png'), plot=LCR_number_hist, width = 8, height = 6, dpi=300)
+```
+
+```{r signal presence violin and hist }
+#Ceecking if there are differences between signal presence and signal absence in proteins comparing to tAI
+
+equation_label <- create_statistical_label(signal_bolean, signal_bolean$tAI, signal_bolean$presenc, FALSE)
+
+count_values <- signal_bolean %>% 
+    group_by(presence) %>% 
+    summarise(count=n())
+x_labels <- count_values %>% 
+    mutate(label = paste(presence, "\nn=", count)) %>% 
+    pull(label)
+
+total_counts <- nrow(signal_bolean)
+
+#violin
+signal_presence_violin <- ggplot(signal_bolean, aes(presence, tAI, fill=presence))+
+    geom_violin(trim=FALSE)+
+    geom_boxplot(width=0.2, alpha=0.8, notch=TRUE, fill='#FFFFF0', color='black')+
+    labs(subtitle=equation_label, x='')+
+    theme_stata()+
+    theme(legend.position = 'none',
+          plot.subtitle = element_text(hjust=0),
+          axis.text.x = element_text(face='bold'),
+          axis.text.y=element_text(face='bold'),
+          panel.grid.major.y = element_line(color='gray', size=0.5),
+          panel.grid.minor.y = element_line(color='lightgray', size=0.3))+
+    annotate('text', x = Inf, y = Inf, label = paste('Total n =', total_counts), 
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')+
+    scale_fill_manual(values = c('Signal absence' = '#696969', 'Signal presence'='#C0C0C0'))+
+    scale_x_discrete(labels=x_labels)+
+    scale_y_continuous(breaks=seq(0,1, by=0.1),
+                       minor_breaks=seq(0,1, by=0.05))
+
+
+ggsave(paste0(output_path, 'signal_presence_violin.png'), plot=signal_presence_violin, width = 8, height = 6, dpi=300)
+#hist
+signal_presence_hist <- ggplot(signal_bolean, aes(x=tAI, color=presence, fill=presence))+
+  geom_histogram(bins=30, color='black',  position='dodge', alpha=0.8)+
+  scale_fill_manual(values=c('Signal absence' = '#696969', 'Signal presence'='#C0C0C0'))+
+  geom_density(lwd=0.5, linetype=1, alpha=0.0)+
+  scale_color_manual(values=c('Signal absence' = '#696969', 'Signal presence'='#C0C0C0'))+
+  geom_vline(data=LCR_number, aes(xintercept = mean_tAI), linetype = 'dashed',  linewidth = 1)+
+  annotate('text', x = Inf, y = Inf, label = paste('Total n =', total_counts), 
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')+
+  labs(subtitle=equation_label)+
+  theme_stata()+
+  theme(
+    legend.position = 'bottom',
+    plot.subtitle = element_text(hjust=0),
+    axis.text.x = element_text(face = 'bold'),
+    axis.text.y = element_text(face = 'bold')
+  )
+
+ggsave(paste0(output_path, 'signal_presence_violin.png'), plot=signal_presence_violin, width = 8, height = 6, dpi=300)
+```
+
+```{r protein length scatter}
+#Checking if there is dependances between proteins length and tAI
+
+equation_label <- create_regression_equation(protein_length, tAI~length)
+
+total_counts <- nrow(protein_length)
+
+p <- ggplot(protein_length, aes(length, tAI))+
+  geom_point(alpha=0.3)+
+  geom_smooth(method=loess, se=FALSE, color='696969')+
+  labs(subtitle=equation_label, x='Protein length')+
+  theme_stata()+
+  theme(
+    legend.position = 'bottom',
+    plot.subtitle = element_text(hjust=0, vjust=-2, margin = margin(b = 20)),
+    axis.text.x = element_text(face = 'bold'),
+    axis.text.y = element_text(face = 'bold')
+  ) +
+  annotate('text', x = Inf, y = Inf, label = paste('Total n =', total_counts), 
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')+
+  scale_y_continuous(breaks=seq(0,1, by=0.1),
+                       minor_breaks=seq(0,1, by=0.05))
+
+
+protein_length_scatter <- ggMarginal(p, type='densigram', size=5, fill='#696969')
+ggsave(paste0(output_path, 'protein_length_scatter.png'), plot=protein_length_scatter, width = 8, height = 6, dpi=300)
+```
+
+```{r protein bins length boxplot}
+#Checking if there is dependances between proteins length (grouped to bins) and tAI
+
+colors <- colorRampPalette(brewer.pal(12,"Paired"))(length(unique(protein_length$length)))
+equation_label <- create_statistical_label(protein_length, protein_length$tAI, protein_length$length, TRUE)
+
+count_values <- protein_length %>%
+    group_by(bin) %>%
+    summarise(count = n())
+
+total_counts <- nrow(protein_length)
+
+
+protein_length_boxplot <- ggplot(protein_length, aes(x=factor(bin), y=tAI, fill=factor(bin)))+
+    geom_boxplot(alpha=0.8, outlier.shape=16, outlier.size=1, width=0.7)+
+    geom_point(color='black', size=1, shape=16, alpha=0.5)+
+    labs(subtitle=equation_label, x='Proteins Grouped into Bins. Each bean represents 10% of proteins')+
+    theme_stata()+
+    theme(legend.position = 'none',
+          plot.subtitle = element_text(hjust=0, vjust=-2, margin = margin(b = 20)),
+          axis.text.x=element_text(face='bold', angle=60, hjust=1),
+          axis.text.y=element_text(face='bold'))+
+    scale_color_manual(values = colors)+
+  annotate('text', x = Inf, y = Inf, label = paste('Total n =', total_counts), 
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')+
+    scale_x_discrete(labels = function(x) {
+        count_values$count[count_values$bin %in% as.integer(x) ] %>% 
+            paste(x, ", n=", .)})
+protein_length_boxplot
+ggsave(paste0(output_path, 'protein_length_boxplot.png'), plot=protein_length_boxplot, width = 8, height = 6, dpi=300)
+```
+
+
+
+
+```{r PFAM domain overlaping with LCR or not overlaping violin hist}
+#Ceecking if there are differences between proteins with PFAM domain overlaping with LCR presence and opposition in proteins comparing to tAI
+
+equation_label <- create_statistical_label(PFAM_LCR, PFAM_LCR$tAI, PFAM_LCR$presence, FALSE)
+
+count_values <- PFAM_LCR %>% 
+    group_by(presence) %>% 
+    summarise(count=n())
+x_labels <- count_values %>% 
+    mutate(label = paste(presence, "\nn=", count)) %>% 
+    pull(label)
+
+total_counts <- nrow(PFAM_LCR)
+
+
+#violin
+PFAM_LCR_violin <-ggplot(PFAM_LCR, aes(presence, tAI, fill=presence))+
+    geom_violin(trim=FALSE)+
+    geom_boxplot(width=0.2, alpha=0.8, notch=TRUE, fill='#FFFFF0', color='black')+
+    labs(subtitle=equation_label, x='')+
+    theme_stata()+
+    theme(legend.position = 'none',
+          plot.subtitle = element_text(hjust=0),
+          axis.text.x = element_text(face='bold'),
+          axis.text.y=element_text(face='bold'),
+          panel.grid.major.y = element_line(color='gray', size=0.5),
+          panel.grid.minor.y = element_line(color='lightgray', size=0.3))+
+    annotate('text', x = Inf, y = Inf, label = paste('Total n =', total_counts), 
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')+
+    scale_fill_manual(values = c('PFAM LCR absence' = '#696969', 'PFAM LCR presence'='#C0C0C0'))+
+    scale_x_discrete(labels=x_labels)+
+    scale_y_continuous(breaks=seq(0,1, by=0.1),
+                       minor_breaks=seq(0,1, by=0.05))
+
+
+ggsave(paste0(output_path, 'PFAM_LCR_violin.png'), plot=PFAM_LCR_violin, width = 8, height = 6, dpi=300)
+
+#hist
+PFAM_LCR_hist <- ggplot(PFAM_LCR, aes(x=tAI, color=presence, fill=presence))+
+  geom_histogram(bins=30, color='black',  position='dodge', alpha=0.8)+
+  scale_fill_manual(values=c('PFAM LCR absence' = '#696969', 'PFAM LCR presence'='#C0C0C0'))+
+  geom_density(lwd=0.5, linetype=1, alpha=0.0)+
+  scale_color_manual(values=c('PFAM LCR absence' = '#696969', 'PFAM LCR presence'='#C0C0C0'))+
+  geom_vline(data=LCR_number, aes(xintercept = mean_tAI), linetype = 'dashed',  linewidth = 1)+
+  labs(subtitle=equation_label)+
+  annotate('text', x = Inf, y = Inf, label = paste('Total n =', total_counts), 
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')+
+  theme_stata()
+  theme(
+    legend.position = 'bottom',
+    plot.subtitle = element_text(hjust = 0, vjust = 1, margin = margin(t = 10, l = 10)), 
+    axis.text.x = element_text(face = 'bold'),
+    axis.text.y = element_text(face = 'bold')
+  )
+
+
+  PFAM_LCR_hist
+
+ggsave(paste0(output_path, 'PFAM_LCR_hist.png'), plot=PFAM_LCR_hist, width = 8, height = 6, dpi=300)
+```
+
+
+```{r transmembrane elements presence in protein violin hist}
+#Ceecking if there are differences between transmembrans presence in proteins and transembrane proteins absence in proteins comparing to tAI
+
+
+equation_label <- create_statistical_label(TM_count, TM_count$tAI, TM_count$presence, FALSE)
+
+count_values <- TM_count %>% 
+    group_by(presence) %>% 
+    summarise(count=n())
+x_labels <- count_values %>%
+  mutate(label = paste(presence, "\nn=", count_values$count)) %>% 
+  pull(label)
+
+total_counts <- nrow(TM_count)
+
+
+#violin
+TM_count_violin <- ggplot(TM_count, aes(presence, tAI, fill=presence))+
+    geom_violin(trim=FALSE)+
+    geom_boxplot(width=0.2, alpha=0.8, notch=TRUE, fill='#FFFFF0', color='black')+
+    labs(subtitle=equation_label, x='')+
+    theme_stata()+
+    theme(legend.position = 'none',
+          plot.subtitle = element_text(hjust=0),
+          axis.text.x = element_text(face='bold'),
+          axis.text.y=element_text(face='bold'),
+          panel.grid.major.y = element_line(color='gray', size=0.5),
+          panel.grid.minor.y = element_line(color='lightgray', size=0.3))+
+    annotate('text', x = Inf, y = Inf, label = paste('Total n =', total_counts), 
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')+
+    scale_fill_manual(values = c('Transmembrane elements absence' = '#696969', 'Transmembrane elements presence'='#C0C0C0'))+
+    scale_x_discrete(labels=x_labels)+
+    scale_y_continuous(breaks=seq(0,1, by=0.1),
+                       minor_breaks=seq(0,1, by=0.05))
+
+ggsave(paste0(output_path, 'TM_count_violin.png'), plot=TM_count_violin, width = 8, height = 6, dpi=300)
+
+#hist
+TM_count_hist <- ggplot(TM_count, aes(x=tAI, color=presence, fill=presence))+
+  geom_histogram(bins=30, color='black',  position='dodge', alpha=0.8)+
+  scale_fill_manual(values=c('Transmembrane elements absence' = '#696969', 'Transmembrane elements presence'='#C0C0C0'))+
+  geom_density(lwd=0.5, linetype=1, alpha=0.0)+
+  scale_color_manual(values=c('Transmembrane elements absence' = '#696969', 'Transmembrane elements presence'='#C0C0C0'))+
+  geom_vline(data=LCR_number, aes(xintercept = mean_tAI), linetype = 'dashed',  linewidth = 1)+
+  labs(subtitle=equation_label)+
+    annotate('text', x = Inf, y = Inf, label = paste('Total n =', total_counts), 
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')+
+  theme_stata()+
+  theme(
+    plot.subtitle = element_text(hjust=0),
+    legend.position = 'bottom',
+    axis.text.x = element_text(face = 'bold'),
+    axis.text.y = element_text(face = 'bold')
+  )
+ggsave(paste0(output_path, 'TM_count_hist.png'), plot=TM_count_hist, width = 8, height = 6, dpi=300)
+```
+
+```{r transmembrane elements counts in proteins boxplot}
+#Checking if there is dependances between number of transmembranes in bins and tAI
+
+colors <- colorRampPalette(brewer.pal(12, "Paired"))(length(unique(TM_count$TM_count_col)))
+equation_label <- create_statistical_label(TM_count, TM_count$tAI, TM_count$TM_count_col, TRUE)
+
+
+total_counts <- nrow(TM_count)
+
+TM_count_boxplot <- ggplot(TM_count, aes(x=factor(TM_count_col), y=tAI, fill=factor(TM_count_col)))+
+    geom_boxplot(alpha=0.8, outlier.shape=16, outlier.size=1, width=0.7)+
+    geom_point(color='black', size=1, shape=16, alpha=0.5)+
+    labs(subtitle=equation_label, x='Counts of transmembrane elements in protein')+
+    theme_stata()+
+    theme(legend.position = 'none',
+          plot.subtitle = element_text(hjust=0),
+          axis.text.x=element_text(face='bold', angle=60, hjust=1),
+          axis.text.y=element_text(face='bold'))+
+    annotate('text', x = Inf, y = Inf, label = paste('Total n =', total_counts), 
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')+
+    scale_color_manual(values = colors)+
+    scale_x_discrete(labels = function(x) {
+        TM_count$count[TM_count$TM_count_col %in% as.integer(x)] %>%
+            paste(x, ", n=", .)
+  })
+ggsave(paste0(output_path, 'TM_count_boxplot.png'), plot=TM_count_boxplot, width = 8, height = 6, dpi=300)
+```
+
+```{r length of transmembrane elements in protein boxplot}
+#Checking if there is dependances between length of transmembrane elements and tAI
+
+colors <- colorRampPalette(brewer.pal(12,"Paired"))(length(unique(TM_length$TM_length_col)))
+equation_label <- create_statistical_label(TM_length, TM_length$tAI, TM_length$TM_length_col, TRUE)
+
+count_transmembrane_bins <- TM_length %>%
+    group_by(bin) %>%
+    summarise(count = n())
+
+total_counts <- nrow(TM_length)
+
+
+TM_length_boxplot <- ggplot(TM_length, aes(x=factor(bin), y=tAI, fill=factor(bin)))+
+    geom_boxplot(alpha=0.8, outlier.shape=16, outlier.size=1, width=0.7)+
+    geom_point(color='black', size=1, shape=16, alpha=0.5)+
+    labs(subtitle=equation_label, x='Length of transmembrane elements in protein')+
+    theme_stata()+
+    theme(legend.position = 'none',
+          plot.subtitle = element_text(hjust=0),
+          axis.text.x=element_text(face='bold', angle=60, hjust=1),
+          axis.text.y=element_text(face='bold'))+
+    scale_color_manual(values = colors)+
+    annotate('text', x = Inf, y = Inf, label = paste('Total n =', total_counts), 
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')+
+    scale_x_discrete(labels = function(x) {
+        count_transmembrane_bins$count[count_transmembrane_bins$bin %in% as.integer(x) ] %>% 
+            paste(x, ", n=", .)})
+ggsave(paste0(output_path, 'TM_length_boxplot.png'), plot=TM_length_boxplot, width = 8, height = 6, dpi=300)
+```
+
+
+```{r scatterplot tAI vs LCR length }
+#Checking if there is dependances between length of LCR and tAI
+
+equation_label <- create_regression_equation(LCR_length, tAI ~ LCR_length)
+
+total_counts <- nrow(LCR_length)
+
+
+p <- ggplot(LCR_length, aes(LCR_length, tAI)) +
+  geom_point(alpha = 0.3)+
+  geom_smooth(method=loess, se = FALSE, color = '696969')+
+  labs(subtitle = equation_label, x='Proteins with LCR length')+
+  theme_stata()+
+  theme(
+    legend.position = 'bottom',
+    plot.subtitle = element_text(hjust=0, vjust=-2, margin = margin(b = 20)),
+    axis.text.x = element_text(face = 'bold'),
+    axis.text.y = element_text(face = 'bold')
+      )+
+    annotate('text', x = Inf, y = Inf, label = paste('Total n =', total_counts), 
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')+
+    scale_y_continuous(breaks=seq(0,1, by=0.1),
+                       minor_breaks=seq(0,1, by=0.05))
+
+
+tAI_vs_LCR_length <- ggMarginal(p, type='densigram', size=5, fill='#696969')
+ggsave(paste0(output_path, 'tAI_vs_LCR_length.png'), plot=tAI_vs_LCR_length, width = 8, height = 6, dpi=300)
+
+
+```
+
+```{r scatterplot tAI vs LCR length TRIMMED }
+#Checking if there is dependances between length of LCR and tAI
+
+LCR_length_trimmed <- LCR_length %>% 
+  filter(LCR_length < 0.7 * max(LCR_length))
+equation_label <- create_regression_equation(LCR_length_trimmed, tAI ~ LCR_length)
+
+total_counts <- nrow(LCR_length_trimmed)
+
+
+p <- ggplot(LCR_length_trimmed, aes(LCR_length, tAI)) +
+  geom_point(alpha = 0.3)+
+  geom_smooth(method=loess, se = FALSE, color = '696969')+
+  labs(subtitle = equation_label, x='Proteins with LCR length. 30% the longest outliers were rejected')+
+  theme_stata()+
+  theme(
+    legend.position = 'bottom',
+    plot.subtitle = element_text(hjust=0, vjust=-2, margin = margin(b = 20)),
+    axis.text.x = element_text(face = 'bold'),
+    axis.text.y = element_text(face = 'bold')
+      )+
+    annotate('text', x = Inf, y = Inf, label = paste('Total n =', total_counts), 
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')+
+    scale_y_continuous(breaks=seq(0,1, by=0.1),
+                       minor_breaks=seq(0,1, by=0.05))
+
+
+tAI_vs_LCR_length_TRIMMED <- ggMarginal(p, type='densigram', size=5, fill='#696969')
+ggsave(paste0(output_path, 'tAI_vs_LCR_length_TRIMMED.png'), plot=tAI_vs_LCR_length_TRIMMED, width = 8, height = 6, dpi=300)
+
+```
+
+
+
+```{r violin plots with every binary value }
+y_limist<- c(0, 1)
+joined <- plot_grid(domains_violin,
+          LCR_presence_violin +theme(axis.text.y = element_blank(),
+                                      axis.ticks.y = element_blank(),
+                                      axis.title.y = element_blank()),
+          signal_presence_violin, 
+          PFAM_LCR_violin, 
+          TM_count_violin, 
+          nrow=2, ncol=3, align="v",
+          labels='auto')
+
+ggsave(paste0(output_path, 'joined.png'), plot=joined, width = 8, height = 6, dpi=300)
+#Usunac elementy z y osi dla pozostalych dwoch wykresow
+# zmniejszyc czcionke
+# zmniejszyc odstep miedzy liniami na osi y
+# zamiast mann whitney napisac samo p-value
+```
+
+
+
+
