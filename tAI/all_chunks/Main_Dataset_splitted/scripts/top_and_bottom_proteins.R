@@ -1,0 +1,1456 @@
+---
+title: "top_bottom_proteins"
+author: "Norbert Szala"
+date: "2025-04-17"
+output: html_document
+---
+
+
+
+#```{r TO DO}
+###### CZWARTEK ######
+# SPrawdzać które GO/PFAM są rzadsze a też częstsze w ogonach -> zrobić jeden dataframe w CSV który będzie zbierał te PFAMY, których nie ma w ogonach.
+#   Zrób też tabelę, która do ogólnej tabeli dodaje etykietę, czy dany PFAM znajduje się w ogonie czy nie. Następnie zsumuj je pod kątem liczebności i określ, które PFAMY środkowe są najczęstsze.
+#   Do tej tabeli policz, jaki procent PFAMy z ogona stonowią spośród wszystkich (PFAM tail / pfam tail+pfam middle)
+
+# Czy dany PFAM zobowiązuje sie do bycia w top or bottom. i porownac go z average dla tego pfama
+#   Czyli policzyć średnie tAI dla PFAMów (tych licznych conajmniej 1000 lub coś ten teges by odsiać szum lub małoliczne pfamy) i zobaczyć jaki procent z tych białek należy do ogonów
+
+
+###### POTEM  ######
+#poprawic total count 
+# Dla tych ktore sie wyrozniaja jakie maja LCR -> policzyć tAI dla tych LCR po uprzedniej translacji na białka
+# W paperze LCR zenodo jest przykladowa tabela
+# Wzbogacony vs oczekiwana + liczniejszy niż zadany próg
+
+#expected vs observed
+##```
+
+
+# zwiekszyc liczebnosc do 10 po jeden
+# PFAM domeny rowniez
+# JAk są ogolne kategorie to dodać wiecej rzędów
+# PFAM abstract 
+# LCR tableka z artyk. Dodaj opisy słowne
+
+#```{r libraries}
+library(ggplot2)
+library(plotly)
+library(htmlwidgets)
+library(ggthemes)
+library(viridis)
+library(dplyr)
+library(RColorBrewer)
+library(grDevices)
+library(dunn.test)
+library(scales)
+library(tidyr)
+library(ggExtra)
+library(nortest)
+library(cowplot)
+#```
+
+#```{r read data - local paths}
+main_path <- '/home/norbert/IBB/skrypty/Main_Dataset_splitted/data/'
+
+domain_bolean <- read.csv(paste0(main_path, 'domain_bolean_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'domain', 'tAI'))
+
+signal_bolean <- read.csv(paste0(main_path, 'signal_bolean_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'signal', 'tAI'))
+
+protein_length <- read.csv(paste0(main_path, 'protein_length_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'length', 'tAI'))
+
+LCR_number <- read.csv(paste0(main_path, 'LCR_number_columns.tsv'), sep='\t', header=FALSE, col.names = c('prot_id','LCR_count', 'tAI'))
+
+TM_count <- read.csv(paste0(main_path, 'transmembrane_count_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'TM_count_col', 'tAI'))
+
+TM_length <- read.csv(paste0(main_path, 'total_transmembrane_length_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'TM_length_col', 'tAI'))
+
+GOterms <- read.csv(paste0(main_path, 'GOterms_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'GOterms', 'tAI'))
+
+PFAM_LCR <- read.csv(paste0(main_path, 'PFAM_domains_LCR_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'PFAM_LCR_col', 'tAI'))
+
+PFAM_proteins <- read.csv(paste0(main_path, 'PFAM_domains_proteins_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'PFAM_prot', 'tAI'))
+
+
+LCR_length <- read.csv(paste0(main_path, 'total_lcr_length.tsv'), sep = '\t', header = FALSE, col.names = c('prot_id', 'LCR_length', 'tAI'))
+
+output_path<- '/home/norbert/IBB/skrypty/Main_Dataset_splitted/plots_top_and_bottom_tAI/local_1000/'
+#```
+
+#```{r read data - mycelia paths}
+# main_path <- '/home/norbert_s/tAI/all_chunks/Main_Dataset_splitted/data/'
+# domain_bolean <- read.csv(paste0(main_path, 'domain_bolean_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'domain', 'tAI'))
+# 
+# signal_bolean <- read.csv(paste0(main_path, 'signal_bolean_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'signal', 'tAI'))
+# 
+# protein_length <- read.csv(paste0(main_path, 'protein_length_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'length', 'tAI'))
+# 
+# LCR_number <- read.csv(paste0(main_path, 'LCR_number_columns.tsv'), sep='\t', header=FALSE, col.names = c('prot_id','LCR_count', 'tAI'))
+# 
+# TM_count <- read.csv(paste0(main_path, 'transmembrane_count_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'TM_count_col', 'tAI'))
+# 
+# TM_length <- read.csv(paste0(main_path, 'total_transmembrane_length_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'TM_length_col', 'tAI'))
+# 
+# GOterms <- read.csv(paste0(main_path, 'GOterms_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'GOterms', 'tAI'))
+# 
+# PFAM_LCR <- read.csv(paste0(main_path, 'PFAM_domains_LCR_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'PFAM_LCR_col', 'tAI'))
+# 
+# PFAM_proteins <- read.csv(paste0(main_path, 'PFAM_domains_proteins_column.tsv'), sep='\t', header=FALSE, col.names = c('prot_id', 'PFAM_prot', 'tAI'))
+# 
+# 
+# LCR_length <- read.csv(paste0(main_path, 'total_lcr_length.tsv'), sep = '\t', header = FALSE, col.names = c('prot_id', 'LCR_length', 'tAI'))
+# 
+# output_path<-'/home/norbert_s/tAI/all_chunks/Main_Dataset_splitted/plots_extensive/'
+#```
+
+#```{r trim data, warning=FALSE}
+domain_bolean <- inner_join(domain_bolean, GOterms, by ='prot_id') %>% 
+  select(prot_id, tAI = tAI.x, GOterms, domain) %>% 
+  filter(GOterms != '') %>% 
+  separate_rows(GOterms, sep = "\\|")
+
+signal_bolean <- inner_join(signal_bolean, GOterms, by ='prot_id') %>% 
+  select(prot_id, tAI = tAI.x, GOterms, signal)%>% 
+  filter(GOterms != '') %>% 
+  separate_rows(GOterms, sep = "\\|")
+
+protein_length <- inner_join(protein_length, GOterms, by ='prot_id') %>% 
+  select(prot_id, tAI = tAI.x, GOterms, length)%>% 
+  filter(GOterms != '') %>% 
+  separate_rows(GOterms, sep = "\\|")
+
+LCR_number <- inner_join(LCR_number, GOterms, by ='prot_id') %>% 
+  select(prot_id, tAI = tAI.x, GOterms, LCR_count)%>% 
+  filter(GOterms != '') %>% 
+  separate_rows(GOterms, sep = "\\|")
+
+PFAM_LCR <- inner_join(PFAM_LCR, GOterms, by ='prot_id') %>% 
+  select(prot_id, tAI = tAI.x, GOterms, PFAM_LCR_col)%>% 
+  filter(GOterms != '') %>% 
+  separate_rows(GOterms, sep = "\\|")
+
+PFAM_proteins <- inner_join(PFAM_proteins, GOterms, by ='prot_id') %>% 
+  select(prot_id, tAI = tAI.x, GOterms, PFAM_prot)%>% 
+  filter(GOterms != '') %>% 
+  separate_rows(GOterms, sep = "\\|")
+
+TM_length <- inner_join(TM_length, GOterms, by ='prot_id') %>% 
+  select(prot_id, tAI = tAI.x, GOterms, TM_length_col)%>% 
+  filter(GOterms != '') %>% 
+  separate_rows(GOterms, sep = "\\|")
+
+TM_count <- inner_join(TM_count, GOterms, by ='prot_id') %>% 
+  select(prot_id, tAI = tAI.x, GOterms, TM_count_col)%>% 
+  filter(GOterms != '') %>% 
+  separate_rows(GOterms, sep = "\\|")
+
+LCR_length <- inner_join(LCR_length, GOterms, by ='prot_id') %>% 
+  select(prot_id, tAI = tAI.x, GOterms, LCR_length)%>% 
+  filter(GOterms != '') %>% 
+  separate_rows(GOterms, sep = "\\|")
+
+GOterms <- GOterms %>% 
+  filter(GOterms != '') %>% 
+  separate_rows(GOterms, sep = "\\|")
+
+
+# Trim data to 1000 rows to speed up computing.
+domain_bolean <-head(domain_bolean, n=1000)
+signal_bolean <-head(signal_bolean, n=1000)
+protein_length<-head(protein_length, n=1000)
+LCR_number <-head(LCR_number, n=1000)
+GOterms <- head(GOterms, n=1000)
+PFAM_LCR <-head(PFAM_LCR, n=1000)
+PFAM_proteins<-head(PFAM_proteins, n=1000)
+TM_length<-head(TM_length, n=1000)
+TM_count<-head(TM_count, n=1000)
+LCR_length <- head(LCR_length, n=1000)
+#```
+
+#```{r modify data}
+#replace numerical values (booleans 0 or 1) by strings (Presence, No domain)
+domain_bolean <- domain_bolean %>%
+    mutate(presence = factor(case_when(
+        domain == 1 ~ 'Domain presence',
+        domain == 0 ~ 'Domain absence'
+), levels=c('Domain absence', 'Domain presence')))
+
+
+#replace numerical values (booleans 0 or 1) by strings (Presence, absence)
+signal_bolean <- signal_bolean %>%
+    mutate(presence = factor(case_when(
+        signal == 1 ~ 'Signal presence',
+        signal == 0 ~ 'Signal absence'
+        ), levels=c('Signal absence', 'Signal presence')))
+
+
+protein_length$length <- 
+    as.numeric(protein_length$length)
+breaks = seq(1, max(protein_length$length, na.rm = TRUE), length.out = 11)
+protein_length$bin <- cut(
+  protein_length$length,
+  breaks = breaks,
+  labels = 1:10,
+  right = FALSE)
+protein_length$bin[is.na(protein_length$bin)] <- 9
+
+LCR_number <- LCR_number %>%
+    mutate(presence = factor(case_when(
+        LCR_count ==0 ~ 'LCR absence',
+        LCR_count != 0 ~'LCR presence'),
+        levels=c('LCR absence', 'LCR presence')))
+
+
+GOterms <- GOterms[GOterms$GOterms != "",]
+GOterms <- GOterms %>%
+separate_rows(GOterms, sep = "\\|")
+
+
+
+PFAM_LCR <- PFAM_LCR %>% 
+  mutate(presence = factor(case_when(
+    PFAM_LCR_col == '' ~ 'PFAM LCR absence',
+    PFAM_LCR_col != '' ~ 'PFAM LCR presence'),
+    levels=c('PFAM LCR absence', 'PFAM LCR presence')))
+
+
+PFAM_proteins <- PFAM_proteins[PFAM_proteins$PFAM_prot != "",]
+PFAM_proteins <- PFAM_proteins %>%
+separate_rows(PFAM_prot, sep = " ")
+
+TM_length$TM_length_col <- 
+    as.numeric(TM_length$TM_length_col)
+
+breaks = c(0, seq(1, max(TM_length$TM_length_col, na.rm = TRUE), length.out = 11))
+TM_length$bin <- cut(
+  TM_length$TM_length_col,
+  breaks = breaks,
+  labels = 0:10,
+  right = FALSE
+)
+TM_length$bin[is.na(TM_length$bin)] <- 9
+
+
+TM_count <- TM_count %>% 
+  mutate(presence = factor(case_when(
+    TM_count_col == 0 ~ 'Transmembrane elements absence',
+    TM_count_col != 0 ~ 'Transmembrane elements presence'),
+    levels = c('Transmembrane elements absence', 'Transmembrane elements presence')))
+
+
+LCR_length <- LCR_length %>% 
+  filter(LCR_length >= 1)
+
+
+mean_tAI <- mean(domain_bolean$tAI, na.rm=TRUE)
+#```
+
+#```{r functions}
+create_regression_equation <- function(data, formula) {
+  model <- lm(formula, data=data)
+  summary_model <- summary(model)
+  r_sq <- round(summary_model$r.squared, 5)
+  coef <- coef(model)
+  intercept <- round(coef[1], 2)
+  slope <- round(coef[2], 2)
+  p_value <- round(summary_model$coefficients[2, 4], 5)
+  if (p_value >= 0.05) {
+      equation_label <- paste("y = ", intercept, " + ", slope, " * x,", "        R² = ", r_sq, ",        p value ≥ 0.05.", sep = "")
+  } else {
+      equation_label <- paste("y = ", intercept, " + ", slope, " * x,", "        R² = ", r_sq, ",        p value < 0.05. ", sep = "")
+
+  }
+  return(equation_label)
+}
+
+#function to create label with statistical test result. Test can be chosen by setting argument parametric_assumption to TRUE (anova or kruskal wallis) or FALSE to T-student or Mann-Whitney.
+create_statistical_label <- function(data, var1, var2, parametric_assumption = TRUE) {
+  
+  if (parametric_assumption) {
+    ad_test <- ad.test(var1)#Anderson Darling test to check normality distribution
+    
+    if (ad_test$p.value < 0.05) {
+      # ANOVA test for parametric values with normal distribution
+      test = 'ANOVA '
+      anova_results <- summary(aov(var1 ~ var2, data = data))
+      p_value <- anova_results[[1]]$'Pr(>F)'[1]
+    } else {
+      # Kruskal-Wallis test for parametric values and lack of normal distribution
+      test = 'Kruskal-Wallis test '
+      kw_test <- kruskal.test(var1 ~ var2, data = data)
+      p_value <- kw_test$p.value
+    }
+  } else {
+    ad_test <- ad.test(var1)
+    
+    if (ad_test$p.value < 0.05) {
+      # Mann-Whitney test #non parametrical test with normal distribution
+      test = 'Mann-Whitney test '
+      mann_whitney_test <- wilcox.test(var1 ~ var2, data = data)
+      p_value <- mann_whitney_test$p.value
+    } else {
+      # T-test for not normal test not parametrical
+      test = 'T-student test '
+      t_student_result <- t.test(var1, mu = 0.5)
+      p_value <- t_student_result$p.value
+    }
+  }
+  
+  # Create the equation label
+  if (p_value >= 0.05) {
+    equation_label <- paste(test, "p-value ≥ 0.05")
+  } else {
+    equation_label <- paste(test, "p-value < 0.05")
+  }
+    
+
+  return(equation_label)
+}
+
+
+get_extreme_tAI_values <- function(table, column, extremum, variable, mid_values = FALSE) {
+  #' Get Extreme tAI Values
+  #' Returns proteins with extreme tAI values based on bins or percentiles.
+  #'
+  #' @param table A data frame containing the data.
+  #' @param column The name of the numeric column (e.g., tAI).
+  #' @param extremum When variable = "percent", this is the percentage (e.g., 10). When variable = "bins", this is the number of bins (e.g., 5).
+  #' @param variable Either "percent" or "bins".
+  #' @param mid_values If TRUE, include 'mid' values as well. If FALSE, return only 'lowest' and 'highest'.
+  #' @return A data frame with labeled proteins.
+
+  # Ensure numeric
+  table[[column]] <- as.numeric(table[[column]])
+
+  if (variable == 'bins') {
+    breaks <- seq(0, max(table[[column]], na.rm = TRUE), length.out = extremum + 1)
+    table$label <- cut(
+      table[[column]],
+      breaks = breaks,
+      labels = 1:extremum,
+      right = FALSE
+    )
+    
+    table$label <- as.character(table$label)
+    table$label[table$label == '1'] <- 'lowest'
+    table$label[table$label == as.character(extremum)] <- 'highest'
+    table$label[!(table$label %in% c('lowest', 'highest'))] <- 'mid'
+    
+    if (!mid_values) {
+      table <- table %>% filter(label %in% c('lowest', 'highest'))
+    }
+  }
+
+  if (variable == 'percent') {
+    quantiles <- quantile(table[[column]], probs = c(extremum / 100, 1 - (extremum / 100)), na.rm = TRUE)
+    
+    table$label <- 'mid'
+    table$label[table[[column]] <= quantiles[1]] <- 'lowest'
+    table$label[table[[column]] >= quantiles[2]] <- 'highest'
+    
+    if (!mid_values) {
+      table <- table[table$label %in% c('lowest', 'highest'), ]
+    }
+  }
+
+  return(table)
+}
+
+
+
+count_extreme_goterms <- function(table, x, add = FALSE) {
+  #' This function separates goterms from a common column (e.g., RNA|DNA|mito) into three independent rows with the same protein_ID and tAI in other columns.
+  #' It then counts the most common x independent goterms for the lowest and highest tAI.
+  #' @param table A data frame with grouped proteins and goterms by highest and lowest presence. Usually the output of get_extreme_tAI_values.
+  #' @param x (int) The number of top records with the most common goterms to return.
+  #' @param add describes if add additional column to output, for example if add == 'LCR length' that column should be added to output
+  #' @return A list with the x most common goterms for the highest and lowest tAI.
+  #' @export
+  
+  # Separate the table into lowest and highest tAI
+  lowest <- table %>% 
+    filter(label == 'lowest')
+  highest <- table %>% 
+    filter(label == 'highest')
+  
+  # Separate the goterms by splitting the common column (assuming it's called 'goterms')
+  lowest <- lowest %>%
+    separate_rows(GOterms, sep = "\\|") %>% # Split the goterms column into multiple rows
+    mutate(GOterms = sub("\\{.*", "", GOterms)) %>% 
+    mutate(GOterms = paste0(GOterms, "_L"))
+    
+    
+  highest <- highest %>%
+    separate_rows(GOterms, sep = "\\|") %>%  # Split the goterms column into multiple rows
+    mutate(GOterms = sub("\\{.*", "", GOterms)) %>% 
+    mutate(GOterms = paste0(GOterms, "_H"))
+
+
+  
+  # Count the frequency of each goterm in lowest and highest tAI groups
+  lowest_counts <- lowest %>%
+    count(GOterms) %>%
+    arrange(desc(n)) %>%
+    head(x)  # Get the top 'x' most common GOterms for lowest tAI
+  
+  highest_counts <- highest %>%
+    count(GOterms) %>%
+    arrange(desc(n)) %>%
+    head(x)  # Get the top 'x' most common GOterms for highest tAI
+  
+  lowest_counts <- lowest_counts %>%
+    mutate(tAI_group = 'lowest')
+  
+  highest_counts <- highest_counts %>%
+    mutate(tAI_group = 'highest')
+  
+  if (add == FALSE) { #if do not add additional columns to output
+      # Join back with the original lowest and highest data frames to get tAI values
+    lowest_counts <- lowest_counts %>%
+      left_join(lowest %>% select(GOterms, tAI, prot_id), by = c("GOterms" = "GOterms")) %>%
+      distinct()  # Ensure we don't duplicate rows
+    
+    highest_counts <- highest_counts %>%
+      left_join(highest %>% select(GOterms, tAI, prot_id), by = c("GOterms" = "GOterms")) %>%
+      distinct()  # Ensure we don't duplicate rows
+  
+  } else {
+    lowest_counts <- lowest_counts %>%
+      left_join(lowest %>% select(GOterms, tAI, prot_id, all_of(add)), by = c("GOterms" = "GOterms")) %>%
+      distinct()  # Ensure we don't duplicate rows
+  
+    highest_counts <- highest_counts %>%
+      left_join(highest %>% select(GOterms, tAI, prot_id, all_of(add)), by = c("GOterms" = "GOterms")) %>%
+      distinct()  # Ensure we don't duplicate rows
+  }
+  
+  hilo_goterms <- rbind(highest_counts, lowest_counts)
+  # Return a list with the most common GOterms
+  return(hilo_goterms)
+}
+
+
+#```
+
+
+#```{r create extreme tAI values df}
+goterms_extreme <- get_extreme_tAI_values(GOterms, 'tAI', 10, 'percent') #indicates proteins with extreme tAI values. Describes it as 'highest' and 'lowest'
+hilo_goterms <- count_extreme_goterms(goterms_extreme, 5)
+hilo_goterms <- hilo_goterms %>% 
+  group_by(tAI_group)
+
+LCR_length_extreme <- get_extreme_tAI_values(LCR_length, 'tAI', 10, 'percent')
+
+hilo_LCR_len <- count_extreme_goterms(LCR_length_extreme, 5, "LCR_length")
+hilo_LCR_len <- hilo_LCR_len %>% 
+  group_by(tAI_group)
+
+
+LCR_count_extreme <- get_extreme_tAI_values(LCR_number, 'tAI', 10, 'percent')
+
+hilo_LCR_presence <- count_extreme_goterms(LCR_count_extreme, 5, 'presence')
+hilo_LCR_presence <- hilo_LCR_presence %>% 
+  group_by(GOterms, tAI_group)
+
+
+LCR_length_extreme
+LCR_count_extreme
+
+PFAM_LCR_extreme <- get_extreme_tAI_values(PFAM_LCR, 'tAI', 10, 'percent')
+
+hilo_PFAM_LCR <- count_extreme_goterms(PFAM_LCR_extreme, 5, 'presence')
+hilo_PFAM_LCR <- hilo_PFAM_LCR %>% 
+  group_by(tAI_group)
+
+prot_len_extreme <- get_extreme_tAI_values(protein_length, 'tAI', 10, 'percent')
+
+hilo_prot_len <- count_extreme_goterms(prot_len_extreme, 5, 'bin')
+hilo_prot_len <- hilo_prot_len %>% 
+  group_by(tAI_group)
+
+signal_extreme <- get_extreme_tAI_values(signal_bolean, 'tAI', 10, 'percent')
+hilo_signal <- count_extreme_goterms(signal_extreme, 5, 'presence')
+hilo_signal <- hilo_signal %>% 
+  group_by(tAI_group)
+
+TM_pres_extreme <- get_extreme_tAI_values(TM_count, 'tAI', 10, 'percent')
+
+hilo_TM_presence <- count_extreme_goterms(TM_pres_extreme, 5, 'presence')
+hilo_TM_presence <- hilo_TM_presence %>% 
+  group_by(tAI_group)
+
+TM_count_extreme <- get_extreme_tAI_values(TM_count, 'tAI', 10, 'percent')
+
+hilo_TM_count <- count_extreme_goterms(TM_count_extreme, 5, 'TM_count_col')
+hilo_TM_count <- hilo_TM_count %>% 
+  group_by(tAI_group)
+
+extreme_all_categories <- bind_rows(goterms_extreme, LCR_length_extreme, LCR_count_extreme, PFAM_LCR_extreme, prot_len_extreme, signal_extreme, TM_pres_extreme, TM_count_extreme)
+#wlasnie o taka tabele chodzi, lecz nalezy ja wykonac przed trymowaniem danych.
+#```
+
+
+#All these plots are about top 10 and bottom 10 percent tAI values for different sets
+# I mean top 10 percent as these proteins which tAI is in top 10 
+
+
+#```{r proteins with GOterms data preaparation}
+hilo_goterms$GOterms <- factor(
+  hilo_goterms$GOterms,
+  levels = sort(unique(hilo_goterms$GOterms[grepl("_H$", hilo_goterms$GOterms)])) %>%
+           c(sort(unique(hilo_goterms$GOterms[grepl("_L$", hilo_goterms$GOterms)]))))
+
+
+#statistics to chart
+equation_label <- create_statistical_label(hilo_goterms, hilo_goterms$tAI, hilo_goterms$tAI_group, FALSE)
+# colors <- colorRampPalette(brewer.pal((length(unique(hilo_goterms$tAI_group))),"Paired"))(length(unique(hilo_goterms$GOterms)))
+colors = c('#696969', '#C0C0C0')
+
+count_values <- hilo_goterms %>% 
+    group_by(GOterms) %>% 
+    summarise(count=n())
+x_labels <- count_values %>% 
+    mutate(
+      clean_GOterms = gsub("_[HL]", "", GOterms),
+      label = paste(clean_GOterms, "\nn=", count)) %>% 
+    pull(label)
+
+total_counts <- nrow(hilo_goterms)
+
+
+###### indicate tails and mid
+GOterms <- get_extreme_tAI_values(GOterms, 'tAI', 10, 'percent', TRUE) #indicates proteins with extreme tAI values. Describes it as 'highest' and 'lowest'
+
+# Data frame that counts the occurrences of each GO term with the labels 'mid', 'lowest', or 'highest'
+label_counts_GOterms <- GOterms %>% 
+  group_by(GOterms, label) %>% 
+  summarise(count = n(), .groups = "drop") %>% #drop cancels grouping data
+  group_by(GOterms) %>% 
+  mutate(total_count = sum(count),
+         percentage = round((count / total_count) * 100, 2)) %>% 
+  ungroup()
+
+label_counts_GOterms_wide <- label_counts_GOterms %>% 
+  pivot_wider(
+    names_from = label,
+    values_from = count,
+    values_fill = 0
+  )
+
+#```
+
+
+
+#```{r protein with GOTERMS plots }
+#Create scatter and table with proteins with GOterms. That plot contain only proteins with the highest and the lowest tAI values to identify what proteins are in tails.
+#Table to indicate what GOterms are the most frequent in top and bottom 10% of tAI values GENERALLY
+#
+
+
+
+#here we can add boxplot
+lowest_highest_boxplot <- ggplot(hilo_goterms, aes(x = GOterms, y = tAI, fill=tAI_group))+
+  geom_boxplot(width=0.2, alpha=0.8, notch=TRUE, color='black', size=0.5)+
+    labs(subtitle=equation_label, x='')+
+    theme_stata()+
+    theme(legend.position = 'none',
+          plot.subtitle = element_text(hjust=0),
+          axis.text.x = element_text(face='bold', hjust = 1, angle = 45),
+          axis.text.y=element_text(face='bold'),
+          panel.grid.major.y = element_line(color='gray', size=0.5),
+          panel.grid.minor.y = element_line(color='lightgray', size=0.3))+
+    annotate('text', x = Inf, y = Inf, label = paste('Total n =', total_counts), 
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')+
+    scale_fill_manual(values = colors)+
+    scale_x_discrete(labels=x_labels)+
+    scale_y_continuous(breaks=seq(0,1, by=0.1),
+                       minor_breaks=seq(0,1, by=0.05))
+
+lowest_highest_boxplot
+
+#trzeba zrobic dwa osobne boxploty
+ggsave(paste0(output_path, 'lohi_tAI_goterms_barplot.png'), plot=lowest_highest_boxplot, width = 8, height = 6, dpi=300)
+
+
+#buble interactice plot
+colors = c('#121212', '#696969')
+
+lowest_highest_scatter <- ggplot(hilo_goterms, aes(x = GOterms, y = tAI, fill = tAI_group,  text = paste('Protein ID: ', prot_id))) +
+  geom_point(alpha = 0.6) +
+  labs(title = equation_label, x = NULL)+
+  theme_stata()+
+  theme(legend.position = 'none',
+        plot.title = element_text(hjust=0, size = 14),
+        axis.text.x = element_text(face='bold', hjust = 1, angle = 45),
+        axis.text.y=element_text(face='bold'),
+        panel.grid.major.y = element_line(color='gray', size=0.5),
+        panel.grid.minor.y = element_line(color='lightgray', size=0.3))+
+  annotate('text', x = 10, y = max(hilo_goterms$tAI) * 1.1, label = paste('Total n =', total_counts),
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')+
+  scale_fill_manual(values = colors)+
+  scale_x_discrete(labels=x_labels)+
+  scale_y_continuous(breaks=seq(0,1, by=0.1),
+                     minor_breaks=seq(0,1, by=0.05))
+
+# Konwersja na interaktywny wykres
+ggplotly(lowest_highest_scatter)
+lowest_highest_scatter_interactive <- ggplotly(lowest_highest_scatter)
+ggsave(paste0(output_path, 'lohi_tAI_goterms_scatterplot.png'), plot=lowest_highest_scatter, width = 8, height = 6, dpi=300)
+
+saveWidget(lowest_highest_scatter_interactive, paste0(output_path, 'lohi_tAI_goterms_scatterplot.html'))
+
+
+#```
+
+#```{r domains presence}
+#The same what upper
+#```
+
+#```{r LCR length data preparation}
+hilo_LCR_len$GOterms <- factor(
+  hilo_LCR_len$GOterms,
+  levels = sort(unique(hilo_LCR_len$GOterms[grepl("_H$", hilo_LCR_len$GOterms)])) %>%
+           c(sort(unique(hilo_LCR_len$GOterms[grepl("_L$", hilo_LCR_len$GOterms)]))))
+
+
+
+#statistics to chart
+equation_label <- create_statistical_label(hilo_LCR_len, hilo_LCR_len$tAI, hilo_LCR_len$tAI_group, FALSE)
+# colors <- colorRampPalette(brewer.pal((length(unique(hilo_goterms$tAI_group))),"Paired"))(length(unique(hilo_goterms$GOterms)))
+colors = c('#696969', '#C0C0C0')
+
+count_values <- hilo_LCR_len %>% 
+    group_by(GOterms) %>% 
+    summarise(count=n())
+x_labels <- count_values %>% 
+    mutate(
+      clean_GOterms = gsub("_[HL]", "", GOterms),
+      label = paste(clean_GOterms, "\nn=", count)) %>% 
+    pull(label)
+
+total_counts <- nrow(hilo_LCR_len)
+
+#```
+
+#```{r LCR length plots}
+#Create scatter and table with proteins with GOterms. That plot contain only proteins with the highest and the lowest tAI values to identify what proteins are in tails.
+#Table to indicate what GOterms are the most frequent in top and bottom 10% of tAI values GENERALLY
+
+#Boxplot shows what GOterms are present in top and bottom proteins with LCR regions
+# Scatterplot helps indicate how length of LCR region depends on tAI. Extreme groups are additional
+
+
+#here we can add boxplot
+lowest_highest_boxplot <- ggplot(hilo_LCR_len, aes(x = GOterms, y = tAI, fill=tAI_group))+
+  geom_boxplot(width=0.2, alpha=0.8, notch=TRUE, color='black', size=0.5)+
+    labs(subtitle=equation_label, x='')+
+    theme_stata()+
+    theme(legend.position = 'none',
+          plot.subtitle = element_text(hjust=0),
+          axis.text.x = element_text(face='bold', hjust = 1, angle = 45),
+          axis.text.y=element_text(face='bold'),
+          panel.grid.major.y = element_line(color='gray', size=0.5),
+          panel.grid.minor.y = element_line(color='lightgray', size=0.3))+
+    annotate('text', x = Inf, y = Inf, label = paste('Total n =', total_counts), 
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')+
+    scale_fill_manual(values = colors)+
+    scale_x_discrete(labels=x_labels)+
+    scale_y_continuous(breaks=seq(0,1, by=0.1),
+                       minor_breaks=seq(0,1, by=0.05))
+
+lowest_highest_boxplot
+
+#trzeba zrobic dwa osobne boxploty
+ggsave(paste0(output_path, 'lohi_LCR_length_boxplot.png'), plot=lowest_highest_boxplot, width = 8, height = 6, dpi=300)
+
+
+#buble interactice plot
+colors <- colorRampPalette(brewer.pal((length(unique(hilo_LCR_len$GOterms))),"Paired"))(length(unique(hilo_LCR_len$GOterms)))
+lowest_highest_scatter <- ggplot(hilo_LCR_len, aes(x = LCR_length, y = tAI, shape = tAI_group, fill = GOterms,  text = paste('Protein ID: ', prot_id))) +
+  geom_point(alpha = 0.6) +
+  scale_shape_manual(values = c('highest' = 16, 'lowest' = 18)) +
+  labs(title = equation_label, x = NULL)+
+  theme_stata()+
+  theme(plot.title = element_text(hjust=0, size = 14),
+        axis.text.x = element_text(face='bold', hjust = 1, angle = 45),
+        axis.text.y=element_text(face='bold'),
+        panel.grid.major.y = element_line(color='gray', size=0.5),
+        panel.grid.minor.y = element_line(color='lightgray', size=0.3))+
+  annotate('text', x = max(hilo_LCR_len$LCR_length), y = max(hilo_LCR_len$tAI) * 1.1, label = paste('Total n =', total_counts),
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')+
+  scale_fill_manual(values = colors)+
+  scale_y_continuous(breaks=seq(0,1, by=0.1),
+                     minor_breaks=seq(0,1, by=0.05))
+
+ggplotly(lowest_highest_scatter)
+lowest_highest_scatter_interactive <- ggplotly(lowest_highest_scatter)
+ggsave(paste0(output_path, 'lohi_LCR_length_scatter.png'), plot=lowest_highest_scatter, width = 8, height = 6, dpi=300)
+
+saveWidget(lowest_highest_scatter_interactive, paste0(output_path, 'lohi_LCR_length_scatter_interactive.html'))
+                                                                                                                
+
+
+#```
+
+
+#```{r LCR presence data preparation}
+hilo_LCR_presence <- hilo_LCR_presence %>% 
+  mutate(
+    GOterms = paste0(GOterms, "_",
+                     ifelse(presence == "LCR presence", "P",
+                            ifelse(presence == "LCR absence", "A", NA_character_))))
+
+hilo_LCR_presence$GOterms <- factor(
+  hilo_LCR_presence$GOterms,
+  levels = sort(unique(hilo_LCR_presence$GOterms[grepl("_H_[PA]$", hilo_LCR_presence$GOterms)])) %>%
+           c(sort(unique(hilo_LCR_presence$GOterms[grepl("_L_[PA]$", hilo_LCR_presence$GOterms)]))))
+
+
+
+#statistics to chart
+equation_label <- create_statistical_label(hilo_LCR_presence, hilo_LCR_presence$tAI, hilo_LCR_presence$tAI_group, FALSE)
+# colors <- colorRampPalette(brewer.pal((length(unique(hilo_LCR_presence$GOterms))),"Paired"))(length(unique(hilo_LCR_presence$GOterms)))
+colors = c('#696969', '#C0C0C0')
+
+count_values <- hilo_LCR_presence %>% 
+    group_by(GOterms, tAI_group) %>% 
+    summarise(count=n())
+x_labels <- count_values %>% 
+    mutate(
+      clean_GOterms = gsub("_[HL]", "", GOterms),
+      label = paste(clean_GOterms, "\nn=", count)) %>% 
+    pull(label)
+
+total_counts <- nrow(hilo_LCR_presence)
+
+
+#```
+
+#```{r LCR presence plots}
+#Create scatter and table with proteins with GOterms. That plot contain only proteins with the highest and the lowest tAI values to identify what proteins are in tails.
+#Table to indicate what GOterms are the most frequent in top and bottom 10% of tAI values GENERALLY
+#
+
+#tworzymy dodatkową kolumnę z połączenia GOterms i presence/absence by oddać to na wykres
+
+
+#here we can add boxplot
+lowest_highest_boxplot <- ggplot(hilo_LCR_presence, aes(x = GOterms, y = tAI, fill=tAI_group))+
+  geom_boxplot(width=0.2, alpha=0.8, notch=TRUE, color='black', size=0.5)+
+    labs(subtitle=equation_label, x='')+
+    theme_stata()+
+    theme(legend.position = 'none',
+          plot.subtitle = element_text(hjust=0),
+          axis.text.x = element_text(face='bold', hjust = 1, angle = 45),
+          axis.text.y=element_text(face='bold'),
+          panel.grid.major.y = element_line(color='gray', size=0.5),
+          panel.grid.minor.y = element_line(color='lightgray', size=0.3))+
+    annotate('text', x = Inf, y = Inf, label = paste('Total n =', total_counts), 
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')+
+    scale_fill_manual(values = colors)+
+    scale_x_discrete(labels=x_labels)+
+    scale_y_continuous(breaks=seq(0,1, by=0.1),
+                       minor_breaks=seq(0,1, by=0.05))
+
+lowest_highest_boxplot
+
+#trzeba zrobic dwa osobne boxploty
+ggsave(paste0(output_path, 'lohi_LCR_presence_barplot.png'), plot=lowest_highest_boxplot, width = 8, height = 6, dpi=300)
+
+
+#buble interactice plot
+colors = c('#121212', '#696969')
+
+lowest_highest_scatter <- ggplot(hilo_LCR_presence, aes(x = GOterms, y = tAI, fill = tAI_group, shape = presence,  text = paste('Protein ID: ', prot_id))) +
+  geom_point(alpha = 0.6) +
+  labs(title = equation_label, x = NULL)+
+  theme_stata()+
+  theme(legend.position = 'none',
+        plot.title = element_text(hjust=0, size = 14),
+        axis.text.x = element_text(face='bold', hjust = 1, angle = 45),
+        axis.text.y=element_text(face='bold'),
+        panel.grid.major.y = element_line(color='gray', size=0.5),
+        panel.grid.minor.y = element_line(color='lightgray', size=0.3))+
+  annotate('text', x = 10, y = max(hilo_LCR_presence$tAI) * 1.1, label = paste('Total n =', total_counts),
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')+
+  scale_fill_manual(values = colors)+
+  scale_x_discrete(labels=x_labels)+
+  scale_y_continuous(breaks=seq(0,1, by=0.1),
+                     minor_breaks=seq(0,1, by=0.05))
+
+# Konwersja na interaktywny wykres
+ggplotly(lowest_highest_scatter)
+lowest_highest_scatter_interactive <- ggplotly(lowest_highest_scatter)
+ggsave(paste0(output_path, 'lohi_LCR_presence_scatterplot.png'), plot=lowest_highest_scatter, width = 8, height = 6, dpi=300)
+
+
+saveWidget(lowest_highest_scatter_interactive, paste0(output_path, 'lohi_LCR_presence_scatterplot.html'))
+
+
+
+
+#```
+
+#```{r LCR number data preparation}
+#sorting data
+hilo_LCR_count$GOterms <- factor(
+  hilo_LCR_count$GOterms,
+  levels = sort(unique(hilo_LCR_count$GOterms[grepl("_H$", hilo_LCR_count$GOterms)])) %>%
+           c(sort(unique(hilo_LCR_count$GOterms[grepl("_L$", hilo_LCR_count$GOterms)]))))
+
+
+#statistics to chart
+equation_label <- create_statistical_label(hilo_LCR_count, hilo_LCR_count$tAI, hilo_LCR_count$tAI_group, FALSE)
+colors = c('#696969', '#C0C0C0')
+
+count_values <- hilo_LCR_count %>% 
+    group_by(GOterms) %>% 
+    summarise(count=n())
+x_labels <- count_values %>% 
+    mutate(
+      clean_GOterms = gsub("_[HL]", "", GOterms),
+      label = paste(clean_GOterms, "\nn=", count)) %>% 
+    pull(label)
+
+total_counts <- nrow(hilo_LCR_count)
+#```
+
+
+#```{r LCR number plots}
+#Create scatter and table with proteins with GOterms. That plot contain only proteins with the highest and the lowest tAI values to identify what proteins are in tails.
+#Table to indicate what GOterms are the most frequent in top and bottom 10% of tAI values GENERALLY
+
+
+#buble interactice plot
+colors = c('#121212', '#696969')
+
+
+
+#################
+#There will be scatter plot with number of LCR regions in protein vs tAI
+
+colors <- colorRampPalette(brewer.pal((length(unique(hilo_LCR_count$GOterms))),"Paired"))(length(unique(hilo_LCR_count$GOterms)))
+lowest_highest_scatter <- ggplot(hilo_LCR_count, aes(x = LCR_count, y = tAI, fill = GOterms,  shape=tAI_group, text = paste('Protein ID: ', prot_id))) +
+  geom_point(alpha = 0.6) +
+  labs(title = equation_label)+
+  theme_stata()+
+  theme(plot.title = element_text(hjust=0, size = 14),
+        axis.text.y=element_text(face='bold'),
+        panel.grid.major.y = element_line(color='gray', size=0.5),
+        panel.grid.minor.y = element_line(color='lightgray', size=0.3))+
+  annotate('text', x = max(hilo_LCR_count$LCR_count), y = max(hilo_LCR_count$tAI) * 1.1, label = paste('Total n =', total_counts),
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')+
+  scale_fill_manual(values = colors)+
+  scale_y_continuous(breaks=seq(0,1, by=0.1),
+                     minor_breaks=seq(0,1, by=0.05))
+
+# Konwersja na interaktywny wykres
+ggplotly(lowest_highest_scatter)
+lowest_highest_scatter_interactive <- ggplotly(lowest_highest_scatter)
+ggsave(paste0(output_path, 'lohi_tAI_goterms_scatterplot.png'), plot=lowest_highest_scatter, width = 8, height = 6, dpi=300)
+
+
+saveWidget(lowest_highest_scatter_interactive, paste0(output_path, 'lowest_highest_tAI_goterms_scatterplot_numerical.html'))
+
+#```
+
+
+#```{r PFAM with LCR data preparation}
+hilo_PFAM_LCR <- hilo_PFAM_LCR %>% 
+  mutate(
+    GOterms = paste0(GOterms, "_",
+                     ifelse(presence == "PFAM LCR presence", "P",
+                            ifelse(presence == "PFAM LCR absence", "A", NA_character_))))
+
+hilo_PFAM_LCR$GOterms <- factor(
+  hilo_PFAM_LCR$GOterms,
+  levels = sort(unique(hilo_PFAM_LCR$GOterms[grepl("_H_[PA]$", hilo_PFAM_LCR$GOterms)])) %>%
+           c(sort(unique(hilo_PFAM_LCR$GOterms[grepl("_L_[PA]$", hilo_PFAM_LCR$GOterms)]))))
+
+
+
+#statistics to chart
+equation_label <- create_statistical_label(hilo_PFAM_LCR, hilo_PFAM_LCR$tAI, hilo_PFAM_LCR$tAI_group, FALSE)
+# colors <- colorRampPalette(brewer.pal((length(unique(hilo_PFAM_LCR$tAI_group))),"Paired"))(length(unique(hilo_PFAM_LCR$GOterms)))
+colors = c('#696969', '#C0C0C0')
+
+count_values <- hilo_PFAM_LCR %>% 
+    group_by(GOterms) %>% 
+    summarise(count=n())
+x_labels <- count_values %>% 
+    mutate(
+      clean_GOterms = gsub("_[HL]", "", GOterms),
+      label = paste(clean_GOterms, "\nn=", count)) %>% 
+    pull(label)
+
+total_counts <- nrow(hilo_PFAM_LCR)
+#```
+
+
+#```{r PFAM with LCR presence plots}
+#Create scatter and table with proteins with GOterms. That plot contain only proteins with the highest and the lowest tAI values to identify what proteins are in tails.
+#Table to indicate what GOterms are the most frequent in top and bottom 10% of tAI values GENERALLY
+
+
+
+#here we can add boxplot
+lowest_highest_boxplot <- ggplot(hilo_PFAM_LCR, aes(x = GOterms, y = tAI, fill=tAI_group))+
+  geom_boxplot(width=0.2, alpha=0.8, notch=TRUE, color='black', size=0.5)+
+    labs(subtitle=equation_label, x='')+
+    theme_stata()+
+    theme(legend.position = 'none',
+          plot.subtitle = element_text(hjust=0),
+          axis.text.x = element_text(face='bold', hjust = 1, angle = 45),
+          axis.text.y=element_text(face='bold'),
+          panel.grid.major.y = element_line(color='gray', size=0.5),
+          panel.grid.minor.y = element_line(color='lightgray', size=0.3))+
+    annotate('text', x = Inf, y = Inf, label = paste('Total n =', total_counts), 
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')+
+    scale_fill_manual(values = colors)+
+    scale_x_discrete(labels=x_labels)+
+    scale_y_continuous(breaks=seq(0,1, by=0.1),
+                       minor_breaks=seq(0,1, by=0.05))
+
+lowest_highest_boxplot
+
+ggsave(paste0(output_path, 'lohi_PFAM_LCR_barplot.png'), plot=lowest_highest_boxplot, width = 8, height = 6, dpi=300)
+
+
+#buble interactice plot
+colors = c('#121212', '#696969')
+
+lowest_highest_scatter <- ggplot(hilo_PFAM_LCR, aes(x = GOterms, y = tAI, fill = tAI_group, shape = presence,  text = paste('Protein ID: ', prot_id))) +
+  geom_point(alpha = 0.6) +
+  labs(title = equation_label, x = NULL)+
+  theme_stata()+
+  theme(legend.position = 'none',
+        plot.title = element_text(hjust=0, size = 14),
+        axis.text.x = element_text(face='bold', hjust = 1, angle = 45),
+        axis.text.y=element_text(face='bold'),
+        panel.grid.major.y = element_line(color='gray', size=0.5),
+        panel.grid.minor.y = element_line(color='lightgray', size=0.3))+
+  annotate('text', x = 10, y = max(hilo_PFAM_LCR$tAI) * 1.1, label = paste('Total n =', total_counts),
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')+
+  scale_fill_manual(values = colors)+
+  scale_x_discrete(labels=x_labels)+
+  scale_y_continuous(breaks=seq(0,1, by=0.1),
+                     minor_breaks=seq(0,1, by=0.05))
+
+# Konwersja na interaktywny wykres
+ggplotly(lowest_highest_scatter)
+lowest_highest_scatter_interactive <- ggplotly(lowest_highest_scatter)
+ggsave(paste0(output_path, 'lohi_PFAM_LCR_scatterplot.png'), plot=lowest_highest_scatter, width = 8, height = 6, dpi=300)
+
+
+saveWidget(lowest_highest_scatter_interactive, paste0(output_path, 'lohi_PFAM_LCR_scatterplot.html'))
+
+
+#```
+
+#```{r proteins with PFAM domains}
+#there is no point in
+#```
+
+#```{r proteins with GOterms length data preparation}
+
+
+hilo_prot_len$GOterms <- factor(
+  hilo_prot_len$GOterms,
+  levels = sort(unique(hilo_prot_len$GOterms[grepl("_H$", hilo_prot_len$GOterms)])) %>%
+           c(sort(unique(hilo_prot_len$GOterms[grepl("_L$", hilo_prot_len$GOterms)]))))
+
+#statistics to chart
+equation_label <- create_statistical_label(hilo_prot_len, hilo_prot_len$tAI, hilo_prot_len$tAI_group, FALSE)
+colors = c('#696969', '#C0C0C0')
+
+
+count_values <- hilo_prot_len %>% 
+    group_by(GOterms) %>% 
+    summarise(count=n())
+x_labels <- count_values %>% 
+    mutate(
+      clean_GOterms = gsub("_[HL]", "", GOterms),
+      label = paste(clean_GOterms, "\nn=", count)) %>% 
+    pull(label)
+
+total_counts <- nrow(hilo_prot_len)
+
+
+
+
+#```
+
+
+#```{r proteins with GOterms length plots}
+#Create scatter and table with proteins with GOterms. That plot contain only proteins with the highest and the lowest tAI values to identify what proteins are in tails.
+#Table to indicate what GOterms are the most frequent in top and bottom 10% of tAI values GENERALLY
+#
+#tutaj pierdykniemy histogram przedstawiający na osi X biny a na osi y liczebność binów. Będą dwa histogramy
+#here we can add boxplot
+lowest_highest_hist <- ggplot(hilo_prot_len, aes(x = (bin), fill=tAI_group))+
+  geom_bar(alpha = 0.7, position = 'dodge', color = 'black')+
+  labs(subtitle=equation_label, x='bins', y = 'counts')+
+  theme_stata()+
+  theme(plot.subtitle = element_text(hjust=0),
+        axis.text.x = element_text(face='bold', hjust = 1),
+        axis.text.y=element_text(face='bold'),
+        panel.grid.major.y = element_line(color='gray', size=0.5),
+        panel.grid.minor.y = element_line(color='lightgray', size=0.3))+
+  annotate('text', x = max(as.numeric(hilo_prot_len$bin))*0.8, y = max(table(hilo_prot_len$bin))*0.8, label = paste('Total n =', total_counts),
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black') +
+    scale_fill_manual(values = colors)
+
+lowest_highest_hist
+
+
+#trzeba zrobic dwa osobne boxploty
+ggsave(paste0(output_path, 'lohi_proteins_length_histogram.png'), plot=lowest_highest_hist, width = 8, height = 6, dpi=300)
+
+
+#Scatter plot
+hilo_prot_len <- count_extreme_goterms(prot_len_extreme, 5, 'length')
+hilo_prot_len <- hilo_prot_len %>% 
+  group_by(tAI_group)
+
+hilo_prot_len$GOterms <- factor(
+  hilo_prot_len$GOterms,
+  levels = sort(unique(hilo_prot_len$GOterms[grepl("_H$", hilo_prot_len$GOterms)])) %>%
+           c(sort(unique(hilo_prot_len$GOterms[grepl("_L$", hilo_prot_len$GOterms)]))))
+
+#statistics to chart
+equation_label <- create_statistical_label(hilo_prot_len, hilo_prot_len$tAI, hilo_prot_len$tAI_group, FALSE)
+colors <- colorRampPalette(brewer.pal((length(unique(hilo_prot_len$GOterms))),"Paired"))(length(unique(hilo_prot_len$GOterms)))
+
+
+
+lowest_highest_scatter <- ggplot(hilo_prot_len, aes(x = length, y = tAI, fill = GOterms,  shape = tAI_group, text = paste('Protein ID: ', prot_id))) +
+  geom_point(alpha = 0.6) +
+  labs(title = equation_label, x = NULL)+
+  theme_stata()+
+  theme(plot.title = element_text(hjust=0, size = 14),
+        axis.text.x = element_text(face='bold', hjust = 1, angle = 45),
+        axis.text.y=element_text(face='bold'),
+        panel.grid.major.y = element_line(color='gray', size=0.5),
+        panel.grid.minor.y = element_line(color='lightgray', size=0.3))+
+  annotate('text', x = max(hilo_prot_len$length), y = max(hilo_prot_len$tAI) * 1.1, label = paste('Total n =', total_counts),
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')+
+  scale_fill_manual(values = colors)+
+  scale_y_continuous(breaks=seq(0,1, by=0.1),
+                     minor_breaks=seq(0,1, by=0.05))
+
+# Konwersja na interaktywny wykres
+ggplotly(lowest_highest_scatter)
+lowest_highest_scatter_interactive <- ggplotly(lowest_highest_scatter)
+ggsave(paste0(output_path, 'lohi_proteins_length_scatterplot.png'), plot=lowest_highest_scatter, width = 8, height = 6, dpi=300)
+
+
+saveWidget(lowest_highest_scatter_interactive, paste0(output_path, 'lohi_proteins_length_scatterplot.html'))
+
+
+
+
+
+#```
+
+#```{r signal peptides presence data preparation}
+#Create scatter and table with proteins with GOterms. That plot contain only proteins with the highest and the lowest tAI values to identify what proteins are in tails.
+#Table to indicate what GOterms are the most frequent in top and bottom 10% of tAI values GENERALLY
+
+
+hilo_signal <- hilo_signal %>% 
+  mutate(
+    GOterms = paste0(GOterms, "_",
+                     ifelse(presence == "Signal presence", "P",
+                            ifelse(presence == "Signal absence", "A", NA_character_))))
+
+hilo_signal$GOterms <- factor(
+  hilo_signal$GOterms,
+  levels = sort(unique(hilo_signal$GOterms[grepl("_H_[PA]$", hilo_signal$GOterms)])) %>%
+           c(sort(unique(hilo_signal$GOterms[grepl("_L_[PA]$", hilo_signal$GOterms)]))))
+
+
+#statistics to chart
+equation_label <- create_statistical_label(hilo_signal, hilo_signal$tAI, hilo_signal$tAI_group, FALSE)
+# colors <- colorRampPalette(brewer.pal((length(unique(hilo_signal$tAI_group))),"Paired"))(length(unique(hilo_signal$GOterms)))
+colors = c('#696969', '#C0C0C0')
+
+count_values <- hilo_signal %>% 
+    group_by(GOterms) %>% 
+    summarise(count=n())
+x_labels <- count_values %>% 
+    mutate(
+      clean_GOterms = gsub("_[HL]", "", GOterms),
+      label = paste(clean_GOterms, "\nn=", count)) %>% 
+    pull(label)
+total_counts <- nrow(hilo_signal)
+
+
+#```
+
+
+#```{r signal peptides presence plots }
+#Create scatter and table with proteins with GOterms. That plot contain only proteins with the highest and the lowest tAI values to identify what proteins are in tails.
+#Table to indicate what GOterms are the most frequent in top and bottom 10% of tAI values GENERALLY
+#
+
+#here we can add boxplot
+lowest_highest_boxplot <- ggplot(hilo_signal, aes(x = GOterms, y = tAI, fill=tAI_group))+
+  geom_boxplot(width=0.2, alpha=0.8, notch=TRUE, color='black', size=0.5)+
+    labs(subtitle=equation_label, x='')+
+    theme_stata()+
+    theme(legend.position = 'none',
+          plot.subtitle = element_text(hjust=0),
+          axis.text.x = element_text(face='bold', hjust = 1, angle = 45),
+          axis.text.y=element_text(face='bold'),
+          panel.grid.major.y = element_line(color='gray', size=0.5),
+          panel.grid.minor.y = element_line(color='lightgray', size=0.3))+
+    annotate('text', x = Inf, y = Inf, label = paste('Total n =', total_counts), 
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')+
+    scale_fill_manual(values = colors)+
+    scale_x_discrete(labels=x_labels)+
+    scale_y_continuous(breaks=seq(0,1, by=0.1),
+                       minor_breaks=seq(0,1, by=0.05))
+
+lowest_highest_boxplot
+
+#trzeba zrobic dwa osobne boxploty
+ggsave(paste0(output_path, 'lohi_signal_barplot.png'), plot=lowest_highest_boxplot, width = 8, height = 6, dpi=300)
+
+
+
+#buble interactice plot
+colors = c('#121212', '#696969')
+
+lowest_highest_scatter <- ggplot(hilo_signal, aes(x = GOterms, y = tAI, fill = tAI_group, shape=presence,  text = paste('Protein ID: ', prot_id))) +
+  geom_point(alpha = 0.6) +
+  labs(title = equation_label, x = NULL)+
+  theme_stata()+
+  theme(legend.position = 'none',
+        plot.title = element_text(hjust=0, size = 14),
+        axis.text.x = element_text(face='bold', hjust = 1, angle = 45),
+        axis.text.y=element_text(face='bold'),
+        panel.grid.major.y = element_line(color='gray', size=0.5),
+        panel.grid.minor.y = element_line(color='lightgray', size=0.3))+
+  annotate('text', x = 10, y = max(hilo_signal$tAI) * 1.1, label = paste('Total n =', total_counts),
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')+
+  scale_fill_manual(values = colors)+
+  scale_x_discrete(labels=x_labels)+
+  scale_y_continuous(breaks=seq(0,1, by=0.1),
+                     minor_breaks=seq(0,1, by=0.05))
+
+# Konwersja na interaktywny wykres
+ggplotly(lowest_highest_scatter)
+lowest_highest_scatter_interactive <- ggplotly(lowest_highest_scatter)
+ggsave(paste0(output_path, 'lohi_signal_scatterplot.png'), plot=lowest_highest_scatter, width = 8, height = 6, dpi=300)
+
+
+saveWidget(lowest_highest_scatter_interactive, paste0(output_path, 'lohi_signal_scatterplot.html'))
+
+
+#```
+
+
+#```{r TM elements presence data preparation}
+#Create scatter and table with proteins with GOterms. That plot contain only proteins with the highest and the lowest tAI values to identify what proteins are in tails.
+#Table to indicate what GOterms are the most frequent in top and bottom 10% of tAI values GENERALLY
+#
+
+
+
+hilo_TM_presence <- hilo_TM_presence %>% 
+  mutate(
+    GOterms = paste0(GOterms, "_",
+                     ifelse(presence == "Transmembrane elements presence", "P",
+                            ifelse(presence == "Transmembrane elements absence", "A", NA_character_))))
+
+hilo_TM_presence$GOterms <- factor(
+  hilo_TM_presence$GOterms,
+  levels = sort(unique(hilo_TM_presence$GOterms[grepl("_H_[PA]$", hilo_TM_presence$GOterms)])) %>%
+           c(sort(unique(hilo_TM_presence$GOterms[grepl("_L_[PA]$", hilo_TM_presence$GOterms)]))))
+
+
+
+
+#statistics to chart
+equation_label <- create_statistical_label(hilo_TM_presence, hilo_TM_presence$tAI, hilo_TM_presence$tAI_group, FALSE)
+# colors <- colorRampPalette(brewer.pal((length(unique(hilo_TM_presence$tAI_group))),"Paired"))(length(unique(hilo_signal$GOterms)))
+colors = c('#696969', '#C0C0C0')
+
+count_values <- hilo_TM_presence %>% 
+    group_by(GOterms) %>% 
+    summarise(count=n())
+x_labels <- count_values %>% 
+    mutate(
+      clean_GOterms = gsub("_[HL]", "", GOterms),
+      label = paste(clean_GOterms, "\nn=", count)) %>% 
+    pull(label)
+
+total_counts <- nrow(hilo_TM_presence)
+
+#```
+
+
+#```{r TM elements presence data preparation plots}
+#Create scatter and table with proteins with GOterms. That plot contain only proteins with the highest and the lowest tAI values to identify what proteins are in tails.
+#Table to indicate what GOterms are the most frequent in top and bottom 10% of tAI values GENERALLY
+
+#here we can add boxplot
+lowest_highest_boxplot <- ggplot(hilo_TM_presence, aes(x = GOterms, y = tAI, fill=tAI_group))+
+  geom_boxplot(width=0.2, alpha=0.8, notch=TRUE, color='black', size=0.5)+
+    labs(subtitle=equation_label, x='')+
+    theme_stata()+
+    theme(legend.position = 'none',
+          plot.subtitle = element_text(hjust=0),
+          axis.text.x = element_text(face='bold', hjust = 1, angle = 45),
+          axis.text.y=element_text(face='bold'),
+          panel.grid.major.y = element_line(color='gray', size=0.5),
+          panel.grid.minor.y = element_line(color='lightgray', size=0.3))+
+    annotate('text', x = Inf, y = Inf, label = paste('Total n =', total_counts), 
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')+
+    scale_fill_manual(values = colors)+
+    scale_x_discrete(labels=x_labels)+
+    scale_y_continuous(breaks=seq(0,1, by=0.1),
+                       minor_breaks=seq(0,1, by=0.05))
+
+lowest_highest_boxplot
+
+#trzeba zrobic dwa osobne boxploty
+ggsave(paste0(output_path, 'lohi_TM_presence_barplot.png'), plot=lowest_highest_boxplot, width = 8, height = 6, dpi=300)
+
+
+#buble interactice plot
+colors = c('#121212', '#696969')
+
+lowest_highest_scatter <- ggplot(hilo_TM_presence, aes(x = GOterms, y = tAI, fill = tAI_group,  shape=presence, text = paste('Protein ID: ', prot_id))) +
+  geom_point(alpha = 0.6) +
+  labs(title = equation_label, x = NULL)+
+  theme_stata()+
+  theme(legend.position = 'none',
+        plot.title = element_text(hjust=0, size = 14),
+        axis.text.x = element_text(face='bold', hjust = 1, angle = 45),
+        axis.text.y=element_text(face='bold'),
+        panel.grid.major.y = element_line(color='gray', size=0.5),
+        panel.grid.minor.y = element_line(color='lightgray', size=0.3))+
+  annotate('text', x = 10, y = max(hilo_signal$tAI) * 1.1, label = paste('Total n =', total_counts),
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')+
+  scale_fill_manual(values = colors)+
+  scale_x_discrete(labels=x_labels)+
+  scale_y_continuous(breaks=seq(0,1, by=0.1),
+                     minor_breaks=seq(0,1, by=0.05))
+
+# Konwersja na interaktywny wykres
+ggplotly(lowest_highest_scatter)
+lowest_highest_scatter_interactive <- ggplotly(lowest_highest_scatter)
+ggsave(paste0(output_path, 'lohi_TM_presence_scatterplot.png'), plot=lowest_highest_scatter, width = 8, height = 6, dpi=300)
+
+
+saveWidget(lowest_highest_scatter_interactive, paste0(output_path, 'lohi_TM_presence_scatterplot.html'))
+
+
+#```
+
+#```{r TM elements count data preparation}
+#Create scatter and table with proteins with GOterms. That plot contain only proteins with the highest and the lowest tAI values to identify what proteins are in tails.
+#Table to indicate what GOterms are the most frequent in top and bottom 10% of tAI values GENERALLY
+#
+
+hilo_TM_count$GOterms <- factor(
+  hilo_TM_count$GOterms,
+  levels = sort(unique(hilo_TM_count$GOterms[grepl("_H$", hilo_TM_count$GOterms)])) %>%
+           c(sort(unique(hilo_TM_count$GOterms[grepl("_L$", hilo_TM_count$GOterms)]))))
+
+
+#statistics to chart
+equation_label <- create_statistical_label(hilo_TM_count, hilo_TM_count$tAI, hilo_TM_count$tAI_group, FALSE)
+colors <- colorRampPalette(brewer.pal((length(unique(hilo_TM_count$GOterms))),"Paired"))(length(unique(hilo_TM_count$GOterms)))
+
+count_values <- hilo_TM_count %>% 
+    group_by(GOterms) %>% 
+    summarise(count=n())
+x_labels <- count_values %>% 
+    mutate(
+      clean_GOterms = gsub("_[HL]", "", GOterms),
+      label = paste(clean_GOterms, "\nn=", count)) %>% 
+    pull(label)
+
+total_counts <- nrow(hilo_TM_count)
+
+#```
+
+
+
+#```{r TM elements count plots}
+#Create scatter and table with proteins with GOterms. That plot contain only proteins with the highest and the lowest tAI values to identify what proteins are in tails.
+#Table to indicate what GOterms are the most frequent in top and bottom 10% of tAI values GENERALLY
+
+
+#buble interactice plot
+lowest_highest_scatter <- ggplot(hilo_TM_count, aes(x = TM_count_col, y = tAI, fill = GOterms,  shape = tAI_group, text = paste('Protein ID: ', prot_id))) +
+  geom_point(alpha = 0.6) +
+  labs(title = equation_label, x = 'Transmembrane elements counts')+
+  theme_stata()+
+  theme(plot.title = element_text(hjust=0, size = 14),
+        axis.text.x = element_text(face='bold', hjust = 1, angle = 45),
+        axis.text.y=element_text(face='bold'),
+        panel.grid.major.y = element_line(color='gray', size=0.5),
+        panel.grid.minor.y = element_line(color='lightgray', size=0.3))+
+  annotate('text', x = 10, y = max(hilo_TM_count$tAI) * 1.1, label = paste('Total n =', total_counts),
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')+
+  scale_fill_manual(values = colors)+
+  scale_y_continuous(breaks=seq(0,1, by=0.1),
+                     minor_breaks=seq(0,1, by=0.05))
+
+# Konwersja na interaktywny wykres
+ggplotly(lowest_highest_scatter)
+lowest_highest_scatter_interactive <- ggplotly(lowest_highest_scatter)
+ggsave(paste0(output_path, 'lohi_TM_count_scatterplot.png'), plot=lowest_highest_scatter, width = 8, height = 6, dpi=300)
+
+
+saveWidget(lowest_highest_scatter_interactive, paste0(output_path, 'lohi_TM_count_scatterplot.html'))
+
+
+#```
+
+
+
+#```{r TM elements length data preparation}
+#Create scatter and table with proteins with GOterms. That plot contain only proteins with the highest and the lowest tAI values to identify what proteins are in tails.
+#Table to indicate what GOterms are the most frequent in top and bottom 10% of tAI values GENERALLY
+
+TM_length <- TM_length %>% 
+  filter(TM_length_col != 0)
+
+TM_length_extreme <- get_extreme_tAI_values(TM_length, 'tAI', 10, 'percent')
+
+TM_length_goterms <- count_extreme_goterms(TM_length_extreme, 5, 'TM_length_col')
+TM_length_goterms <- TM_length_goterms %>% 
+  group_by(tAI_group)
+
+TM_length_goterms$GOterms <- factor(
+  TM_length_goterms$GOterms,
+  levels = sort(unique(TM_length_goterms$GOterms[grepl("_H$", TM_length_goterms$GOterms)])) %>%
+           c(sort(unique(TM_length_goterms$GOterms[grepl("_L$", TM_length_goterms$GOterms)]))))
+
+
+#statistics to chart
+equation_label <- create_statistical_label(TM_length_goterms, TM_length_goterms$tAI, TM_length_goterms$tAI_group, FALSE)
+# colors <- colorRampPalette(brewer.pal((length(unique(TM_length_goterms$tAI_group))),"Paired"))(length(unique(TM_length_goterms$GOterms)))
+colors = c('#696969', '#C0C0C0')
+
+count_values <- TM_length_goterms %>% 
+    group_by(GOterms) %>% 
+    summarise(count=n())
+x_labels <- count_values %>% 
+    mutate(
+      clean_GOterms = gsub("_[HL]", "", GOterms),
+      label = paste(clean_GOterms, "\nn=", count)) %>% 
+    pull(label)
+
+total_counts <- nrow(TM_length_goterms)
+
+
+#buble interactice plot
+colors <- colorRampPalette(brewer.pal((length(unique(TM_length_goterms$GOterms))),"Paired"))(length(unique(TM_length_goterms$GOterms)))
+
+
+
+
+
+######### histogram
+
+TM_length_bins_extreme <- get_extreme_tAI_values(TM_length, 'tAI', 10, 'percent')
+
+hilo_TM_length_bins <- count_extreme_goterms(TM_length_bins_extreme, 5, 'bin')
+hilo_TM_length_bins <- hilo_TM_length_bins %>% 
+  group_by(tAI_group)
+
+hilo_TM_length_bins$GOterms <- factor(
+  hilo_TM_length_bins$GOterms,
+  levels = sort(unique(hilo_TM_length_bins$GOterms[grepl("_H$", hilo_TM_length_bins$GOterms)])) %>%
+           c(sort(unique(hilo_TM_length_bins$GOterms[grepl("_L$", hilo_TM_length_bins$GOterms)]))))
+
+#statistics to chart
+equation_label <- create_statistical_label(hilo_TM_length_bins, hilo_TM_length_bins$tAI, hilo_TM_length_bins$tAI_group, FALSE)
+colors = c('#696969', '#C0C0C0')
+
+
+count_values <- hilo_TM_length_bins %>% 
+    group_by(GOterms) %>% 
+    summarise(count=n())
+x_labels <- count_values %>% 
+    mutate(
+      clean_GOterms = gsub("_[HL]", "", GOterms),
+      label = paste(clean_GOterms, "\nn=", count)) %>% 
+    pull(label)
+
+total_counts <- nrow(hilo_TM_length_bins)
+
+
+#```
+
+
+
+#```{r TM elements length plots}
+#Create scatter and table with proteins with GOterms. That plot contain only proteins with the highest and the lowest tAI values to identify what proteins are in tails.
+#Table to indicate what GOterms are the most frequent in top and bottom 10% of tAI values GENERALLY
+
+
+
+#buble interactice plot
+colors <- colorRampPalette(brewer.pal((length(unique(TM_length_goterms$GOterms))),"Paired"))(length(unique(TM_length_goterms$GOterms)))
+
+lowest_highest_scatter <- ggplot(TM_length_goterms, aes(x = TM_length_col, y = tAI, fill = GOterms, shape=tAI_group, text = paste('Protein ID: ', prot_id))) +
+  geom_point(alpha = 0.6) +
+  labs(title = equation_label, x = 'Transmembrane element length')+
+  theme_stata()+
+  theme(plot.title = element_text(hjust=0, size = 14),
+        axis.text.x = element_text(face='bold', hjust = 1, angle = 45),
+        axis.text.y=element_text(face='bold'),
+        panel.grid.major.y = element_line(color='gray', size=0.5),
+        panel.grid.minor.y = element_line(color='lightgray', size=0.3))+
+  annotate('text', x = max(TM_length$TM_length_col)*0.8, y = max(TM_length_goterms$tAI) * 1.1, label = paste('Total n =', total_counts),
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black')+
+  scale_fill_manual(values = colors)+
+  scale_y_continuous(breaks=seq(0,1, by=0.1),
+                     minor_breaks=seq(0,1, by=0.05))
+
+# Konwersja na interaktywny wykres
+ggplotly(lowest_highest_scatter)
+lowest_highest_scatter_interactive <- ggplotly(lowest_highest_scatter)
+ggsave(paste0(output_path, 'lohi_TM_length_scatterplot.png'), plot=lowest_highest_scatter, width = 8, height = 6, dpi=300)
+
+
+saveWidget(lowest_highest_scatter_interactive, paste0(output_path, 'lohi_TM_length_scatterplot.html'))
+
+
+
+
+
+
+
+######### histogram
+
+#tutaj pierdykniemy histogram przedstawiający na osi X biny a na osi y liczebność binów. Będą dwa histogramy
+#here we can add boxplot
+lowest_highest_hist <- ggplot(hilo_TM_length_bins, aes(x = (bin), fill=tAI_group))+
+  geom_bar(alpha = 0.7, position = 'dodge', color = 'black')+
+  labs(subtitle=equation_label, x='bins', y = 'counts')+
+  theme_stata()+
+  theme(plot.subtitle = element_text(hjust=0),
+        axis.text.x = element_text(face='bold', hjust = 1),
+        axis.text.y=element_text(face='bold'),
+        panel.grid.major.y = element_line(color='gray', size=0.5),
+        panel.grid.minor.y = element_line(color='lightgray', size=0.3))+
+  annotate('text', x = max(as.numeric(hilo_TM_length_bins$bin))*0.8, y = max(table(hilo_TM_length_bins$bin))*0.8, label = paste('Total n =', total_counts),
+           hjust = 1, vjust = 1, size = 3.5, fontface = 'bold', color = 'black') +
+    scale_fill_manual(values = colors)
+
+lowest_highest_hist
+
+#trzeba zrobic dwa osobne boxploty
+ggsave(paste0(output_path, 'lohi_proteins_length_histogram.png'), plot=lowest_highest_hist, width = 8, height = 6, dpi=300)
+
+
+
+#```
+
