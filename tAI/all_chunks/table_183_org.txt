@@ -1,4 +1,4 @@
-assemblyid	Phylum	primary_lifestyle	organism	Class	Order	taxid	species_taxid	name	strain	BUSCO score	Scaffold N50 (Mb)	scaffoldL50	Genome size (Mb)													
+assembly_ID	Phylum	primary_lifestyle	organism	Class	Order	taxid	species_taxid	name	strain	BUSCO score	Scaffold N50 (Mb)	scaffoldL50	Genome size (Mb)	tAI													
 GCA_000002525.1	Ascomycota	unspecified_saprotroph	Yarrowia lipolytica CLIB122	Saccharomycetes	Saccharomycetales	284591	4952	Yarrowia lipolytica CLIB122	CLIB122	97.9	3.633	3	20.6	0.3816261811												
 GCA_000146045.2	Ascomycota	nectar/tap_saprotroph	Saccharomyces cerevisiae S288C	Saccharomycetes	Saccharomycetales	559292	4932	Saccharomyces cerevisiae S288C	strain=S288C	96.7	0.924	6	12.2	0.3915758701												
 GCA_000146945.2	Ascomycota	plant_pathogen	Sclerotinia sclerotiorum 1980 UF-70	Leotiomycetes	Helotiales	665079	5180	Sclerotinia sclerotiorum 1980 UF-70	strain=1980	96.9	1.626	9	38.5	0.3985344464												
